@@ -7,23 +7,31 @@ let parsedData = []; // 전역 변수로 데이터 저장
 let currentModel; // 현재 모델 저장
 
 // CSV 파일 로드 및 파싱 함수
-function loadCSVFile(event) {
-    const file = event.target.files[0];
-    const reader = new FileReader();
+// function loadCSVFile(event) {
+//     const file = event.target.files[0];
+//     const reader = new FileReader();
+//
+//     reader.onload = function(event) {
+//         const data = event.target.result;
+//         // console.log("파일 데이터:", data); // 파일 데이터를 콘솔에 출력
+//
+//         parsedData = parseCSV(data);
+//         // console.log("파싱된 데이터:", parsedData); // 파싱된 데이터를 콘솔에 출력
+//
+//         setupCharts();  // 차트 초기화
+//         alert('CSV 파일이 로드되었습니다. "분석" 버튼을 눌러주세요.');
+//     };
+//     reader.readAsText(file);
+// }
+// 서버에서 파일 로드 하는 함수
+async function loadCSVFromServer() {
+    const response = await fetch('/data/lotto_data.csv');  // CSV 파일 로드
+    const data = await response.text();
 
-    reader.onload = function(event) {
-        const data = event.target.result;
-        // console.log("파일 데이터:", data); // 파일 데이터를 콘솔에 출력
-
-        parsedData = parseCSV(data);
-        // console.log("파싱된 데이터:", parsedData); // 파싱된 데이터를 콘솔에 출력
-
-        setupCharts();  // 차트 초기화
-        alert('CSV 파일이 로드되었습니다. "분석" 버튼을 눌러주세요.');
-    };
-    reader.readAsText(file);
+    parsedData = parseCSV(data);  // 파싱된 데이터를 전역 변수에 저장
+    setupCharts();  // 차트 초기화
+    alert('CSV 파일이 로드되었습니다. "분석" 버튼을 눌러주세요.');
 }
-
 
 // CSV 데이터를 배열로 변환
 function parseCSV(data) {
@@ -424,25 +432,43 @@ function getColorClass(number) {
     return '';
 }
 
-// '분석' 버튼 클릭 시 이벤트 핸들러
+// // '분석' 버튼 클릭 시 이벤트 핸들러
+// function onAnalyzeClick() {
+//     if (parsedData.length > 0) {
+//         const filteredData = applyPeriodFilter();
+//         // 모델 재훈련 및 예측
+//         trainAndPredict(filteredData).then(() => {
+//             // 빈도 차트 업데이트
+//             const frequency = calculateFrequency(filteredData);
+//             updateFrequencyChart(frequency);
+//
+//             // 추가된 시각화 업데이트
+//             updateHotColdChart(frequency);
+//             const gaps = calculateNumberGaps(filteredData);
+//             updateNumberGapChart(gaps);
+//             updateSumHistogram(filteredData); // 번호 합계 히스토그램 업데이트
+//             updateConsecutiveNumbersChart(filteredData);
+//         });
+//     } else {
+//         alert('먼저 CSV 파일을 로드해주세요.');
+//     }
+// }
 function onAnalyzeClick() {
     if (parsedData.length > 0) {
         const filteredData = applyPeriodFilter();
-        // 모델 재훈련 및 예측
         trainAndPredict(filteredData).then(() => {
-            // 빈도 차트 업데이트
             const frequency = calculateFrequency(filteredData);
             updateFrequencyChart(frequency);
 
-            // 추가된 시각화 업데이트
             updateHotColdChart(frequency);
             const gaps = calculateNumberGaps(filteredData);
             updateNumberGapChart(gaps);
-            updateSumHistogram(filteredData); // 번호 합계 히스토그램 업데이트
+            updateSumHistogram(filteredData);
             updateConsecutiveNumbersChart(filteredData);
         });
     } else {
-        alert('먼저 CSV 파일을 로드해주세요.');
+        alert('CSV 파일을 서버에서 불러오는 중입니다...');
+        loadCSVFromServer();  // 서버에서 파일 자동 로드
     }
 }
 

@@ -62,6 +62,9 @@ public class HomeController {
         return "page/lotto";
     }
 
+    @GetMapping("/lotto_result")
+    public String lotto_result() { return "page/lotto_result"; }
+
     @GetMapping("/member")
     public String member() {
         return "member";
