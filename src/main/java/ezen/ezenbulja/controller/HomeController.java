@@ -42,4 +42,28 @@ public class HomeController {
         model.addAttribute("loginMember", loginMember);
         return "loginIndex";
     }
+    @GetMapping("/bitcoin")
+    public String bitcoin() {
+        return "page/coin_data";
+    }
+
+    @GetMapping("/estate")
+    public String estate() {
+        return "page/esti2";
+    }
+
+    @GetMapping("/news")
+    public String news() {
+        return "page/news";
+    }
+
+    @GetMapping("/lotto")
+    public String lotto() {
+        return "page/lotto";
+    }
+
+    @GetMapping("/member")
+    public String member() {
+        return "member";
+    }
 }
