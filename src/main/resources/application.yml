@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: ezenBulja
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+    datasource:
+      url: jdbc:h2:tcp://localhost/~/dontdb
+      driver-class-name: org.h2.Driver
+      username: sa
+      password:
+  jpa:
+    hibernate:
+      ddl-auto: create  # update? ?????? ?
+    properties:
+
+      hibernate:
+        format_sql: true # ??? sql system out? ??? ???.
+  thymeleaf:
+    prefix: classpath:/templates/  # ???
+    suffix: .html # ???
+
+logging:
+  level:
+    org.hibernate.SQL: debug # ??? sql? ??? ??? ????.
+    org.hibernate.orm.jdbc.bind: trace # ??? ?? 3.x, hibernate6

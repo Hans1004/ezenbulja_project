@@ -1,0 +1,137 @@
+<html lang="ko" layout:decorate="~{layout/layout}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<!-- 헤더영역 시작 -->
+<section layout:fragment="content">
+
+
+    <!-- 네비게이션바 끝 -->
+
+    <!-- 헤더영역 시작 -->
+    <header class="container-fluid py-5" id="header">
+        <div class="row">
+            <div id="headerCarousel" class="carousel slide carousel-fade " data-bs-ride="carousel">
+                <div class="carousel-inner ">
+                    <div class="carousel-item active h-50" data-bs-interval="5000">  <!-- 시간설정은 5초-->
+                        <img src="/images/banner1.png" class="d-block w-100 " id="header_img" alt="배너">
+                    </div>
+                    <div class="carousel-item h-50" data-bs-interval="3000">
+                        <img src="/images/bitcoin1.png" class="d-block w-100" id="header_img" alt="배너2">
+                    </div>
+                    <div class="carousel-item h-50" data-bs-interval="3000">
+                        <img src="/images/city.png" class="d-block w-100" id="header_img" alt="배너3">
+                    </div>
+                    <div class="carousel-item h-50" data-bs-interval="3000">
+                        <img src="/images/lott2.png" class="d-block w-100" id="header_img" alt="배너4">
+                    </div>
+                    <div class="carousel-item h-50" data-bs-interval="3000">
+                        <img src="/images/strok.png" class="d-block w-100" id="header_img" alt="배너5">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#headerCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#headerCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- 헤더영역 끝 -->
+
+    <!-- 메인섹션 시작 -->
+    <div class="container my-4 text-center">
+        <div class="row">
+            <section class="col-lg-4 col-md-12 my-3" id="card-2">
+                <div class="card">
+                    <div class="card-body ">
+                        <!-- <a href="#" class="text-decoration-none fs-5"><img src="/images/비트코인.png" alt="비트코인" class="my-3"></a> -->
+                        <a href="#" class="text-decoration-none fs-5"><img src="/images/메인비트코인아이콘.png" alt="비트코인" class="my-3 "></a>
+                        <p class="card-text fw-bold">Ai 딥러닝을 통하여<br>
+                            익일 비트코인 가격을<br>
+                            예측해 드립니다.</p>
+                    </div>
+                    <img src="/images/메인1비트코인.png" class="card-img-top img-fluid " alt="비트코인메인">
+                </div>
+            </section>
+            <section class="col-lg-4 col-md-12 my-3" id="card-2">
+                <div class="card">
+                    <div class="card-body ">
+                        <!-- <a href="#" class="text-decoration-none fs-5"><img src="/images/Lotto (2).png" alt="로또" class="my-3"></a> -->
+                        <a href="#" class="text-decoration-none fs-5"><img src="/images/로또이미지.png" alt="로또" class="my-3 "></a>
+                        <p class="card-text fw-bold ">Ai 딥러닝을 통하여<br>
+                            익일 비트코인 가격을<br>
+                            예측해 드립니다.</p>
+                    </div>
+                    <img src="/images/메인2로또.png" class="card-img-top img-fluid" alt="로또메인3">
+                </div>
+            </section>
+            <section class="col-lg-4 col-md-12 my-3" id="card-2">
+                <div class="card">
+                    <div class="card-body ">
+                        <a href="#" class="text-decoration-none fs-5"><img src="/images/야구이미지.png" alt="야구" class="my-3 "></a>
+                        <p class="card-text fw-bold ">Ai 딥러닝을 통하여<br>
+                            익일 비트코인 가격을<br>
+                            예측해 드립니다.</p>
+                    </div>
+                    <img src="/images/메인3야구.png" class="card-img-top img-fluid" alt="야구메인1">
+                </div>
+            </section>
+        </div>
+    </div>
+    <!-- 메인섹션 끝 -->
+
+    <!-- 중간배너 시작 -->
+    <div class="container ">
+        <div class="col-12 py-3 ">
+            <div class="card banner text-center p-3 px-4 midbanner">
+                <div class="card-body">
+                    <!-- 카드 내용 -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 중간배너 끝 -->
+    <!-- 하단 비전 시작 -->
+
+    <div class="container ">
+        <div class="row">
+            <!-- 이미지 그리드 영역 -->
+            <div class="col-md-4">
+                <div class="row text-center">
+                    <div class="col-md-6 col-6 mb-4 align-items-stretch">
+                        <img src="/images/하단 HTML.png" class="img-fluid " alt="HTML">
+                    </div>
+                    <div class="col-md-6 col-6 mb-4 align-items-stretch">
+                        <img src="/images/하단 피그마.png" class="img-fluid " alt="Figma">
+                    </div>
+                    <div class="col-md-6 col-6 mb-4  align-items-stretch">
+                        <img src="/images/하단 텐서플로우.png" class="img-fluid " alt="TensorFlow">
+                    </div>
+                    <div class="col-md-6 col-6 mb-4 align-items-stretch">
+                        <img src="/images/하단 자바스크립트.png" class="img-fluid " alt="JavaScript">
+                    </div>
+                </div>
+            </div>
+            <!-- 텍스트 영역 -->
+            <div class="col-md-7 px-3 text-center">
+                <h2 class="lofo-font">이젠벌자</h2>
+                <p>투자의 길잡이, 현명한 선택을 위한 참고자료 제공
+                    코인 투자에서 어려움을 겪거나, 로또와 토토에서 기대했던 성과를 얻지 못하셨나요?
+                    저희는 이러한 상황에 대비해 여러분의 결정에 도움을 줄 수 있는 Ai분석툴을 활용하여 데이터를
+                    제공하고자 합니다.
+                    이 자료들은 어디까지나 참고용으로 제작 되었으며, 최종 선택은 여러분의 몫입니다.
+                    현명한 판단으로 성공적인 미래를 준비하세요.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- 하단 비전 끝 -->
+
+<!-- 푸터 시작 -->
+
+<!-- 푸터 끝 -->
+
+<script src="/images/js/bootstrap.bundle.js"></script>
+</html>

@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Brush+Script&family=Noto+Sans+KR:wght@100..900&display=swap');
+
+
+
+.card {
+  margin-bottom: 20px; /* 카드 아래쪽 간격 조정 */
+}
+
+.card-img-top {
+    max-height: 350px; /* 원하는 높이로 조정 */
+    object-fit: cover; /*이미지 비율 유지*/
+
+  }
+
+.banner {
+  background-image: url(../images/중간배너.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.navbar{
+  background-color: #28599D;
+  
+
+}
+
+#header_img {
+  height: 620px
+}
+
+
+
+.card-body img{
+  height: 70px;
+}
+
+
+.bg-custom {
+  background-color: #213180; /* 원하는 색상 코드 */
+}
+
+.lofo-font {
+  color: #0B0629;
+  font-family: "Do Hyeon", sans-serif;
+  font-size: 40px;
+  text-shadow: 
+  2px 2px 0 #FFAE00,   /* 오른쪽 아래 */
+  -2px -2px 0 #FFAE00, /* 왼쪽 위 */
+  2px -2px 0 #FFAE00,  /* 오른쪽 위 */
+  -2px 2px 0 #FFAE00;  /* 왼쪽 아래 */
+}  
+
+body {
+  font-family: "Noto Sans KR", sans-serif;
+}
+h1, h2, h3, h4, h5 {
+  font-family: "Do Hyeon", sans-serif;
+}   
+
+.midbanner{
+  height: 400px;
+}
+

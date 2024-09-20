@@ -1,0 +1,56 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 15px;
+  text-align: center;
+}
+.form-group {
+  margin-bottom: 15px;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+.status p {
+  font-size: 18px;
+  font-weight: bold;
+}
+.graphs-container > div {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 20px;
+  height: 400px;
+}
+.prediction-output {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #fff;
+}
+.image-container {
+  text-align: center;
+}
+.image-container img {
+  width: 50px;
+  height: 50px;
+}
+/* 기본 숨김 설정 */
+.hidden {
+  display: none;
+}
