@@ -185,7 +185,7 @@ async function train() {
         batchData = [];
 
         const history = await model.fit(X_train, y_train, {
-            epochs: 25,
+            epochs: 2,
             batchSize: 16,
             validationData: [X_test, y_test],
             callbacks: {
