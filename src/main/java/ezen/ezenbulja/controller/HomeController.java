@@ -1,14 +1,20 @@
 package ezen.ezenbulja.controller;
 
 
+import ezen.ezenbulja.domain.dao.Member;
+import ezen.ezenbulja.domain.dao.Question;
+import ezen.ezenbulja.domain.dto.QuestionForm;
 import ezen.ezenbulja.repository.MemberRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 @Slf4j
 @Controller
@@ -69,4 +75,6 @@ public class HomeController {
     public String member() {
         return "member";
     }
+
+
 }

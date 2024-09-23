@@ -26,5 +26,4 @@ public class Member {
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
     private List<Question> questionList;
 
-
 }
