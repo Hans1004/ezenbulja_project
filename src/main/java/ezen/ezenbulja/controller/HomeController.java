@@ -66,4 +66,8 @@ public class HomeController {
     public String member() {
         return "member";
     }
+    @GetMapping("/team")
+    public String team() {
+        return "team_dont";
+    }
 }
