@@ -2,82 +2,116 @@
 
 
     <div class="container mt-5" layout:fragment="content">
-        
-        <h1><img src="/images/bitcoin.png" style="width: 55px;"> 비트 코인 가격 예측</h1>
+
+        <h1><img src="./images/bitcoin.png" style="width: 55px;"> 비트 코인 가격 예측</h1>
         <div class="overflow-x-scroll scroll-hidden my-2 rounded border border-general bg-white dark:bg-gray-900">
             <div style="width: 1200px;"><div class="tradingview-widget-container" style="width: 100%; height: 72px;"><style>
-            .tradingview-widget-copyright {
-                font-size: 13px !important;
-                line-height: 32px !important;
-                text-align: center !important;
-                vertical-align: middle !important;
-                /* @mixin sf-pro-display-font; */
-                font-family: -apple-system, BlinkMacSystemFont, 'Trebuchet MS', Roboto, Ubuntu, sans-serif !important;
-                color: #B2B5BE !important;
-            }
-        
-            .tradingview-widget-copyright .blue-text {
-                color: #2962FF !important;
-            }
-        
-            .tradingview-widget-copyright a {
-                text-decoration: none !important;
-                color: #B2B5BE !important;
-            }
-        
-            .tradingview-widget-copyright a:visited {
-                color: #B2B5BE !important;
-            }
-        
-            .tradingview-widget-copyright a:hover .blue-text {
-                color: #1E53E5 !important;
-            }
-        
-            .tradingview-widget-copyright a:active .blue-text {
-                color: #1848CC !important;
-            }
-        
-            .tradingview-widget-copyright a:visited .blue-text {
-                color: #2962FF !important;
-            }
+                .tradingview-widget-copyright {
+                    font-size: 13px !important;
+                    line-height: 32px !important;
+                    text-align: center !important;
+                    vertical-align: middle !important;
+                    /* @mixin sf-pro-display-font; */
+                    font-family: -apple-system, BlinkMacSystemFont, 'Trebuchet MS', Roboto, Ubuntu, sans-serif !important;
+                    color: #B2B5BE !important;
+                }
+
+                .tradingview-widget-copyright .blue-text {
+                    color: #2962FF !important;
+                }
+
+                .tradingview-widget-copyright a {
+                    text-decoration: none !important;
+                    color: #B2B5BE !important;
+                }
+
+                .tradingview-widget-copyright a:visited {
+                    color: #B2B5BE !important;
+                }
+
+                .tradingview-widget-copyright a:hover .blue-text {
+                    color: #1E53E5 !important;
+                }
+
+                .tradingview-widget-copyright a:active .blue-text {
+                    color: #1848CC !important;
+                }
+
+                .tradingview-widget-copyright a:visited .blue-text {
+                    color: #2962FF !important;
+                }
             </style><iframe scrolling="no" allowtransparency="true" frameborder="0" src="https://www.tradingview-widget.com/embed-widget/tickers/?locale=kr#%7B%22symbols%22%3A%5B%7B%22title%22%3A%22S%26P%20500%22%2C%22proName%22%3A%22FOREXCOM%3ASPXUSD%22%7D%2C%7B%22title%22%3A%22NASDAQ%20100%22%2C%22proName%22%3A%22FOREXCOM%3ANSXUSD%22%7D%2C%7B%22title%22%3A%22BTC%20Dominance%22%2C%22proName%22%3A%22CRYPTOCAP%3ABTC.D%22%7D%2C%7B%22title%22%3A%22BTC%20Longs%22%2C%22proName%22%3A%22BITFINEX%3ABTCUSDLONGS%22%7D%2C%7B%22title%22%3A%22BTC%20Shorts%22%2C%22proName%22%3A%22BITFINEX%3ABTCUSDSHORTS%22%7D%2C%7B%22title%22%3A%22GOLD%22%2C%22proName%22%3A%22TVC%3AGOLD%22%7D%5D%2C%22colorTheme%22%3A%22dark%22%2C%22showSymbolLogo%22%3Atrue%2C%22isTransparent%22%3Atrue%2C%22largeChartUrl%22%3A%22https%3A%2F%2Fkimpga.com%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A72%2C%22utm_source%22%3A%22kimpga.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22tickers%22%2C%22page-uri%22%3A%22kimpga.com%2F%3Ftvwidgetsymbol%3DFOREXCOM%253ANSXUSD%22%7D" title="tickers TradingView widget" lang="en" style="user-select: none; box-sizing: border-box; display: block; height: 100%; width: 100%;"></iframe>
+            </div>
+            </div>
         </div>
-        </div>
-        </div>
+        <div><h2>비트코인 도미넌스</h2></div>
         <div class="h-72 lg:h-80 relative resize-y overflow-y-hidden pb-4 mb-0.5">
             <div id="trading-view-primary" class="h-full pb-2">
                 <div id="tradingview_82347-wrapper" style="position: relative; width: 100%; height: 100%;">
-                    <iframe 
-                        title="advanced chart TradingView widget" 
-                        id="tradingview_82347" 
-                        frameborder="0" 
-                        allowtransparency="true" 
-                        scrolling="no" 
-                        allowfullscreen="true" 
-                        src="https://s.tradingview.com/widgetembed/?hideideas=1&amp;overrides=%7B%7D&amp;enabled_features=%5B%5D&amp;disabled_features=%5B%5D&amp;locale=kr#%7B%22symbol%22%3A%22CRYPTOCAP%3ABTC.D%22%2C%22frameElementId%22%3A%22tradingview_82347%22%2C%22interval%22%3A%2215%22%2C%22allow_symbol_change%22%3A%221%22%2C%22save_image%22%3A%220%22%2C%22studies%22%3A%22%5B%5D%22%2C%22theme%22%3A%22Dark%22%2C%22style%22%3A%221%22%2C%22timezone%22%3A%22Asia%2FSeoul%22%2C%22studies_overrides%22%3A%22%7B%7D%22%2C%22utm_source%22%3A%22kimpga.com%22%2C%22utm_medium%22%3A%22widget_new%22%2C%22utm_campaign%22%3A%22chart%22%2C%22utm_term%22%3A%22CRYPTOCAP%3ABTC.D%22%2C%22page-uri%22%3A%22kimpga.com%2F%22%7D" 
-                        style="width: 100%; height: 100;">
+                    <iframe
+                            title="advanced chart TradingView widget"
+                            id="tradingview_82347"
+                            frameborder="0"
+                            allowtransparency="true"
+                            scrolling="no"
+                            allowfullscreen="true"
+                            src="https://s.tradingview.com/widgetembed/?hideideas=1&amp;overrides=%7B%7D&amp;enabled_features=%5B%5D&amp;disabled_features=%5B%5D&amp;locale=kr#%7B%22symbol%22%3A%22CRYPTOCAP%3ABTC.D%22%2C%22frameElementId%22%3A%22tradingview_82347%22%2C%22interval%22%3A%2215%22%2C%22allow_symbol_change%22%3A%221%22%2C%22save_image%22%3A%220%22%2C%22studies%22%3A%22%5B%5D%22%2C%22theme%22%3A%22Dark%22%2C%22style%22%3A%221%22%2C%22timezone%22%3A%22Asia%2FSeoul%22%2C%22studies_overrides%22%3A%22%7B%7D%22%2C%22utm_source%22%3A%22kimpga.com%22%2C%22utm_medium%22%3A%22widget_new%22%2C%22utm_campaign%22%3A%22chart%22%2C%22utm_term%22%3A%22CRYPTOCAP%3ABTC.D%22%2C%22page-uri%22%3A%22kimpga.com%2F%22%7D"
+                            style="width: 100%; height: 500px;"> <!-- 높이를 600px로 조정 -->
                     </iframe>
                 </div>
             </div>
             <div class="absolute bottom-0 tradingview-widget-copyright" style="width: 100%;">
                 트레이딩뷰 제공
-                <a 
-                    href="https://kr.tradingview.com/chart/?symbol=CRYPTOCAP%3ABTC.D&amp;utm_source=kimpga.com&amp;utm_medium=widget_new&amp;utm_campaign=chart&amp;utm_term=CRYPTOCAP%3ABTC.D" 
-                    rel="noopener noreferrer" 
-                    target="_blank">
+                <a
+                        href="https://kr.tradingview.com/chart/?symbol=CRYPTOCAP%3ABTC.D&amp;utm_source=kimpga.com&amp;utm_medium=widget_new&amp;utm_campaign=chart&amp;utm_term=CRYPTOCAP%3ABTC.D"
+                        rel="noopener noreferrer"
+                        target="_blank">
                     <span class="blue-text px-1">CRYPTOCAP:BTC.D</span>
                 </a>
             </div>
             <div class="absolute right-0 bottom-0 border-resize hidden lg:inline-block"></div>
-        </div>        
+        </div>
+        <div class="usage-card-body">
+            <h2 class="usage-title">사용 방법</h2>
 
-        <h2><img src="/images/check.png" alt="Check" class="mb-2"> 코인 정보 입력</h2>
+            <div class="usage-section">
+                <h5 class="section-title">1. 모델 학습:</h5>
+                <img src="/images/logos_tensorflow.png" alt="모델 학습" class="section-image">
+                <ul class="section-list">
+                    <li>기존 데이터를 AI에게 "모델 학습" 버튼을 클릭하여 모델 학습을 시작합니다.</li>
+                    <li>모델 학습이 완료되면, "Training Complete!"라는 문구가 출력됩니다.</li>
+                </ul>
+            </div>
+
+            <div class="usage-section">
+                <h5 class="section-title">2. 코인 정보 입력:</h5>
+                <img src="/images/icon-park_info.png" alt="코인 정보 입력" class="section-image">
+                <ul class="section-list">
+                    <li>페이지 상단의 입력 필드에 코인 관련 정보를 입력합니다.</li>
+                    <li>입력 필드에는 시가, 종가, 저가, 거래량, 이전 종가, 변동 가격, RSI를 최신정보입력 버튼을 눌러 입력할 수 있습니다.</li>
+                </ul>
+            </div>
+
+            <div class="usage-section">
+                <h5 class="section-title">3. 코인 가격 예측:</h5>
+                <img src="/images/logos_elemental-ui.png" alt="코인 가격 예측" class="section-image">
+                <ul class="section-list">
+                    <li>예측된 코인 가격이 화면에 표시됩니다.</li>
+                </ul>
+            </div>
+        </div>
+
+
+
+        <div class="mt-5">
+            <h2><img src="/images/check.png" alt="Check" class="mb-2"> 코인 정보 입력</h2>
+        </div>
         <button id="train-button" class="btn btn-primary mb-2">모델 학습</button>
         <div class="row mb-5">
-           
+
             <div class="col-12 col-lg-4">
-                
-                
+
+
                 <div class="border p-3 bg-white rounded">
                     <div class="form-group">
                         <label for="predict-input-opening-price">시가:</label>
@@ -124,72 +158,26 @@
                 <div class="prediction-output mt-3">
                     <p id="predict-output">예측 결과가 여기에 나타납니다.</p>
                 </div>
+
             </div>
+
             <div class="col-lg-8">
                 <div class="row">
                     <div class="col-md-12 mb-4">
-                        <div id="data-plot" class="border p-3 bg-white rounded" style="height: 400px;">
-                            <!-- 데이터 산포도 그래프가 여기에 표시됩니다. -->
-                        </div>
+                        <div id="data-plot" class="plotly-chart border p-3 bg-white rounded"></div>
                     </div>
                     <div class="col-md-12 mb-4">
-                        <div id="batch-performance" class="border p-3 bg-white rounded" style="height: 400px;"></div>
-                            <!-- 배치 성능 그래프가 여기에 표시됩니다. -->
-                        </div>
+                        <div id="batch-performance" class="plotly-chart border p-3 bg-white rounded"></div>
                     </div>
                     <div class="col-md-12 mb-4">
-                        
-                        <div id="training-performance" class="border p-3 bg-white rounded" style="height: 400px;"></div>
-                            <!-- 학습 성능 그래프가 여기에 표시됩니다. -->
-                        </div>
+                        <div id="training-performance" class="plotly-chart border p-3 bg-white rounded"></div>
                     </div>
                 </div>
+
             </div>
-
-
-
-    <script layout:fragment="script">
-        document.addEventListener('DOMContentLoaded', function() {
-            const fetchLatestData = async () => {
-                try {
-                    const response = await fetch('/csv/upbit_btc_data_with_rsi.csv');
-                    if (!response.ok) {
-                        throw new Error('CSV 파일을 가져오는 중 오류가 발생했습니다.');
-                    }
-    
-                    const csvText = await response.text();
-                    
-                    // CSV 파싱
-                    const rows = csvText.trim().split('\n').map(row => row.split(','));
-                    const header = rows[0];
-                    const latestRow = rows[rows.length -1]; // 최신 데이터 (마지막 행)
-    
-                    console.log('Header:', header);
-                    console.log('Latest Row:', latestRow);
-    
-                    const data = {};
-                    header.forEach((key, index) => {
-                        data[key] = latestRow[index];
-                    });
-    
-                    console.log('Data:', data);
-    
-                    // 데이터 입력 필드에 채우기
-                    document.getElementById('predict-input-opening-price').value = data['opening_price'];
-                    document.getElementById('predict-input-high-price').value = data['trade_price'];
-                    document.getElementById('predict-input-low-price').value = data['low_price'];
-                    document.getElementById('predict-input-volume').value = data['candle_acc_trade_volume'];
-                    document.getElementById('predict-input-prev-close').value = data['prev_closing_price'];
-                    document.getElementById('predict-input-change-price').value = data['change_price'];
-                    document.getElementById('predict-input-rsi').value = data['RSI'];
-    
-                    // document.getElementById('predict-button').disabled = false;
-                } catch (error) {
-                    console.error('데이터를 가져오는 중 오류가 발생했습니다:', error);
-                }
-            };
-    
-            document.getElementById('fetch-latest-button').addEventListener('click', fetchLatestData);
-        });
-    </script>
+            <div class="text-center">
+                <a th:href="@{/coin-data-result}" class="btn btn-warning">예측 결과 List</a>
+            </div>
+        </div>
+    </div>
 </html>

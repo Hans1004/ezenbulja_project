@@ -17,154 +17,64 @@ function MinMaxScaling(tensor, prevMin = null, prevMax = null) {
     return { tensor: normedTensor, min, max };
 }
 
-// 데이터 시각화 함수 (Plotly)
-async function plot(dataPoints, elementId) {
-    const surface = document.getElementById(elementId);
-    const xData = dataPoints.map(v => v.x[3]); // candleAccTradeVolume
-    const yData = dataPoints.map(v => v.y[0]); // tradePrice
+// 데이터 시각화 함수
+async function plot(dataPoints) {
+    const surface = document.getElementById("data-plot");
+    surface.innerHTML = ''; // Clear previous plots if any
 
-    const data = [{
-        x: xData,
-        y: yData,
-        mode: 'markers',
-        type: 'scatter',
-        marker: { 
-            size: 12,
-            color: yData,
-            colorscale: 'Viridis',
-            showscale: true,
-            line: {
-                width: 1,
-                color: 'rgba(0,0,0,0.5)'
-            }
-        },
-        text: xData.map((val, index) => `Volume: ${val}<br>Price: ${yData[index]}`),
-        hoverinfo: 'text'
-    }];
+    const series = dataPoints.map(v => ({
+        x: v.x[3], // candleAccTradeVolume
+        y: v.y[0]  // tradePrice
+    }));
+    const data = { values: series, series: ["Data Points"] };
+    const opts = { xLabel: "Candle Acc Trade Volume", yLabel: "Trade Price" };
 
-    const layout = {
-        title: {
-            text: 'Data Points',
-            font: { size: 24 },
-            x: 0.5,
-            xanchor: 'center'
-        },
-        xaxis: { 
-            title: 'Candle Acc Trade Volume',
-            titlefont: { size: 18 },
-            tickfont: { size: 14 }
-        },
-        yaxis: { 
-            title: 'Trade Price',
-            titlefont: { size: 18 },
-            tickfont: { size: 14 }
-        },
-        margin: { t: 50, l: 50, r: 50, b: 50 },
-        width: surface.clientWidth,
-        height: surface.clientHeight,
-        plot_bgcolor: '#f2f2f2',
-        paper_bgcolor: '#ffffff',
-        font: { family: 'Arial, sans-serif', size: 14 }
-    };
-
-    Plotly.newPlot(surface, data, layout);
+    tfvis.render.scatterplot(surface, data, opts);
 }
 
 // 훈련 성능 시각화 (Epoch 단위)
 async function plotTrainingPerformance() {
     const surface = document.getElementById("training-performance");
+    surface.innerHTML = ''; // Clear previous plots if any
 
-    const lossSeries = {
-        x: epochsData,
-        y: lossData,
-        mode: 'lines+markers',
-        type: 'scatter',
-        name: 'Loss',
-        line: { color: 'rgba(255, 99, 132, 0.8)', width: 3 },
-        marker: { size: 8 }
+    const lossSeries = epochsData.map((epoch, index) => ({ x: epoch, y: lossData[index] }));
+    const valLossSeries = epochsData.map((epoch, index) => ({ x: epoch, y: valLossData[index] }));
+
+    const data = {
+        values: [lossSeries, valLossSeries],
+        series: ['Loss', 'Validation Loss']
     };
 
-    const valLossSeries = {
-        x: epochsData,
-        y: valLossData,
-        mode: 'lines+markers',
-        type: 'scatter',
-        name: 'Validation Loss',
-        line: { color: 'rgba(54, 162, 235, 0.8)', width: 3 },
-        marker: { size: 8 },  
+    const opts = {
+        xLabel: 'Epoch',
+        yLabel: 'Loss',
+        width: 600,
+        height: 400
     };
 
-    const data = [lossSeries, valLossSeries];
-
-    const layout = {
-        title: {
-            text: 'Training Performance',
-            font: { size: 24 },
-            x: 0.5,
-            xanchor: 'center'
-        },
-        xaxis: { 
-            title: 'Epoch',
-            titlefont: { size: 18 },
-            tickfont: { size: 14 }
-        },
-        yaxis: { 
-            title: 'Loss',
-            titlefont: { size: 18 },
-            tickfont: { size: 14 }
-        },
-        margin: { t: 50, l: 50, r: 50, b: 50 },
-        autosize: true,
-        plot_bgcolor: '#f2f2f2',
-        paper_bgcolor: '#ffffff',
-        font: { family: 'Arial, sans-serif', size: 14 }
-    };
-
-    Plotly.newPlot(surface, data, layout);
+    tfvis.render.linechart(surface, data, opts);
 }
 
 // 배치 성능 시각화 (Batch 단위)
 async function plotBatchPerformance() {
     const surface = document.getElementById("batch-performance");
+    surface.innerHTML = ''; // 기존 그래프 초기화
 
-    const batchLossSeries = {
-        x: batchData,
-        y: batchLossData,
-        mode: 'lines',
-        type: 'scatter',
-        name: 'Batch Loss',
-        line: { color: 'rgba(54, 162, 235, 0.8)', width: 3 }, // 선 색상을 파란색으로 설정
-        // marker: { size: 8 }
+    const batchLossSeries = batchData.map((batch, index) => ({ x: batch, y: batchLossData[index] }));
+
+    const data = {
+        values: [batchLossSeries],
+        series: ['Batch Loss']
     };
 
-    const data = [batchLossSeries];
-
-    const layout = {
-        title: {
-            text: 'Batch Performance',
-            font: { size: 24 },
-            x: 0.5,
-            xanchor: 'center'
-        },
-        xaxis: { 
-            title: 'Batch',
-            titlefont: { size: 18 },
-            tickfont: { size: 14 }
-        },
-        yaxis: { 
-            title: 'Loss',
-            titlefont: { size: 18 },
-            tickfont: { size: 14 }
-        },
-        margin: { t: 50, l: 50, r: 50, b: 50 },
-        width: surface.clientWidth,
-        height: surface.clientHeight,
-        plot_bgcolor: '#f2f2f2',
-        paper_bgcolor: '#ffffff',
-        font: { family: 'Arial, sans-serif', size: 14 }
+    const opts = {
+        xLabel: 'Batch',
+        yLabel: 'Loss',
+        width: 600,
+        height: 400
     };
 
-    Plotly.newPlot(surface, data, layout);
+    tfvis.render.linechart(surface, data, opts);
 }
 
 // 데이터 복원 함수
@@ -205,7 +115,7 @@ async function preprocessData() {
         return {
             x: [
                 xs.opening_price || 0,
-                xs.trade_price || 0,
+                xs.trade_price                || 0,
                 xs.low_price || 0,
                 xs.candle_acc_trade_volume || 0,
                 xs.prev_closing_price || 0,
@@ -220,7 +130,7 @@ async function preprocessData() {
 
     tf.util.shuffle(dataPoints);
 
-    await plot(dataPoints, 'data-plot');
+    await plot(dataPoints);
 
     const featureValues = dataPoints.map(p => p.x);
     const labelValues = dataPoints.map(p => p.y);
@@ -341,33 +251,10 @@ async function predict() {
         denormalizedValue.array().then(denormalized => {
             const predictedPrice = denormalized[0][0];
             const formattedPrice = new Intl.NumberFormat('ko-KR').format(predictedPrice);
-            document.getElementById('predict-output').innerHTML = `예측된 최고 가격은 <h3 class="text-primary">₩${formattedPrice}</h3>입니다. 코인투자에 도움이 되길 바랍니다.`;
-
-            // 서버로 데이터 전송
-            const coinResult = {
-                createdDate: new Date().toISOString(), // 현재 날짜
-                predictedPrice: Math.round(predictedPrice) // 소수점 없이 정수로 저장
-            };
-
-            fetch('/predict', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(coinResult),
-            })
-                .then(response => response.text())
-                .then(data => {
-                    console.log(data);
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                });
-
-
+            document.getElementById('predict-output').innerText = `예측된 거래 가격은 ₩${formattedPrice}입니다.`;
 
             // 변동 가격 비교
-            const highPrice = parseFloat(document.getElementById('predict-input-high-price').value);
+            const changePrice = parseFloat(document.getElementById('predict-input-change-price').value);
             const upElement = document.getElementById('up');
             const downElement = document.getElementById('down');
 
@@ -376,9 +263,9 @@ async function predict() {
             downElement.innerHTML = '';
 
             // 예측 가격과 변동 가격 비교
-            if (predictedPrice > highPrice) {
+            if (predictedPrice > changePrice) {
                 upElement.innerHTML = '<img src="/images/up.png" alt="Up">';
-            } else if (predictedPrice < highPrice) {
+            } else if (predictedPrice < changePrice) {
                 downElement.innerHTML = '<img src="/images/down.png" alt="Down">';
             }
         }).catch(error => {

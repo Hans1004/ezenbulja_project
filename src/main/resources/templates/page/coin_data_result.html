@@ -1,0 +1,65 @@
+<html lang="ko" layout:decorate="~{layout/layout}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <title>비트코인 예측 가격 LIST</title>
+</head>
+<div class="container" layout:fragment="content">
+    <div class="py-5 text-center">
+        <h2 class="text-center"><img src="./images/bitcoin.png" style="width: 55px;">비트코인 예측 가격 LIST</h2>
+        <table class="table table-primary table-striped table-hover">
+            <thead>
+            <tr>
+                <th>번호</th>
+                <th>생성일자</th>
+                <th>예측가격</th>
+            </tr>
+            </thead>
+            <!--                <td th:text="${result.predictedPrice}"></td>-->
+            <tbody>
+            <tr th:each="result : ${members}">
+                <td th:text="${result.id}"></td>
+                <td th:text="${result.createdDate != null ? #temporals.format(result.createdDate, 'yyyy-MM-dd HH:mm:ss') : 'N/A'}"></td>
+                <td th:text="${result.formattedPrice}"></td> <!-- 포맷된 가격 출력 -->
+<!--                <td th:text="${result.predictedPrice != null && result.predictedPrice > 0 ? '₩' + #numbers.formatInteger(result.predictedPrice, '###,###') : 'N/A'}"></td>-->
+
+            </tr>
+            <tr th:if="${#lists.isEmpty(members)}">
+                <td colspan="3" class="text-center">예측가격이 없습니다.</td>
+            </tr>
+            </tbody>
+
+
+        </table>
+    </div>
+    <div class="text-center mb-5">
+        <a th:href="@{/bitcoin}" class="btn btn-warning">비트코인 예측 페이지로</a>
+    </div>
+</div>
+<div>
+    <ul class="pagination justify-content-center">
+        <li class="page-item" th:classappend="${!paging.hasPrevious()} ? 'disabled'">
+            <a class="page-link" href="javascript:void(0)" th:data-page="${paging.number - 1}">이전</a>
+        </li>
+        <li class="page-item" th:each="page : ${#numbers.sequence(0, paging.totalPages - 1)}"
+            th:classappend="${page == paging.number} ? 'active'"
+            th:if="${page >= paging.number - 5 and page <= paging.number + 5}">
+            <a class="page-link" th:text="${page + 1}" href="javascript:void(0)" th:data-page="${page}">${page + 1}</a>
+        </li>
+        <li class="page-item" th:classappend="${!paging.hasNext()} ? 'disabled'">
+            <a class="page-link" href="javascript:void(0)" th:data-page="${paging.number + 1}">다음</a>
+        </li>
+    </ul>
+</div>
+
+<script layout:fragment="script">
+    $(function () {
+        $(".page-link").on('click', function () {
+            const page = $(this).data('page');
+            if (page !== undefined) {
+                $('#page').val(page);
+                $('#searchForm').submit();
+            }
+        });
+    });
+</script>
+
+</html>

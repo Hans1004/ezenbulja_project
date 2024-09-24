@@ -4,23 +4,25 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
-    datasource:
-      url: jdbc:h2:tcp://localhost/~/dontdb
-      driver-class-name: org.h2.Driver
-      username: sa
-      password:
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/dontdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
   jpa:
     hibernate:
-      ddl-auto: create  # update? ?????? ?
+      ddl-auto: update
     properties:
-
       hibernate:
-        format_sql: true # ??? sql system out? ??? ???.
+        format_sql: true
+        dialect: org.hibernate.dialect.H2Dialect
   thymeleaf:
-    prefix: classpath:/templates/  # ???
-    suffix: .html # ???
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
 
 logging:
   level:
-    org.hibernate.SQL: debug # ??? sql? ??? ??? ????.
-    org.hibernate.orm.jdbc.bind: trace # ??? ?? 3.x, hibernate6
+    org.hibernate.SQL: debug
+    org.hibernate.orm.jdbc.bind: trace
+    org.thymeleaf: DEBUG

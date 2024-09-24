@@ -1,8 +1,6 @@
 package ezen.ezenbulja.controller;
 
-import ezen.ezenbulja.domain.dto.LoginForm;
 import ezen.ezenbulja.repository.MemberRepository;
-import ezen.ezenbulja.controller.SessionConst;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
@@ -12,21 +10,24 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Slf4j
-@Controller
+//@Controller
 @RequiredArgsConstructor
-public class HomeController {
+public class HomeController_keep {
     private final MemberRepository memberRepository;
 
     @GetMapping("/")
     public String home(HttpServletRequest request, Model model) {
         HttpSession session = request.getSession(false);
 
-        // 세션이 없거나 로그인하지 않은 경우 index 페이지로 이동
-        if (session == null || session.getAttribute(SessionConst.LOGIN_MEMBER) == null) {
-            return "index"; // 로그아웃 상태에서 index 페이지로 이동
+        if (session == null) {
+            return "index"; // 세션이 없으면 index 페이지로 이동
         }
 
         Object loginMember = session.getAttribute(SessionConst.LOGIN_MEMBER);
+        if (loginMember == null) {
+            return "index"; // 세션에 회원 데이터가 없으면 index 페이지로 이동
+        }
+
         model.addAttribute("loginMember", loginMember); // 로그인한 회원 정보 모델에 추가
         return "loginIndex"; // 로그인 상태이면 loginIndex 페이지로 이동
     }
@@ -52,22 +53,9 @@ public class HomeController {
         return checkLoginAndRedirect(request, model, "page/lotto");
     }
 
-//    @GetMapping("/result_list")
-//    public String result_list() {
-//        return "page/coin_data_result";
-//    }
-//    @GetMapping("/result_list")
-//    public String result_list(HttpServletRequest request, Model model) {
-//        return checkLoginAndRedirect(request, model, "page/coin_data_result");
-//    }
-
     @GetMapping("/member")
     public String member(HttpServletRequest request, Model model) {
         return checkLoginAndRedirect(request, model, "member");
-    }
-    @GetMapping("/team")
-    public String team(HttpServletRequest request, Model model) {
-        return checkLoginAndRedirect(request, model, "team_dont");
     }
 
     // 로그인 상태 체크 후 페이지 이동을 위한 공통 메소드
@@ -80,8 +68,6 @@ public class HomeController {
                 return page; // 요청한 페이지로 이동
             }
         }
-        // 로그인 상태가 아니면 loginForm 페이지로 이동
-        model.addAttribute("loginForm", new LoginForm()); // 여기서 loginForm 추가
-        return "user/loginForm";
+        return "index"; // 로그인 상태가 아니면 index 페이지로 이동
     }
 }

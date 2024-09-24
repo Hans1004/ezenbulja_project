@@ -12,4 +12,6 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addInterceptor(new AuthorizationInterceptor()).addPathPatterns("/admin/**", "/user/**");
     }
 
+
+
 }

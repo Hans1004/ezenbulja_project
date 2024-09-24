@@ -16,14 +16,21 @@
                         <li class="nav-item">
                             <a class="nav-link active text-white" aria-current="page" href="/">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" th:href="@{/bitcoin}">BitCoin</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                BitCoin
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" th:href="@{/bitcoin}">BitCoin</a></li>
+                                <li><a class="dropdown-item" th:href="@{/coin-data-result}">BitCoin_List</a></li>
+                            </ul>
                         </li>
+
                         <li class="nav-item">
                             <a class="nav-link text-white " th:href="@{/lotto}">Lotto</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" th:href="@{/estate}">서울지역부동산</a>
+                            <a class="nav-link text-white" th:href="@{/estate}">서울집값</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white " th:href="@{/news}">시황뉴스</a>
@@ -51,7 +58,9 @@
                                 <button class="btn btn-dark btn-sm">로그아웃</button>
                             </form>
                         </li>
+<li>
 
+</li>
 
                     </ul>
                 </div>

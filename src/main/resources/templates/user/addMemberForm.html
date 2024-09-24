@@ -11,19 +11,19 @@
                 </div>
                 <form th:object="${memberForm}" th:action="@{/add}" method="post">
                     <div class="mb-4">
-                        <input type="text" class="form-control custom-input-size" id="loginId" th:field="*{loginId}" th:errorclass="field-error" th:error="*{loginId}">
+                        <input type="text" class="form-control custom-input-size" id="loginId" th:field="*{loginId}" th:errorclass="field-error" th:error="*{loginId}" placeholder="아이디를 입력하세요">
                         <div class="field-error" th:errors="*{loginId}"></div>
                     </div>
                     <div class="mb-3">
-                        <input type="password" class="form-control custom-input-size" id="password" th:field="*{password}" th:errorclass="field-error" th:error="*{password}">
+                        <input type="password" class="form-control custom-input-size" id="password" th:field="*{password}" th:errorclass="field-error" th:error="*{password}" placeholder="패스워드를 입력하세요">
                         <div class="field-error" th:errors="*{password}"></div>
                     </div>
                     <div class="mb-3">
-                        <input type="text" class="form-control custom-input-size" id="name" th:field="*{name}" th:errorclass="field-error" th:error="*{name}">
+                        <input type="text" class="form-control custom-input-size" id="name" th:field="*{name}" th:errorclass="field-error" th:error="*{name}"  placeholder="이름를 입력하세요">
                         <div class="field-error" th:errors="*{name}"></div>
                     </div>
                     <div class="mb-3">
-                        <input type="text" class="form-control custom-input-size" id="grade" th:field="*{grade}" th:errorclass="field-error" th:error="*{grade}">
+                        <input type="text" class="form-control custom-input-size" id="grade" th:field="*{grade}" value="user" readonly placeholder="user">
                         <div class="field-error" th:errors="*{grade}"></div>
                     </div>
                     <hr class="custom-hr">

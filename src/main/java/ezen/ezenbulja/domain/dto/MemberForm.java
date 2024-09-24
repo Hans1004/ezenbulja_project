@@ -9,11 +9,11 @@ public class MemberForm {
 
     private Long id;
 
-    @NotEmpty(message = "넣으라고")
+    @NotEmpty(message = "ID를 입력해주세요.")
     private String loginId;
-    @NotEmpty(message = "넣으라고")
+    @NotEmpty(message = "이름을 입력해주세요")
     private String name;
-    @NotEmpty(message = "넣으라고")
+    @NotEmpty(message = "password를 입력해주세요.")
     private String password;
 
     private String grade;
