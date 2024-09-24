@@ -2,6 +2,7 @@ package ezen.ezenbulja.service;
 
 import ezen.ezenbulja.domain.dao.Member;
 import ezen.ezenbulja.repository.MemberRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,19 +14,20 @@ import java.util.Optional;
 public class MemberService {
     private final MemberRepository memberRepository;
 
+    @Transactional
     public Long join(Member member) {
         validateDuplicateMember(member);
         this.memberRepository.save(member);
         return member.getId();
     }
 
-    //중복회원조회 메서드
     private void validateDuplicateMember(Member member) {
         Optional<Member> findMember = memberRepository.findByLoginId(member.getLoginId());
         if (findMember.isPresent()) {
             throw new IllegalStateException("이미 존재하는 회원입니다.");
         }
     }
+
 
     // 전체 회원 조회
     public List<Member> findMember() {
