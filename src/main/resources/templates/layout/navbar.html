@@ -54,6 +54,12 @@
 <!--                            </div>-->
 <!--                        </li>-->
                         <li class="nav-item">
+                            <div class="text-center col" th:if="${loginMember != null and loginMember.grade == 'admin'}">
+                                <button class="btn btn-dark btn-sm" type="button" th:onclick="|location.href='@{/members}'|">회원목록</button>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
                             <div th:if="${loginMember == null}">
                                 <a class="nav-link text-white" aria-current="page" th:href="@{/add}">회원가입</a>
                             </div>
