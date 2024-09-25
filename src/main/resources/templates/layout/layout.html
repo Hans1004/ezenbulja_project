@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="/images/이젠벌자로고.ico">
+
+    <!-- CSS 파일 포함 -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css}">
+    <link rel="stylesheet" th:href="@{/css/style_index.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/style_lotto.css}">
+    <link rel="stylesheet" th:href="@{/css/style_team.css}">
+    <link rel="stylesheet" th:href="@{/css/test.css}">
+    <link rel="stylesheet" th:href="@{/css/style_post.css}">
+
+    <!-- JavaScript 라이브러리 포함 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <!-- 자바스크립트 파일 포함 -->
+
+<!--    <script th:src="@{/js/coin_values_input.js}"></script>-->
+    <script th:src="@{/js/bootstrap.bundle.js}"></script>
+<!--    <script th:src="@{/js/lotto_script.js}"></script>-->
+<!--    <script th:src="@{/js/lotto_result.js}"></script>-->
+<!--    <script th:src="@{/js/lstm_prediction.js}"></script>-->
+
+    <title>이젠 벌자</title>
+</head>
+<body>
+<!-- 내비게이션 영역 시작 -->
+<nav th:replace="~{layout/navbar :: navbarFragment}"></nav>
+<!-- 내비게이션 영역 끝 -->
+
+<!-- 메인 섹션 시작 -->
+<th:block layout:fragment="content"></th:block>
+<!-- 메인 섹션 끝 -->
+
+<!-- 풋터 영역 시작 -->
+<footer th:replace="~{layout/footer :: footerFragment}"></footer>
+<!-- 풋터 영역 끝 -->
+
+<!-- 삭제를 위한 자바스크립트 블록 -->
+<th:block layout:fragment="script"></th:block>
+</body>
+</html>

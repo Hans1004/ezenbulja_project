@@ -1,0 +1,49 @@
+.card {
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 카드에 그림자 추가 */
+    transition: transform 0.3s, box-shadow 0.3s; /* 호버 효과를 위한 트랜지션 */
+}
+
+.card:hover {
+    transform: translateY(-10px); /* 호버 시 살짝 위로 이동 */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* 호버 시 더 진한 그림자 */
+}
+
+.card-img-top {
+    height: 400px;
+    width: 90%;
+    object-fit: cover;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    margin: 20px auto;
+}
+.card-title {
+    background-color: #001faa;
+    width: 150px;
+    color: white;
+    padding: 10px;
+    border-radius: 0.25rem;
+    text-align: center;
+}
+/* 팀원 소개 제목 스타일 */
+h1 {
+    background-color: #0a008f;
+    color: #d6d6d6; /* 다크 그레이 텍스트 */
+    padding: 20px;
+    border-radius: 8px;
+    font-family: 'Roboto', sans-serif; /* 현대적인 폰트 */
+    font-weight: 700;
+    letter-spacing: 1px; /* 문자 간격 축소 */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* 가벼운 그림자 효과 */
+    text-transform: uppercase; /* 대문자로 변환 */
+}
+
+h1 span {
+    color: #007bff; /* 강조 색상을 블루로 변경 */
+    font-weight: 900;
+}
+
+.container h1 {
+    border-bottom: none; /* 하단 경계선 제거 */
+    margin-bottom: 20px;
+}

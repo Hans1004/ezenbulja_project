@@ -1,0 +1,58 @@
+<html lang="ko" layout:decorate="~{layout/layout}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <div class="container" layout:fragment="content">
+        <div class="row py-3 justify-content-center">
+            <div class="text-center rounded border border-dark border-2 img-thumbnail shadow-lg ">
+                <img src="/images/서울-색상-지도-min.jpg" alt="서울지도" class="img-fluid">
+            </div>
+        </div>
+        <hr class="border border-primary">
+        <div class="row py-3 justify-content-center">
+            <div class="col-md-5 border border-dark border-2 img-thumbnail">
+                <div class="font-color1 text-warning text-center my-3 py-3 fw-bold"><img src="/images/로고.jpg" class="opacity-50 img-fluid">서울시 집값 예측</div>
+                <div class="row justify-content-center my-2">
+                    <div class="col-4 text-center"><p class="fw-bold mt-2">자치구</p></div>
+                    <div class="col-8 text-center">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>선택하세요.</option>
+                            <option value="1">강남구</option>
+                            <option value="2">강북구</option>
+                            <option value="3">강서구</option>
+                          </select>
+                    </div>
+                </div>
+                <div class="row justify-content-center my-2">
+                    <div class="col-4 text-center"><p class="fw-bold mt-2 text">건물 용도</p></div>
+                    <div class="col-8 text-center">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>선택하세요.</option>
+                            <option value="1">아파트</option>
+                            <option value="2">오피스텔</option>
+                            <option value="3">연립 주택</option>
+                          </select>
+                    </div>
+                </div>
+                <div class="row justify-content-center my-2">
+                    <div class="col-4 text-center"><p class="fw-bold mt-2">건물 면적</p></div>
+                    <div class="col-8 text-center">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>선택하세요.</option>
+                            <option value="1">10평 미만</option>
+                            <option value="2">10평대</option>
+                            <option value="3">20평대</option>
+                          </select>
+                    </div>
+                </div>
+                <div class="text-center my-3"><button class="btn font-color1 text-warning fw-bold">집값 예측하기</button></div>
+                <div class="opacity-75"><img src="/images/696619c7ce945422e92c19d5860cc117151911.jpg" class="img-fluid"></div>
+            </div>
+            <div class="col-md-6 border border-dark border-2 rounded mx-3">
+                <div class="my-3 text-center"><img src="/images/300px-Seoul-map.jpg"></div>
+                <div class="text-center my-3 justify-content-center">
+                    <p>선택하신 조건의 예측 가격은</p>
+                    <h1>~~~~~원</h1>
+                    <p>입니다.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</html>

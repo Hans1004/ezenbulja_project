@@ -1,0 +1,60 @@
+<html lang="ko" layout:decorate="~{layout/layout}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <div class="container mt-5" layout:fragment="content">
+        <div class="row justify-content-center mb-4">
+            <!-- 파일 업로드 버튼 삭제           -->
+<!--            <div class="col-md-4 g-1">-->
+<!--                <input type="file" accept=".csv" onchange="loadCSVFile(event)" class="btn btn-primary w-100"/>-->
+<!--            </div>-->
+            <div class="col-md-4 g-1">
+                <a href="lotto" class="btn btn-primary btn-lg w-100">딥러닝 번호 추천</a>
+            </div>
+            <div class="col-md-4 g-1">
+                <a href="lotto_result" class="btn btn-primary btn-lg w-100">내번호 당첨확인</a>
+            </div>
+        </div>
+        <hr>
+        <div class="radio-buttons">
+            <h2>분석할 기간 선택</h2>
+            <label class="me-3"><input type="radio" name="period" value="all" checked> 전체</label>
+            <label class="me-3"><input type="radio" name="period" value="12"> 최근 1년</label>
+            <label class="me-3"><input type="radio" name="period" value="24"> 최근 2년</label>
+            <label><input type="radio" name="period" value="36"> 최근 3년</label>
+        </div>
+        <!-- '분석' 버튼과 로또 번호를 같은 줄에 배치 -->
+        <div id="result-container">
+            <div class="analyze-button" onclick="onAnalyzeClick()">분석</div>
+            <div id="result" style="display: flex;"></div>
+        </div>
+        <!-- 차트 영역 -->
+        <div class="row">
+            <div class="col-lg-3 col-sm-12">
+                <canvas id="lossChart"></canvas>
+            </div>
+            <div class="col-lg-3 col-sm-12">
+                <canvas id="accuracyChart"></canvas>
+            </div>
+            <div class="col-lg-3 col-sm-12">
+                <canvas id="frequencyChart"></canvas>
+            </div>
+            <div class="col-lg-3 col-sm-12">
+                <canvas id="predictionChart"></canvas>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-sm-12">
+                <canvas id="hotColdChart"></canvas>
+            </div>
+            <div class="col-lg-3 col-sm-12">
+                <canvas id="numberGapChart"></canvas>
+            </div>
+            <div class="col-lg-3 col-sm-12">
+                <canvas id="sumHistogram"></canvas>
+            </div>
+            <div class="col-lg-3 col-sm-12">
+                <canvas id="consecutiveNumbersChart"></canvas>
+            </div>
+        </div>
+        <script th:src="@{/js/lotto_script.js}"></script>
+    </div>
+
+</html>

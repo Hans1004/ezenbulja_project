@@ -1,0 +1,76 @@
+/* 폰트 적용 */
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Brush+Script&family=Noto+Sans+KR:wght@100..900&display=swap');
+
+body {
+    font-family: "Noto Sans KR", sans-serif;
+}
+h1, h2, h3, h4, h5, .logo-font {
+    font-family: "Do Hyeon", sans-serif;
+}
+
+/* 배경 색 지정 */
+.bg-custom {
+    background-color: #213180; /* 원하는 색상 코드 */
+}
+
+/* 글씨 색 지정 */
+.custom-login-color {
+    color: #213180
+}
+
+.custom-border {
+    border:1px solid #213180;
+    border-color: #213180;
+}
+
+a {
+    text-decoration: none;
+    color: gray;
+}
+
+.btn-login {
+    background-color: #213180;
+}
+
+.custom-input-size {
+    height: 60px; 
+    font-size: 1.2rem; 
+    border-radius: 20px;
+    padding: 10px;
+    border-width: 2px;
+}
+
+.btn-login {
+    height: 60px;
+    font-size: 1.5rem; 
+    border-radius: 20px;
+    background-color: #213180 !important;
+    padding: 10px;
+    border-width: 2px;
+    margin-top: 10px;
+    color : #ffffff !important
+}
+
+/* 버튼에 마우스를 올렸을 때의 스타일 유지 */
+.btn-login:hover,
+.btn-login:focus,
+.btn-login:active {
+    background-color: #213180 !important; /* 배경색 유지 */
+    color: #ffffff !important; /* 글자색 유지 */
+    border-color: #213180 !important; /* 테두리 색상 유지 */
+    box-shadow: none !important; /* 그림자 제거 */
+    outline: none !important; /* 기본 아웃라인 제거 */
+}
+
+.custom-input-size:focus {
+    border-color: #213180; /* 입력 필드 포커스 시 테두리 색상 */
+    outline: none; /* 기본 포커스 아웃라인 제거 */
+}
+
+
+.custom-hr {
+    border: none;
+    border-top: 3px solid #213180; /* Customize thickness and color */
+    margin-top: 30px; /* Adjust the spacing */
+    margin-bottom: 20px;
+}

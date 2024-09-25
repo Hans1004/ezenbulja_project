@@ -1,0 +1,17 @@
+<html lang="ko" layout:decorate="~{layout/layout}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <div class="container" layout:fragment="content">
+        <h1>당첨번호 확인</h1>
+        <!-- 좌측에 있는 돌아가기 버튼 -->
+        <div class="back-button">
+            <a href="lotto"><i class="fas fa-arrow-left"></i> 돌아가기</a>
+        </div>
+        <hr>
+        <div id="savedNumbersSection">
+            <div id="savedNumbersList" class="row"></div>
+        </div>
+        <script th:src="@{/js/lotto_result.js}"></script>
+    </div>
+
+</html>
+
+
