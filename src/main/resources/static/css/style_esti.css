@@ -1,0 +1,26 @@
+.img-box1 {
+    width: 1000px;    
+    height: 500px;    
+    background-image: url("../서울-색상-지도-min.jpg");
+    background-size: 100% 100%;  
+}
+
+.img-box2 {
+    width: 200px;
+    height: 100px;
+    background-image: url("../696619c7ce945422e92c19d5860cc117151911.jpg");
+    background-size: cover;
+}
+
+@media (min-width:768px) and (max-width:1024px){
+    .text {
+        font-size: 15px;
+    }}
+
+.text1 {
+    vertical-align: middle;
+}
+
+.font-color1 {
+    background-color : #213180;
+}
