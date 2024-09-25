@@ -1,58 +1,96 @@
 <html lang="ko" layout:decorate="~{layout/layout}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-    <div class="container" layout:fragment="content">
+
+<script th:src="@{/js/esti2.js}"></script>
+<div class="container mt-5" layout:fragment="content">
+
+<div class="container">
         <div class="row py-3 justify-content-center">
-            <div class="text-center rounded border border-dark border-2 img-thumbnail shadow-lg ">
-                <img src="/images/서울-색상-지도-min.jpg" alt="서울지도" class="img-fluid">
+            <div class="text-center rounded border border-dark border-2 img-thumbnail shadow-lg">
+                <img src="./images/서울-색상-지도-min.jpg" alt="서울지도" class="img-fluid">
             </div>
         </div>
         <hr class="border border-primary">
         <div class="row py-3 justify-content-center">
-            <div class="col-md-5 border border-dark border-2 img-thumbnail">
-                <div class="font-color1 text-warning text-center my-3 py-3 fw-bold"><img src="/images/로고.jpg" class="opacity-50 img-fluid">서울시 집값 예측</div>
-                <div class="row justify-content-center my-2">
+            <div class="col-md-5 border border-dark border-2 img-thumbnail m-3">
+                <div class="font-color1 text-warning text-center my-3 py-3 fw-bold">
+                    <img src="./images/로고.jpg" class="opacity-50 img-fluid">서울시 집값 예측
+                </div>
+                <div class="row justify-content-center py-3">
                     <div class="col-4 text-center"><p class="fw-bold mt-2">자치구</p></div>
                     <div class="col-8 text-center">
-                        <select class="form-select" aria-label="Default select example">
+                        <select id="region-select" class="form-select">
                             <option selected>선택하세요.</option>
                             <option value="1">강남구</option>
-                            <option value="2">강북구</option>
-                            <option value="3">강서구</option>
-                          </select>
+                            <option value="2">강동구</option>
+                            <option value="3">강북구</option>
+                            <option value="4">강서구</option>
+                            <option value="5">관악구</option>
+                            <option value="6">광진구</option>
+                            <option value="7">구로구</option>
+                            <option value="8">금천구</option>
+                            <option value="9">노원구</option>
+                            <option value="10">도봉구</option>
+                            <option value="11">동대문구</option>
+                            <option value="12">동작구</option>
+                            <option value="13">마포구</option>
+                            <option value="14">서대문구</option>
+                            <option value="15">서초구</option>
+                            <option value="16">성동구</option>
+                            <option value="17">성북구</option>
+                            <option value="18">송파구</option>
+                            <option value="19">양천구</option>
+                            <option value="20">영등포구</option>
+                            <option value="21">용산구</option>
+                            <option value="22">은평구</option>
+                            <option value="23">종로구</option>
+                            <option value="24">중구</option>
+                            <option value="25">중랑구</option>
+                        </select>
                     </div>
                 </div>
-                <div class="row justify-content-center my-2">
-                    <div class="col-4 text-center"><p class="fw-bold mt-2 text">건물 용도</p></div>
+                <div class="row justify-content-center py-3">
+                    <div class="col-4 text-center"><p class="fw-bold mt-2">건물 용도</p></div>
                     <div class="col-8 text-center">
-                        <select class="form-select" aria-label="Default select example">
+                        <select id="purpose-select" class="form-select">
                             <option selected>선택하세요.</option>
                             <option value="1">아파트</option>
                             <option value="2">오피스텔</option>
-                            <option value="3">연립 주택</option>
-                          </select>
+                            <option value="3">연립 다세대</option>
+                            <option value="4">단독 다가구</option>
+                        </select>
                     </div>
                 </div>
-                <div class="row justify-content-center my-2">
+                <div class="row justify-content-center py-3">
                     <div class="col-4 text-center"><p class="fw-bold mt-2">건물 면적</p></div>
                     <div class="col-8 text-center">
-                        <select class="form-select" aria-label="Default select example">
+                        <select id="area-select" class="form-select">
                             <option selected>선택하세요.</option>
                             <option value="1">10평 미만</option>
                             <option value="2">10평대</option>
                             <option value="3">20평대</option>
-                          </select>
+                            <option value="4">30평대</option>
+                            <option value="5">40평대 이상</option>
+                        </select>
                     </div>
                 </div>
-                <div class="text-center my-3"><button class="btn font-color1 text-warning fw-bold">집값 예측하기</button></div>
-                <div class="opacity-75"><img src="/images/696619c7ce945422e92c19d5860cc117151911.jpg" class="img-fluid"></div>
+                <div class="text-center my-3 py-3">
+                    <div id="text">데이터 학습 중...</div>
+                    <button class="btn font-color1 text-warning fw-bold py-3" id="predict-button">집값 예측하기</button>
+                    <div class="opacity-75 text-center"><img src="./images/696619c7ce945422e92c19d5860cc117151911.jpg" class="img-fluid"></div>
+                </div>
             </div>
-            <div class="col-md-6 border border-dark border-2 rounded mx-3">
-                <div class="my-3 text-center"><img src="/images/300px-Seoul-map.jpg"></div>
-                <div class="text-center my-3 justify-content-center">
+            <div class="col-md-6 border border-dark border-2 rounded m-3">
+                <div class="justify-content-center">
+                    <div id="loss-plot" style="width: 100%; height: 400px;"></div>
+                </div>
+                <div class="text-center my-3 justify-content-center" id="predict-output">
                     <p>선택하신 조건의 예측 가격은</p>
-                    <h1>~~~~~원</h1>
+                    <h1 id="predicted-price">원</h1>
                     <p>입니다.</p>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
 </html>
