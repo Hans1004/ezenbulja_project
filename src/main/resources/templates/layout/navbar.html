@@ -33,16 +33,19 @@
                             <a class="nav-link text-white" th:href="@{/estate}">서울집값</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white " th:href="@{/news}">시황뉴스</a>
+                            <a class="nav-link text-white" th:href="@{/news}">시황뉴스</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link text-white " th:href="@{/posts}">자유게시판</a>
+                            <a class="nav-link text-white" th:href="@{/posts}">자유게시판</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" th:href="@{/change-password}">마이페이지</a>
                         </li>
                         <li class="nav-item">
                             <div th:if="${loginMember == null}">
                                 <a class="nav-link text-white " th:href="@{/login}">로그인</a></div>
                             <div th:if="${loginMember != null}">
-                                <p class="nav-link text-dark" th:text="|${loginMember.name}님 환영합니다.|"></p>
+                                <p class="nav-link text-white" th:text="|${loginMember.name}님 환영합니다.|"></p>
                             </div>
                         </li>
 <!--                        <li class="nav-item">-->

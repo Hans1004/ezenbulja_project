@@ -74,7 +74,7 @@ public class HomeController {
     }
 
     // 로그인 상태 체크 후 페이지 이동을 위한 공통 메소드
-    private String checkLoginAndRedirect(HttpServletRequest request, Model model, String page) {
+    public String checkLoginAndRedirect(HttpServletRequest request, Model model, String page) {
         HttpSession session = request.getSession(false);
         if (session != null) {
             Object loginMember = session.getAttribute(SessionConst.LOGIN_MEMBER);

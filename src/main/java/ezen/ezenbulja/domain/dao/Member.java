@@ -18,6 +18,8 @@ public class Member {
     private String loginId;
     private String password;
     private String name;
+    private String newPassword;
+    private String confirmPassword;
     private String grade;
 
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
