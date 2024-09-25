@@ -1,7 +1,7 @@
 <html lang="ko" layout:decorate="~{layout/layout}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-
-<script th:src="@{/js/esti2.js}"></script>
-<div class="container mt-5" layout:fragment="content">
+<!-- 헤더영역 시작 -->
+<div layout:fragment="link"><link th:href="@{/css/style_esti.css}" rel="stylesheet" ></div>
+    <div class="container mt-5" layout:fragment="content">
 
 <div class="container">
         <div class="row py-3 justify-content-center">
@@ -91,6 +91,7 @@
             </div>
         </div>
     </div>
+    <script th:src="@{/js/esti2.js}"></script>
 </div>
 
 </html>
