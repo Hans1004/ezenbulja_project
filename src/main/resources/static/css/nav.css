@@ -1,4 +1,3 @@
-
 /* 폰트 적용 */
 @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Brush+Script&family=Noto+Sans+KR:wght@100..900&display=swap');
 
@@ -8,7 +7,7 @@
 }
 
 .bg-custom {
-    background-color: #213180; /* 원하는 색상 코드 */
+    background-color: #0a008f; /* 원하는 색상 코드 */
 }
 
 .lofo-font {
