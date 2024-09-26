@@ -8,11 +8,11 @@
         <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
             <div class="offcanvas-body">
                 <div class="collapse navbar-collapse d-block d-md-none" id="menubar">
-                    <ul class="navbar-nav ms-auto mb-2 mb-md-0 px-1 d-flex align-items-center">
+                    <ul class="navbar-nav ms-auto mb-2 mb-md-0 px-1">
                         <li class="nav-item">
                             <a class="nav-link active text-white" aria-current="page" href="/">Home</a>
                         </li>
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown text-white">
                             <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 BitCoin
                             </a>
@@ -21,6 +21,7 @@
                                 <li><a class="dropdown-item" th:href="@{/coin-data-result}">BitCoin_List</a></li>
                             </ul>
                         </li>
+
                         <li class="nav-item">
                             <a class="nav-link text-white " th:href="@{/lotto}">Lotto</a>
                         </li>
@@ -33,14 +34,16 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" th:href="@{/posts}">자유게시판</a>
                         </li>
+<!--                        <li class="nav-item">-->
+<!--                            <a class="nav-link text-white" th:href="@{/change-password}">마이페이지</a>-->
+<!--                        </li>-->
                         <li class="nav-item">
-                            <a class="nav-link text-white" th:href="@{/change-password}">마이페이지</a>
-                        </li>
-                        <li class="nav-item align-items-center">
                             <div th:if="${loginMember == null}">
                                 <a class="nav-link text-white " th:href="@{/login}">로그인</a></div>
                             <div th:if="${loginMember != null}">
-                                <p class="nav-link text-white mb-0" th:text="|${loginMember.name}님 환영합니다.|"></p>
+                                <a class="nav-link text-white" th:href="@{/change-password}">
+                                    <span th:text="|${loginMember.name}님 환영합니다.|"></span>
+                                </a>
                             </div>
                         </li>
                         <li class="nav-item">

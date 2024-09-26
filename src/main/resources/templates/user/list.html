@@ -1,17 +1,35 @@
 <!--게시판 목록-->
 <html lang="ko" layout:decorate="~{layout/layout}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <div class="container mt-5" layout:fragment="content">
-  <h1 class="text-center mb-4">게시글 목록</h1>
+  <h1 class="text-center mb-4">자유 게시판</h1>
 
-  <div class="mb-4">
-    <a class="btn btn-primary" href="/posts/new">새 게시글 작성</a>
+  <div class="row mb-4">
+    <div class="col-4">
+      <a class="btn btn-primary" href="/posts/new">새 게시글 작성</a>
+    </div>
+
+    <div class="col-8">
+      <form action="/posts/search" method="get" class="d-flex justify-content-end">
+        <div class="input-group w-75">
+          <input type="text" class="form-control" name="keyword" placeholder="제목을 검색하세요">
+          <button class="btn btn-primary" type="submit">검색</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 검색 결과가 없을 때 메시지 -->
+  <div th:if="${posts.size() == 0}" class="alert alert-warning">
+    검색 결과가 없습니다.
   </div>
 
   <!-- 게시글 카드 -->
   <div th:each="post : ${posts}" class="post-card" th:onclick="'location.href=\'/posts/' + ${post.id} + '\''">
     <!-- 사용자 이름과 작성 시간 -->
     <div class="post-meta">
-      <strong><i class="bi bi-person-circle"></i> 아이디고정</strong> · <i class="bi bi-clock"></i> <span th:text="${#temporals.format(post.createdAt, 'yyyy-MM-dd HH:mm:ss')}"></span>
+      <i class="bi bi-person-circle"></i>
+      <span th:text="${post.author.loginId}"></span> ·
+      <i class="bi bi-clock"></i> <span th:text="${#temporals.format(post.createdAt, 'yyyy-MM-dd HH:mm:ss')}"></span>
     </div>
 
     <!-- 게시글 제목 -->
@@ -19,10 +37,11 @@
 
     <!-- 게시글 내용 (40자까지 자르기) -->
     <p class="post-content" th:text="${post.content.length() > 40 ? #strings.substring(post.content, 0, 40) + '...' : post.content}"></p>
+    <i class="bi bi-chat"> <span th:text="${post.commentCount}">0</span></i>
   </div>
 </div>
 
 <!-- 부트스트랩 아이콘 사용 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.js"></script>
-</body>
+
 </html>

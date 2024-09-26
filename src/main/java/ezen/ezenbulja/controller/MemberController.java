@@ -120,48 +120,72 @@ public class MemberController {
         if (loginMember == null) {
             return "redirect:/login";  // 로그인하지 않은 경우 로그인 페이지로 리다이렉트
         }
+
+        // 기존 로그인 정보를 활용하여 MemberForm에 데이터 채움
         MemberForm memberForm = new MemberForm();
-        memberForm.setLoginId(loginMember.getLoginId());
-        memberForm.setName(loginMember.getName());
-        model.addAttribute("memberForm", memberForm);
-        return "user/change-password";  // 비밀번호 변경 페이지 템플릿
+        memberForm.setLoginId(loginMember.getLoginId());  // 로그인한 사용자의 아이디 설정
+        memberForm.setName(loginMember.getName());  // 로그인한 사용자의 이름 설정
+
+        model.addAttribute("memberForm", memberForm);  // form 객체 추가
+        model.addAttribute("loginMember", loginMember);  // 로그인한 사용자 정보 추가
+
+        return "user/change-password";  // 비밀번호 변경 페이지로 이동
     }
 
-    // 비밀번호 변경 처리
     @PostMapping("/change-password")
     public String changePassword(@SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) Member loginMember,
                                  @Validated @ModelAttribute("memberForm") MemberForm form,
                                  BindingResult bindingResult,
-                                 Model model) {
+                                 Model model, HttpServletRequest request) {
 
+//        System.out.println("비밀번호 변경 요청 - loginId: " + form.getLoginId() + ", name: " + form.getName());
+
+        // 로그인하지 않은 경우 로그인 페이지로 리다이렉트
         if (loginMember == null) {
-            return "redirect:/login";  // 로그인하지 않은 경우 로그인 페이지로 리다이렉트
+            System.out.println("로그인 정보가 없습니다.");  // 로그 출력
+            return "redirect:/login";
         }
+
+//        System.out.println("로그인 상태 유지 중. 사용자 ID: " + loginMember.getLoginId());  // 디버깅 로그 추가
 
         // 유효성 검증 실패 시
         if (bindingResult.hasErrors()) {
-            return "user/change-password";  // 오류 발생 시 다시 폼으로
+            System.out.println("유효성 검증 실패: " + bindingResult.getAllErrors());  // 오류 내용을 로그로 출력
+            return "user/change-password";
         }
 
         // 새 비밀번호와 확인 비밀번호가 일치하지 않을 경우
         if (!form.getNewPassword().equals(form.getConfirmNewPassword())) {
+            System.out.println("새 비밀번호와 확인 비밀번호가 일치하지 않음");
             bindingResult.rejectValue("confirmNewPassword", "error.confirmNewPassword", "새 비밀번호가 일치하지 않습니다.");
-            return "user/change-password";  // 비밀번호 확인 오류 시 다시 폼으로
+            return "user/change-password";
         }
 
         // (선택 사항) 현재 비밀번호가 맞는지 확인하는 로직 추가
         if (!memberService.isPasswordCorrect(loginMember.getId(), form.getPassword())) {
+            System.out.println("현재 비밀번호가 일치하지 않음");
             bindingResult.rejectValue("password", "error.password", "현재 비밀번호가 맞지 않습니다.");
-            return "user/change-password";  // 현재 비밀번호 오류 시 다시 폼으로
+            return "user/change-password";
         }
 
         // 비밀번호 변경 로직
         boolean isPasswordChanged = memberService.changePassword(loginMember.getId(), form.getNewPassword());
 
+        // 비밀번호 변경 실패 시
         if (!isPasswordChanged) {
+            System.out.println("비밀번호 변경 실패");
             bindingResult.rejectValue("newPassword", "error.newPassword", "비밀번호 변경에 실패했습니다.");
-            return "user/change-password";  // 비밀번호 변경 실패 시 다시 폼으로
+            return "user/change-password";
         }
+
+//        System.out.println("비밀번호 변경 성공");
+
+        // 세션에 로그인 정보를 갱신 (비밀번호 변경 후에도 세션에 업데이트된 정보 유지)
+        loginMember.setPassword(form.getNewPassword());
+        request.getSession().setAttribute(SessionConst.LOGIN_MEMBER, loginMember);
+
+        // 세션에 저장된 비밀번호가 올바르게 변경되었는지 확인 (디버깅용)
+//        System.out.println("세션에 저장된 비밀번호: " + loginMember.getPassword());
 
         return "redirect:/";  // 비밀번호 변경 성공 시 홈으로 리다이렉트
     }
