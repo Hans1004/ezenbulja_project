@@ -45,7 +45,7 @@ a {
 }
 
 .btn-login {
-    background-color: #213180;
+    background-color: #213180 !important;
 }
 
 .custom-input-size {

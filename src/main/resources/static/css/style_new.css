@@ -1,0 +1,250 @@
+/* 폰트 적용 */
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Brush+Script&family=Noto+Sans+KR:wght@100..900&display=swap');
+
+body {
+    font-family: "Noto Sans KR", sans-serif;
+    margin: 0;
+    padding: 0;
+    /*background-color: #f4f4f4;*/
+    /*color: #333;*/
+    /*padding-top: 30px;*/
+}
+h1, h2, h3, h4, h5, .nav-font {
+    font-family: "Do Hyeon", sans-serif;
+}
+
+
+.bg-custom {
+    background-color: #0a008f !important; /* !important 추가 */
+}
+
+/* 글씨 색 지정 */
+.custom-login-color {
+    color: #213180;
+}
+
+.btn-custom {
+    background-color: #ffae00;
+    border:1px solid #ffae00;
+}
+
+.btn-login {
+    height: 60px;
+    font-size: 1.5rem;
+    border-radius: 20px;
+    background-color: #213180 !important;
+    padding: 10px;
+    border-width: 2px;
+    margin-top: 10px;
+    color : #ffffff !important;
+    border: 1px solid #213180;
+}
+
+
+/* 버튼에 마우스를 올렸을 때의 스타일 유지 */
+.btn-custom:hover, .btn-custom:focus, .btn-custom:active
+ {
+    background-color: #ffae00 !important;
+    color: #000000 !important;
+    border-color: #ffae00 !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.radio-buttons {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.custom-border {
+    border: 1px solid #213180;
+}
+
+/* 링크 스타일 */
+a {
+    text-decoration: none;
+    color: gray;
+}
+
+.custom-input-size {
+    height: 60px;
+    font-size: 1.2rem;
+    border-radius: 20px;
+    padding: 10px;
+    border-width: 2px;
+}
+
+.custom-input-size:focus {
+    border-color: #213180;
+    outline: none;
+}
+
+.custom-hr {
+    border: none;
+    border-top: 3px solid #213180;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.status p {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.graphs-container > div, .prediction-output {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 20px;
+    height: 400px;
+}
+
+.plotly-chart {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.plotly-chart > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scale(1);
+    transform-origin: top left;
+}
+
+/* 팀원 소개 제목 스타일 */
+h1 {
+    background-color: #0a008f;
+    color: #d6d6d6;
+    padding: 20px;
+    border-radius: 8px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+}
+
+h1 span {
+    color: #007bff;
+    font-weight: 900;
+}
+
+.img-box1 {
+    width: 1000px;
+    height: 500px;
+    background-image: url("../images/서울-색상-지도-min.jpg");
+    background-size: 100% 100%;
+}
+
+.img-box2 {
+    width: 200px;
+    height: 100px;
+    background-image: url("../images/696619c7ce945422e92c19d5860cc117151911.jpg");
+    background-size: cover;
+}
+
+/* 미디어 쿼리 */
+@media (min-width:768px) and (max-width:1024px){
+    .text {
+        font-size: 15px;
+    }
+}
+
+.text1 {
+    vertical-align: middle;
+}
+
+.font-color1 {
+    background-color: #213180;
+}
+
+.card {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+    max-height: 350px;
+    object-fit: cover;
+}
+
+.navbar {
+    background-color: #28599D;
+    font-family: "Do Hyeon", sans-serif;
+}
+
+.lofo-font {
+    color: #0B0629;
+    font-family: "Do Hyeon", sans-serif;
+    font-size: 40px;
+    text-shadow: 2px 2px 0 #FFAE00, -2px -2px 0 #FFAE00, 2px -2px 0 #FFAE00, -2px 2px 0 #FFAE00;
+}
+
+#result-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.yellow { background-color: #f4d03f; }
+.blue { background-color: #3498db; }
+.red { background-color: #e74c3c; }
+.gray { background-color: #95a5a6; }
+.green { background-color: #2ecc71; }
+
+.lotto-number, .analyze-button {
+    display: inline-block;
+    width: 75px;
+    height: 75px;
+    line-height: 75px;
+    text-align: center;
+    border-radius: 50%;
+    margin: 5px;
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3);
+    user-select: none;
+}
+
+.analyze-button {
+    background-color: #1e49f5;
+    margin-right: 20px;
+}
+
+.analyze-button:hover {
+    background-color: #2c3e50;
+}
