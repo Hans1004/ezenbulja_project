@@ -1,35 +1,69 @@
-<!--자세히 보기-->
 <html lang="ko" layout:decorate="~{layout/layout}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<body>
 <div class="container mt-5" layout:fragment="content">
-  <h1 class="text-center mb-4" th:text="${post.title}">게시글 제목</h1>
+  <h1 class="text-center mb-4">자유 게시판</h1>
 
   <div class="post-container">
     <!-- 작성일 및 기타 정보 -->
     <div class="post-meta mb-3">
-      <i class="bi bi-person-circle"></i> 아이디고정 ·
-      <i class="bi bi-clock"></i> <span th:text="${#temporals.format(post.createdAt, 'yyyy-MM-dd HH:mm:ss')}">2024-09-23 15:00:00</span>
+      <i class="bi bi-person-circle"></i>
+      <span th:text="${post.author.loginId}"></span> ·
+      <i class="bi bi-clock"></i> <span th:text="${#temporals.format(post.createdAt, 'yyyy-MM-dd HH:mm:ss')}"></span>
     </div>
-
-    <!-- 게시글 내용 -->
+    <h5 class="mb-4" th:text="${post.title}"></h5>
     <div class="post-content">
-      <p th:text="${post.content}">게시글 내용</p>
+      <p th:text="${post.content}"></p>
     </div>
-  </div>
 
-  <!-- 수정, 삭제, 돌아가기 버튼 -->
-  <div class="btn-container">
-    <!-- 수정 버튼 -->
-    <a class="btn btn-primary btn-sm" href="#">수정</a>
-
-    <!-- 삭제 버튼 -->
-    <form th:action="@{/posts/delete/{id}(id=${post.id})}" method="post" style="display:inline;">
+    <!-- 게시글 수정 및 삭제 버튼 -->
+    <a th:if="${loginMember.id == post.author.id}" th:href="@{/posts/edit/{id}(id=${post.id})}" class="btn btn-success btn-sm">수정</a>
+    <form th:if="${loginMember.id == post.author.id}" th:action="@{/posts/delete/{id}(id=${post.id})}" method="post" style="display:inline;">
+      <input type="hidden" name="_method" value="delete"/>
       <button type="submit" class="btn btn-danger btn-sm">삭제</button>
     </form>
-  </div>
-  <!-- 목록으로 돌아가기 버튼 -->
-  <a th:href="@{/posts}" class="btn btn-secondary btn-back mt-2 btn-sm">돌아가기</a>
-</div>
 
-<!-- 부트스트랩 아이콘 사용 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.js"></script>
+  </div>
+
+  <!-- 댓글 작성 폼 -->
+  <div class="comment-form mt-4">
+    <h4>댓글 작성</h4>
+    <form th:action="@{/posts/{postId}/comments(postId=${post.id})}" th:object="${commentDTO}" method="post">
+      <!-- 게시글 ID를 숨겨서 전송 -->
+      <input type="hidden" th:value="${post.id}" name="postId" />
+      <div class="form-group">
+        <textarea th:field="*{content}" class="form-control" placeholder="댓글을 작성하세요" rows="3"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary btn-sm">등록</button>
+    </form>
+    <a class="btn btn-secondary mt-2 btn-sm" th:href="@{/posts}">돌아가기</a>
+  </div>
+
+  <!-- 댓글 목록 -->
+  <div class="comments-section mt-5">
+    <h4>댓글</h4>
+    <ul>
+      <li th:each="comment : ${comments}">
+        <div class="comment-meta mb-2">
+          <i class="bi bi-person-circle"></i>
+          <span th:text="${comment.author.loginId}"></span> ·
+          <span th:text="${#temporals.format(comment.createdAt, 'yyyy-MM-dd HH:mm:ss')}"></span>
+        </div>
+        <p th:text="${comment.content}" class="comment-content"></p>
+
+<!--         본인만 댓글 삭제 버튼이 보이도록 설정-->
+        <div th:if="${loginMember.id == comment.author.id}">
+          <form th:action="@{/comments/{commentId}(commentId=${comment.id})}" method="post" style="display:inline;">
+            <input type="hidden" name="_method" value="delete"/> <!-- 삭제 메소드 처리 -->
+            <button type="submit" class="btn btn-danger btn-sm">댓글 삭제</button>
+          </form>
+        </div>
+
+        <hr>
+      </li>
+    </ul>
+
+  </div>
+
+</div>
+</body>
 </html>

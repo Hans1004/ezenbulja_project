@@ -8,15 +8,19 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 // PostService.java
 @Service
 public class PostService {
     private final PostRepository postRepository;
+    private final CommentService commentService;
 
     // 생성자를 통해 PostRepository 주입
-    public PostService(PostRepository postRepository) {
+    public PostService(PostRepository postRepository, CommentService commentService) {
+
         this.postRepository = postRepository;
+        this.commentService = commentService;
     }
 
     // 최신순으로 게시글 목록을 반환하는 메서드
@@ -30,7 +34,8 @@ public class PostService {
         Post post = new Post();
         post.setTitle(postDTO.getTitle());           // 제목 설정
         post.setContent(postDTO.getContent());       // 내용 설정
-        post.setCreatedAt(LocalDateTime.now());      // 현재 시간을 createdAt에 설정
+        post.setCreatedAt(LocalDateTime.now());      // 현재 시간 설정
+        post.setAuthor(postDTO.getAuthor());         // 작성자 설정
         return postRepository.save(post);            // 저장 후 저장된 엔티티 반환
     }
 
@@ -41,11 +46,35 @@ public class PostService {
                 .orElseThrow(() -> new IllegalArgumentException("게시글을 찾을 수 없습니다."));
     }
 
-    // 특정 ID의 게시글을 삭제하는 메서드
-    public void deletePost(Long id) {
-        // ID로 게시글 삭제
-        postRepository.deleteById(id);
+    // 게시글 삭제 로직
+    public void deletePost(Long postId) {
+        Post post = postRepository.findById(postId)
+                .orElseThrow(() -> new IllegalArgumentException("게시글을 찾을 수 없습니다."));
+
+        // 게시글 삭제
+        postRepository.deleteById(postId);
     }
 
-    // 수정 기능: 게시글 수정 시 사용 가능 (추가할 수 있음)
+    // 게시글 수정
+    public void updatePost(Long postId, PostDTO postDTO) {
+        Post post = postRepository.findById(postId)
+                .orElseThrow(() -> new IllegalArgumentException("게시글을 찾을 수 없습니다."));
+
+        post.setTitle(postDTO.getTitle());
+        post.setContent(postDTO.getContent());
+        postRepository.save(post);  // 변경 사항 저장
+    }
+    public List<PostDTO> searchByTitle(String keyword) {
+        List<Post> posts = postRepository.findByTitleContaining(keyword);
+
+        return posts.stream()
+                .map(post -> {
+                    int commentCount = commentService.getCommentCountByPostId(post.getId());
+                    return new PostDTO(post, commentCount);  // 댓글 수를 포함한 PostDTO 생성
+                })
+                .collect(Collectors.toList());
+    }
+
+
+
 }

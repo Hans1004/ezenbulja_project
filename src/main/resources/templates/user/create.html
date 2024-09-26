@@ -1,8 +1,9 @@
-<!--새글 생성-->
 <html lang="ko" layout:decorate="~{layout/layout}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <div class="container mt-5" layout:fragment="content">
     <h1 class="text-center mb-4">새 게시글 작성</h1>
-    <form th:action="@{/posts}" th:object="${postDTO}" method="post">
+
+    <!-- 새 게시글 작성 폼 -->
+    <form th:if="${postDTO != null}" th:action="@{/posts}" th:object="${postDTO}" method="post">
         <div class="form-group">
             <label for="title">제목:</label>
             <input type="text" id="title" th:field="*{title}" class="form-control" placeholder="제목을 입력하세요" />
@@ -17,7 +18,7 @@
 
         <button type="submit" class="btn btn-primary btn-sm">등록</button>
     </form>
+
     <a class="btn btn-secondary mt-2 btn-sm" th:href="@{/posts}">돌아가기</a>
 </div>
-</body>
 </html>
