@@ -2,8 +2,7 @@
 
 <script th:src="@{/js/esti2.js}"></script>
 <div class="container mt-5" layout:fragment="content">
-
-<div class="container">
+    <div class="container">
         <div class="row py-3 justify-content-center">
             <div class="text-center rounded border border-dark border-2 img-thumbnail shadow-lg">
                 <img src="./images/서울-색상-지도-min.jpg" alt="서울지도" class="img-fluid">
@@ -74,9 +73,12 @@
                     </div>
                 </div>
                 <div class="text-center my-3 py-3">
-                    <div id="text">데이터 학습 중...</div>
-                    <button class="btn font-color1 text-warning fw-bold py-3" id="predict-button">집값 예측하기</button>
-                    <div class="opacity-75 text-center"><img src="./images/696619c7ce945422e92c19d5860cc117151911.jpg" class="img-fluid"></div>
+                    <div id="text">학습 버튼을 눌러주세요.</div>
+                    <button class="btn font-color1 text-warning fw-bold py-3" id="train-button">학습하기</button>
+                    <button class="btn font-color1 text-warning fw-bold py-3" id="predict-button" disabled>집값 예측하기</button>
+                    <div class="opacity-75 text-center">
+                        <img src="./images/696619c7ce945422e92c19d5860cc117151911.jpg" class="img-fluid">
+                    </div>
                 </div>
             </div>
             <div class="col-md-6 border border-dark border-2 rounded m-3">
@@ -93,5 +95,7 @@
     </div>
     <script th:src="@{/js/esti2.js}"></script>
 </div>
+
+
 
 </html>
