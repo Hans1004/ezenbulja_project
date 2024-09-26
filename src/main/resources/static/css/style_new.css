@@ -5,20 +5,17 @@ body {
     font-family: "Noto Sans KR", sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-    padding-top: 30px;
+    /*background-color: #f4f4f4;*/
+    /*color: #333;*/
+    /*padding-top: 30px;*/
 }
 h1, h2, h3, h4, h5, .nav-font {
     font-family: "Do Hyeon", sans-serif;
 }
 
-/* 배경 색 지정 */
+
 .bg-custom {
-    background-color: #213180; /* 원하는 색상 코드 */
-}
-.bg-custom {
-    background-color: #0a008f; /* 중복된 클래스, 뒤에 나오는 색상 적용 */
+    background-color: #0a008f !important; /* !important 추가 */
 }
 
 /* 글씨 색 지정 */
@@ -26,26 +23,37 @@ h1, h2, h3, h4, h5, .nav-font {
     color: #213180;
 }
 
-.btn-custom, .btn-login {
+.btn-custom {
     background-color: #ffae00;
-    border: 1px solid #ffae00;
+    border:1px solid #ffae00;
+}
+
+.btn-login {
     height: 60px;
     font-size: 1.5rem;
     border-radius: 20px;
+    background-color: #213180 !important;
     padding: 10px;
     border-width: 2px;
     margin-top: 10px;
-    color: #ffffff !important;
+    color : #ffffff !important;
+    border: 1px solid #213180;
 }
 
+
 /* 버튼에 마우스를 올렸을 때의 스타일 유지 */
-.btn-custom:hover, .btn-custom:focus, .btn-custom:active,
-.btn-login:hover, .btn-login:focus, .btn-login:active {
+.btn-custom:hover, .btn-custom:focus, .btn-custom:active
+ {
     background-color: #ffae00 !important;
     color: #000000 !important;
     border-color: #ffae00 !important;
     box-shadow: none !important;
     outline: none !important;
+}
+
+.radio-buttons {
+    margin-bottom: 30px;
+    text-align: center;
 }
 
 .custom-border {
@@ -147,14 +155,14 @@ h1 span {
 .img-box1 {
     width: 1000px;
     height: 500px;
-    background-image: url("../서울-색상-지도-min.jpg");
+    background-image: url("../images/서울-색상-지도-min.jpg");
     background-size: 100% 100%;
 }
 
 .img-box2 {
     width: 200px;
     height: 100px;
-    background-image: url("../696619c7ce945422e92c19d5860cc117151911.jpg");
+    background-image: url("../images/696619c7ce945422e92c19d5860cc117151911.jpg");
     background-size: cover;
 }
 
@@ -192,6 +200,7 @@ h1 span {
 
 .navbar {
     background-color: #28599D;
+    font-family: "Do Hyeon", sans-serif;
 }
 
 .lofo-font {
@@ -200,6 +209,20 @@ h1 span {
     font-size: 40px;
     text-shadow: 2px 2px 0 #FFAE00, -2px -2px 0 #FFAE00, 2px -2px 0 #FFAE00, -2px 2px 0 #FFAE00;
 }
+
+#result-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.yellow { background-color: #f4d03f; }
+.blue { background-color: #3498db; }
+.red { background-color: #e74c3c; }
+.gray { background-color: #95a5a6; }
+.green { background-color: #2ecc71; }
 
 .lotto-number, .analyze-button {
     display: inline-block;

@@ -1,64 +1,64 @@
-<footer th:fragment="footerFragment" class="bg-dark text-center text-white py-3">
+<footer th:fragment="footerFragment" class=" text-white py-4 bg-custom">
     <div class="container">
-            <div class="row">
-                <!-- About Us Section -->
-                <div class="col-md-4">
-                    <h4 class="">이젠벌자</h4>
-                    <p>팀 돈개발 | 팀장</p>
-                    <p>사업장주소 <br> 경기도 성남시 중원구 성남동 3219번지 <br> KR 아트팰리스 4호 5층</p>
-                    <!-- Social Icons -->
-                    <div class="my-3">
-                        <a href="#"><i class="bi bi-facebook text-white fs-4"></i></a>
-                        <a href="#"><i class="bi bi-twitter text-white mx-3 fs-4"></i></a>
-                        <a href="#"><i class="bi bi-google text-white fs-4"></i></a>
+        <div class="row">
+            <!-- About Us Section -->
+            <div class="col-md-4">
+                <h4 class="">이젠벌자</h4>
+                <a class="text-white" th:href="@{/team}">제작 : 돈개발 팀 | 팀원소개</a>
+                <p>사업장주소 <br> 경기도 성남시 중원구 성남동 3219번지 <br> KR 아트팰리스 4호 5층</p>
+                <!-- Social Icons -->
+                <div class="my-3">
+                    <a href="#"><i class="bi bi-facebook text-white fs-4"></i></a>
+                    <a href="#"><i class="bi bi-twitter text-white mx-3 fs-4"></i></a>
+                    <a href="#"><i class="bi bi-google text-white fs-4"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links Section -->
+            <div class="col-md-4 text-white">
+                <h4>MADE BY</h4>
+                <ul class="list-unstyled">
+                    <li><a href="profile.html" class="link-light text-decoration-none ">•  TensorFlow</a></li>
+                    <br>
+                    <li><a href="private-interior.html" class="link-light text-decoration-none ">•  HTML</a></li>
+                    <br>
+                    <li><a href="business-interior.html" class="link-light text-decoration-none ">•  SWIFT</a></li>
+                    <br>
+                    <li><a href="contact.html" class="link-light text-decoration-none">•  javaScript</a></li>
+                </ul>
+            </div>
+
+            <!-- Newsletter Section -->
+            <div class="col-md-4">
+                <h4>주의 사항</h4>
+                <p class="py-2">본 사이트의 콘텐츠는 저작권법의 보호를 받는 바 무단 전재, 복사, 배포 등을 금합니다.</p>
+                <form th:action="@{/submitContact}" method="post">
+                    <h4 class="py-2">문의 사항</h4>
+                    <div class="input-group">
+                        <input type="email" name="email" class="form-control rounded-start-2" placeholder="Your email" required>
+                        <button class="btn btn-custom rounded-end-2" type="submit">등록하기</button>
                     </div>
-                </div>
-    
-                <!-- Quick Links Section -->
-                <div class="col-md-4 text-white">
-                    <h4>MADE BY</h4>
-                    <ul class="list-unstyled">
-                        <li><a href="profile.html" class="link-light text-decoration-none ">•  TensorFlow</a></li>
-                        <br>
-                        <li><a href="private-interior.html" class="link-light text-decoration-none ">•  HTML</a></li>
-                        <br>
-                        <li><a href="business-interior.html" class="link-light text-decoration-none ">•  SWIFT</a></li>
-                        <br>
-                        <li><a href="contact.html" class="link-light text-decoration-none">•  javaScript</a></li>
-                    </ul>
-                </div>
-    
-                <!-- Newsletter Section -->
-                <div class="col-md-4">
-                    <h4>주의 사항</h4>
-                    <p class="py-2">본 사이트의 콘텐츠는 저작권법의 보호를 받는 바 무단 전재, 복사, 배포 등을 금합니다.</p>
-                    <h4 class="">문의 사항</h4>
-                    <form th:action="@{/submitContact}" method="post">
-                        <div class="input-group">
-                            <input type="email" name="email" class="form-control rounded-start-2" placeholder="Your email" required>
-                            <button class="btn btn-custom rounded-end-2" type="submit">등록하기</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            
-            <!-- Footer Bottom Line -->
-            <hr class="border-light">
-            <!-- Bottom Row with Contact Information -->
-            <div class="row mt-4">
-                <div class="col-md-4">
-                    <p><i class="bi bi-telephone"></i> Call Us: 406-296-9982</p>
-                </div>
-                <div class="col-md-4">
-                    <p><i class="bi bi-envelope"></i> Mail Us: support@skillup.com</p>
-                </div>
-                <div class="col-md-4">
-                    <p><i class="bi bi-geo-alt"></i> 경기도 성남시 중원구 성남동 3219번지     KR 아트팰리스 4호 5층</p>
-                </div>
-            </div>
-            <br>
-            <div class="text-center">
-                <p class="mb-0">Copyright © 2018 Skillup. All rights reserved.</p>
+                </form>
             </div>
         </div>
-    </footer>
+
+        <!-- Footer Bottom Line -->
+        <hr class="border-light">
+        <!-- Bottom Row with Contact Information -->
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <p><i class="bi bi-telephone"></i> Call Us: 406-296-9982</p>
+            </div>
+            <div class="col-md-4">
+                <p><i class="bi bi-envelope"></i> Mail Us: support@skillup.com</p>
+            </div>
+            <div class="col-md-4">
+                <p><i class="bi bi-geo-alt"></i> 경기도 성남시 중원구 성남동 3219번지     KR 아트팰리스 4호 5층</p>
+            </div>
+        </div>
+        <br>
+        <div class="text-center">
+            <p class="mb-0">Copyright © 2018 Skillup. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
