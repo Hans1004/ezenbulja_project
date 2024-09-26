@@ -1,11 +1,11 @@
-const EPOCHS = 10; // 학습 횟수
+const EPOCHS = 5; // 학습 횟수
 const LEARNING_RATE = 0.001; // 학습률
 let XnormParams, YnormParams, model;
 let lossHistory = [];
 
-// 페이지 로드 시 데이터 및 모델 준비
-document.addEventListener("DOMContentLoaded", async () => {
-    await train();
+// 페이지 로드 시 이벤트 리스너 추가
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("train-button").addEventListener("click", trainModel);
     document.getElementById("predict-button").addEventListener("click", predict);
 });
 
@@ -27,6 +27,17 @@ function denormalize(tensor, mean, std) {
     return tensor.mul(std).add(mean);
 }
 
+async function trainModel() {
+    document.getElementById("text").innerHTML = "학습 중...";
+    document.getElementById("train-button").setAttribute("disabled", true);
+
+    await train();
+
+    document.getElementById("text").innerHTML = "학습 완료";
+    document.getElementById("train-button").style.display = "none"; // 학습하기 버튼 숨기기
+    document.getElementById("predict-button").removeAttribute("disabled"); // 예측하기 버튼 활성화
+}
+
 function predict() {
     const areaInput = document.getElementById("area-select").value;
     const regionInput = parseInt(document.getElementById("region-select").value);
@@ -34,7 +45,7 @@ function predict() {
 
     const areaValue = parseInt(areaInput);
 
-    if (isNaN(areaValue) || isNaN(regionInput) || isNaN(purposeInput)) {
+    if (isNaN(areaValue) || isNaN(regionInput) || isNaN(purposeInput) || areaInput === "선택하세요." || regionInput === 0 || purposeInput === 0) {
         alert("모든 값을 올바르게 선택하세요.");
         return;
     }
@@ -59,11 +70,9 @@ function predict() {
         }
 
         const outputFormatted = output.toLocaleString('ko-KR', { maximumFractionDigits: 0 });
-
         document.getElementById("predicted-price").innerText = outputFormatted + ' 원';
     });
 }
-
 
 // 손실 값을 시각화하는 함수
 function plotLoss(loss) {
@@ -149,9 +158,6 @@ async function train() {
             }
         });
     }
-
-    document.getElementById("text").innerHTML = "학습 완료";
-    document.getElementById("predict-button").removeAttribute("disabled");
 
     // 정규화된 값 저장
     XnormParams = { mean: normedXtrain.mean, std: normedXtrain.std };
