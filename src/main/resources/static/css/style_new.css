@@ -117,11 +117,16 @@ a {
     height: 400px;
 }
 
+#data-plot, #training-performance, #batch-performance {
+    width: 100%;
+    height: 400px; /* 차트가 들어갈 div의 높이 설정 */
+}
+
 .plotly-chart {
     position: relative;
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    overflow: hidden; /* 자식 요소가 넘어갈 경우 숨기기 */
 }
 
 .plotly-chart > * {
@@ -130,12 +135,12 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    transform: scale(1);
-    transform-origin: top left;
+    transform: scale(1); /* 필요에 따라 비율 조정 */
+    transform-origin: top left; /* 조정 기준점 설정 */
 }
 
 /* 팀원 소개 제목 스타일 */
-h1 {
+.team_title {
     background-color: #0a008f;
     color: #d6d6d6;
     padding: 20px;
