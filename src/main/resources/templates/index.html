@@ -1,29 +1,26 @@
 <html lang="ko" layout:decorate="~{layout/layout}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-<!-- 헤더영역 시작 -->
-<div layout:fragment="link"><link th:href="@{/css/style_index.css}" rel="stylesheet" ></div>
 
+<!-- 네비게이션바 끝 -->
 <section layout:fragment="content">
-    <!-- 네비게이션바 끝 -->
-
     <!-- 헤더영역 시작 -->
-    <header class="container-fluid py-5" id="header">
+    <header class="container-fluid py-5"  id="header">
         <div class="row">
             <div id="headerCarousel" class="carousel slide carousel-fade " data-bs-ride="carousel">
                 <div class="carousel-inner ">
                     <div class="carousel-item active h-50" data-bs-interval="5000">  <!-- 시간설정은 5초-->
-                        <img src="/images/banner1.png" class="d-block w-100 " id="header_img" alt="배너">
+                        <img src="./images/banner1.png" style="max-width: 100%; height: auto;" class="d-block w-100 " id="header_img" alt="배너">
                     </div>
                     <div class="carousel-item h-50" data-bs-interval="3000">
-                        <img src="/images/bitcoin1.png" class="d-block w-100" id="header_img" alt="배너2">
+                        <img src="./images/bitcoin1.png" style="max-width: 100%; height: auto;" class="d-block w-100" id="header_img" alt="배너2">
                     </div>
                     <div class="carousel-item h-50" data-bs-interval="3000">
-                        <img src="/images/city.png" class="d-block w-100" id="header_img" alt="배너3">
+                        <img src="./images/city.png" style="max-width: 100%; height: auto;" class="d-block w-100" id="header_img" alt="배너3">
                     </div>
                     <div class="carousel-item h-50" data-bs-interval="3000">
-                        <img src="/images/lott2.png" class="d-block w-100" id="header_img" alt="배너4">
+                        <img src="./images/lott2.png" style="max-width: 100%; height: auto;" class="d-block w-100" id="header_img" alt="배너4">
                     </div>
                     <div class="carousel-item h-50" data-bs-interval="3000">
-                        <img src="/images/strok.png" class="d-block w-100" id="header_img" alt="배너5">
+                        <img src="./images/strok.png" style="max-width: 100%; height: auto;" class="d-block w-100" id="header_img" alt="배너5">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#headerCarousel" data-bs-slide="prev">
@@ -45,36 +42,48 @@
             <section class="col-lg-4 col-md-12 my-3" id="card-2">
                 <div class="card">
                     <div class="card-body ">
-                        <!-- <a href="#" class="text-decoration-none fs-5"><img src="/images/비트코인.png" alt="비트코인" class="my-3"></a> -->
-                        <a href="#" class="text-decoration-none fs-5"><img src="/images/메인비트코인아이콘.png" alt="비트코인" class="my-3 "></a>
+                        <!-- <a href="#" class="text-decoration-none fs-5"><img src="./비트코인.png" alt="비트코인" class="my-3"></a> -->
+                        <a href="#" class="text-decoration-none fs-5"><img src="./images/메인비트코인아이콘.png" alt="비트코인" class="my-3 "></a>
                         <p class="card-text fw-bold">Ai 딥러닝을 통하여<br>
                             익일 비트코인 가격을<br>
                             예측해 드립니다.</p>
                     </div>
-                    <img src="/images/메인1비트코인.png" class="card-img-top img-fluid " alt="비트코인메인">
+                    <div class="container-fluid">
+                        <div class="container">
+                            <img src="./images/메인1비트코인.png" class="card-img-top img-fluid  p-3" alt="비트코인메인">
+                        </div>
+                    </div>
                 </div>
             </section>
             <section class="col-lg-4 col-md-12 my-3" id="card-2">
                 <div class="card">
                     <div class="card-body ">
-                        <!-- <a href="#" class="text-decoration-none fs-5"><img src="/images/Lotto (2).png" alt="로또" class="my-3"></a> -->
-                        <a href="#" class="text-decoration-none fs-5"><img src="/images/로또이미지.png" alt="로또" class="my-3 "></a>
+                        <!-- <a href="#" class="text-decoration-none fs-5"><img src="./Lotto (2).png" alt="로또" class="my-3"></a> -->
+                        <a href="#" class="text-decoration-none fs-5"><img src="./images/로또이미지.png" alt="로또" class="my-3 "></a>
                         <p class="card-text fw-bold ">Ai 딥러닝을 통하여<br>
                             익일 비트코인 가격을<br>
                             예측해 드립니다.</p>
                     </div>
-                    <img src="/images/메인2로또.png" class="card-img-top img-fluid" alt="로또메인3">
+                    <div class="container-fluid">
+                        <div class="container">
+                            <img src="./images/메인2로또.png" class="card-img-top img-fluid p-3" alt="로또메인3">
+                        </div>
+                    </div>
                 </div>
             </section>
             <section class="col-lg-4 col-md-12 my-3" id="card-2">
                 <div class="card">
                     <div class="card-body ">
-                        <a href="#" class="text-decoration-none fs-5"><img src="/images/야구이미지.png" alt="야구" class="my-3 "></a>
+                        <a href="#" class="text-decoration-none fs-5"><img src="./images/Group.png" alt="부동산" class="my-3 "></a>
                         <p class="card-text fw-bold ">Ai 딥러닝을 통하여<br>
                             익일 비트코인 가격을<br>
                             예측해 드립니다.</p>
                     </div>
-                    <img src="/images/메인3야구.png" class="card-img-top img-fluid" alt="야구메인1">
+                    <div class="container-fluid">
+                        <div class="container">
+                            <img src="./images/OIP 1.png" class="card-img-top img-fluid p-3" alt="부동산메인">
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>
@@ -100,16 +109,16 @@
             <div class="col-md-4">
                 <div class="row text-center">
                     <div class="col-md-6 col-6 mb-4 align-items-stretch">
-                        <img src="/images/하단 HTML.png" class="img-fluid " alt="HTML">
+                        <img src="./images/하단 HTML.png" class="img-fluid " alt="HTML">
                     </div>
                     <div class="col-md-6 col-6 mb-4 align-items-stretch">
-                        <img src="/images/하단 피그마.png" class="img-fluid " alt="Figma">
+                        <img src="./images/하단 피그마.png" class="img-fluid " alt="Figma">
                     </div>
                     <div class="col-md-6 col-6 mb-4  align-items-stretch">
-                        <img src="/images/하단 텐서플로우.png" class="img-fluid " alt="TensorFlow">
+                        <img src="./images/하단 텐서플로우.png" class="img-fluid " alt="TensorFlow">
                     </div>
                     <div class="col-md-6 col-6 mb-4 align-items-stretch">
-                        <img src="/images/하단 자바스크립트.png" class="img-fluid " alt="JavaScript">
+                        <img src="./images/하단 자바스크립트.png" class="img-fluid " alt="JavaScript">
                     </div>
                 </div>
             </div>
@@ -129,9 +138,6 @@
 </section>
 <!-- 하단 비전 끝 -->
 
-<!-- 푸터 시작 -->
+<script src="./js/bootstrap.bundle.js"></script>
 
-<!-- 푸터 끝 -->
-
-<script src="/images/js/bootstrap.bundle.js"></script>
 </html>
