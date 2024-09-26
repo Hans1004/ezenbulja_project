@@ -66,23 +66,34 @@ public class MemberController {
     // 회원 수정 폼 표시
     @GetMapping("/members/{memberid}/edit")
     public String editMemberForm(@SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) Member loginMember, @PathVariable("memberid") Long memberid, Model model) {
-        Optional<Member> findMember = memberService.findOne(memberid);
-        if (findMember.isPresent()) {
-            Member findMemberGet = findMember.get();
-            MemberForm memberForm = new MemberForm();
-            memberForm.setId(findMemberGet.getId()); // MemberForm Long id 추가
-            memberForm.setLoginId(findMemberGet.getLoginId());
-            memberForm.setPassword(findMemberGet.getPassword());
-            memberForm.setName(findMemberGet.getName());
-            memberForm.setGrade(findMemberGet.getGrade());
-
-            model.addAttribute("memberForm", memberForm);
-            model.addAttribute("loginMember", loginMember);
-            return "admin/editMemberForm";
-        }
         model.addAttribute("loginMember", loginMember);
-        return "admin/memberList";
+
+        // 로그인 검증 추가
+        if (loginMember == null) {
+            return "redirect:/login"; // 로그인하지 않은 경우 로그인 페이지로 리다이렉트
+        }
+
+        // 회원 찾기
+        Optional<Member> findMember = memberService.findOne(memberid);
+        if (!findMember.isPresent()) {
+            model.addAttribute("errorMessage", "해당 회원을 찾을 수 없습니다.");
+            return "admin/memberList";
+        }
+
+        Member findMemberGet = findMember.get();
+        MemberForm memberForm = new MemberForm();
+        memberForm.setId(findMemberGet.getId());
+        memberForm.setLoginId(findMemberGet.getLoginId());
+        memberForm.setName(findMemberGet.getName());
+        memberForm.setGrade(findMemberGet.getGrade());
+
+        // 비밀번호는 폼에서 입력받도록 제외
+        // memberForm.setPassword(findMemberGet.getPassword());
+
+        model.addAttribute("memberForm", memberForm);
+        return "admin/editMemberForm";
     }
+
 
     @PostMapping("/members/{memberid}/edit")
     public String editMember(@SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) Member loginMember, @Validated @ModelAttribute("memberForm") MemberForm form, BindingResult bindingResult, Model model) {

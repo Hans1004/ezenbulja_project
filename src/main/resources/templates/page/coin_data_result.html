@@ -1,12 +1,6 @@
-<!DOCTYPE html>
 <html lang="ko" layout:decorate="~{layout/layout}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>비트코인 예측 가격 LIST</title>
-</head>
-<body>
-<div class="container" layout:fragment="content">
+
+<div class="container mt-5" layout:fragment="content">
     <div class="py-5 text-center">
         <h2 class="text-center">
             <img src="./images/bitcoin.png" style="width: 55px;"> 비트코인 예측 가격 LIST
@@ -17,7 +11,7 @@
             <tr>
                 <th>번호</th>
                 <th>생성일자</th>
-                <th>예측가격</th>
+                <th>예측된 최고 거래가격</th>
             </tr>
             </thead>
             <tbody>
@@ -72,7 +66,7 @@
 </div>
 
 
-<script>
+<script layout:fragment="script">
     $(function () {
         $(".page-link").on('click', function () {
             const page = $(this).data('page');
@@ -83,6 +77,4 @@
         });
     });
 </script>
-</body>
-
 </html>

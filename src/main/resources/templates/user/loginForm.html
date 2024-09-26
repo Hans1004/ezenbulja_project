@@ -1,13 +1,13 @@
 <html lang="ko" layout:decorate="~{layout/layout}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<!--<div layout:fragment="link"><link th:href="@{/css/login.css}" rel="stylesheet" ></div>-->
 <div class="container" layout:fragment="content">
-    <div class="row d-flex justify-content-center my-5">
+    <div class="row d-flex justify-content-center my-5 py-5">
         <div class="col-10 col-lg-5 col-md-6 custom-border rounded-4 my-5 py-4">
-            <div class="container">
+
                 <div class="d-flex align-items-center mb-4 px-3">
                     <h3 class="mb-0 custom-login-color">로그인</h3>
                     <h3 class="mb-0 ms-3 text-black-50"><a th:href="@{/add}">회원가입</a></h3>
                 </div>
-            </div>
             <form th:object="${loginForm}" th:action="@{/login}" method="post">
                 <div class="mb-4">
                     <input type="text" class="form-control custom-input-size" th:field="*{loginId}" placeholder="아이디를 입력하세요" th:errorclass="field-error">
@@ -26,5 +26,4 @@
         </div>
     </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </html>

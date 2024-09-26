@@ -1,10 +1,6 @@
 <html lang="ko" layout:decorate="~{layout/layout}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-<!-- 헤더영역 시작 -->
+
 <section layout:fragment="content">
-
-
-    <!-- 네비게이션바 끝 -->
-
     <!-- 헤더영역 시작 -->
     <header class="container-fluid py-5" id="header">
         <div class="row">
@@ -45,42 +41,58 @@
             <section class="col-lg-4 col-md-12 my-3" id="card-2">
                 <div class="card">
                     <div class="card-body ">
-                        <!-- <a href="#" class="text-decoration-none fs-5"><img src="/images/비트코인.png" alt="비트코인" class="my-3"></a> -->
-                        <a href="#" class="text-decoration-none fs-5"><img src="/images/메인비트코인아이콘.png" alt="비트코인" class="my-3 "></a>
+                        <!-- <a href="#" class="text-decoration-none fs-5"><img src="./비트코인.png" alt="비트코인" class="my-3"></a> -->
+                        <a href="#" class="text-decoration-none fs-5"><img src="./images/메인비트코인아이콘.png" alt="비트코인" class="my-3 "></a>
                         <p class="card-text fw-bold">Ai 딥러닝을 통하여<br>
                             익일 비트코인 가격을<br>
                             예측해 드립니다.</p>
                     </div>
-                    <img src="/images/메인1비트코인.png" class="card-img-top img-fluid " alt="비트코인메인">
+                    <div class="container-fluid">
+                        <div class="container">
+                            <img src="./images/메인1비트코인.png" class="card-img-top img-fluid  p-3" alt="비트코인메인">
+                        </div>
+                    </div>
                 </div>
             </section>
             <section class="col-lg-4 col-md-12 my-3" id="card-2">
                 <div class="card">
                     <div class="card-body ">
-                        <!-- <a href="#" class="text-decoration-none fs-5"><img src="/images/Lotto (2).png" alt="로또" class="my-3"></a> -->
-                        <a href="#" class="text-decoration-none fs-5"><img src="/images/로또이미지.png" alt="로또" class="my-3 "></a>
+                        <!-- <a href="#" class="text-decoration-none fs-5"><img src="./Lotto (2).png" alt="로또" class="my-3"></a> -->
+                        <a href="#" class="text-decoration-none fs-5"><img src="./images/로또이미지.png" alt="로또" class="my-3 "></a>
                         <p class="card-text fw-bold ">Ai 딥러닝을 통하여<br>
                             익일 비트코인 가격을<br>
                             예측해 드립니다.</p>
                     </div>
-                    <img src="/images/메인2로또.png" class="card-img-top img-fluid" alt="로또메인3">
+                    <div class="container-fluid">
+                        <div class="container">
+                            <img src="./images/메인2로또.png" class="card-img-top img-fluid p-3" alt="로또메인3">
+                        </div>
+                    </div>
                 </div>
             </section>
             <section class="col-lg-4 col-md-12 my-3" id="card-2">
                 <div class="card">
                     <div class="card-body ">
-                        <a href="#" class="text-decoration-none fs-5"><img src="/images/야구이미지.png" alt="야구" class="my-3 "></a>
+                        <a href="#" class="text-decoration-none fs-5"><img src="./images/Group.png" alt="부동산" class="my-3 "></a>
                         <p class="card-text fw-bold ">Ai 딥러닝을 통하여<br>
                             익일 비트코인 가격을<br>
                             예측해 드립니다.</p>
                     </div>
-                    <img src="/images/메인3야구.png" class="card-img-top img-fluid" alt="야구메인1">
+                    <div class="container-fluid">
+                        <div class="container">
+                            <img src="./images/OIP 1.png" class="card-img-top img-fluid p-3" alt="부동산메인">
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>
     </div>
     <!-- 메인섹션 끝 -->
 
+    <div class="text-center col" th:if="${loginMember.grade == 'admin'}">
+        <button class="w-100 btn btn-secondary btn-lg mb-3" type="button" th:onclick="|location.href='@{/members}'|">회원목록</button>
+    </div>
+    <
     <!-- 중간배너 시작 -->
     <div class="container ">
         <div class="col-12 py-3 ">

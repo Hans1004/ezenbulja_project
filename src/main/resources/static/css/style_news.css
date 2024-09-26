@@ -1,0 +1,48 @@
+body a :hover,
+button :hover{
+    background-color: #777777;
+}
+
+.img-news {
+    width: 200px;
+    height: 100px;
+    max-height: 200px;
+    object-fit: cover;
+}
+
+.text-truncate {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+
+.news_thum {
+    width: 320px;
+    height: 80px;
+    padding: 12px 14px;
+    display: inline-block; /* 수평 정렬을 위해 inline-block 사용 */
+}
+
+.news_top {
+    display: flex;
+    align-items: center;
+}
+
+.news_list {
+    display: flex; /* 추가 */
+    transition: transform 0.3s ease; /* 부드러운 전환 효과 */
+}
+
+.row {
+    display: flex;
+    transition: transform 0.3s ease; /* 슬라이드 효과를 위해 트랜지션 추가 */
+}
+
+.nav-button {
+    cursor: pointer;
+}
+
+.d-none {
+    display: none;
+}

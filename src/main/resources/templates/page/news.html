@@ -1,111 +1,418 @@
 <html lang="ko" layout:decorate="~{layout/layout}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-<!-- 헤더영역 시작 -->
 
-   <!-- 네비게이션바 끝 -->
-
-   <!-- 상위 메인 뉴스 시작 -->
 <section layout:fragment="content">
-   <div class="container-fluid " >
-      <div class="row m-3 p-3">
-         <div class="col-4 my-5 py-3">
-            <div>
-            <img src="/images/배너4수정.png" class="img-fluid">
-            </div>
-            <p class="text-center m-2">기사헤드라인</p>
-         </div>
+   <!-- 상위 메인 뉴스 시작 -->
+   <!-- stlye 은 slick 영역 확인용 -->
+      <div class="container " width="1030" height="120">
+         <div class="row " width="1000" height="80">
 
-         <div class="col-4 my-5 py-3">
-            <div>
-            <img src="/images/배너4수정.png" class="img-fluid">
-            </div>
-            <p class="text-center m-2">기사헤드라인</p>
-         </div>
-
-         <div class="col-4 my-5 py-3">
-            <div>
-            <img src="/images/배너4수정.png" class="img-fluid">
-            </div>
-            <p class="text-center m-2">기사헤드라인</p>
          </div>
       </div>
-   </div>
-   <!-- 상위 메인 뉴스 끝 -->
+       <div class="container">
+         <div class="responsive">
+             <div>
+                 <img src="https://via.placeholder.com/150" alt="Image 1">
+                 <p>텍스트 1</p>
+             </div>
+             <div>
+                 <img src="https://via.placeholder.com/150" alt="Image 2">
+                 <p>텍스트 2</p>
+             </div>
+             <div>
+                 <img src="https://via.placeholder.com/150" alt="Image 3">
+                 <p>텍스트 3</p>
+             </div>
+             <div>
+                 <img src="https://via.placeholder.com/150" alt="Image 4">
+                 <p>텍스트 4</p>
+             </div>
+             <div>
+                 <img src="https://via.placeholder.com/150" alt="Image 5">
+                 <p>텍스트 5</p>
+             </div>
+         </div>
+     </div>
+      <!-- 상위 메인 뉴스 끝 -->
 
-   <!-- 하단뉴스 시작 -->
 
-   <div class="container">
-      <div class="row">
-         <div class="m-1">
-            <div class="d-flex border-top border-bottom">
-               <img src="/images/하단 텐서플로우.png">
-               <div class="m-3">
-                  <h3>헤드라인</h3>
-                  <p>기사내용</p>
-                  <p>~~~~~~~~~~~~~~~~~~~~~</p>
-                  <p>~</p>
-                  <p>기사내용</p>
-               </div>
-               <p class="ms-auto">날짜</p>
+      <!-- 하단뉴스 시작 -->
+
+      <div class="container">
+         <div class="nav nav-tabs pt-5 justify-content-center align-items-center mb-4 border border-0 " id="nav-tab" role="tablist">
+            <div class="d-flex bg-secondary-subtle">
+               <button class="nav-link active px-5" id="all_news-tab" data-bs-toggle="tab" data-bs-target="#all_news" type="button" role="tab" aria-controls="all_news" aria-selected="true">all</button>
+               <button class="nav-link px-5" id="coin_news-tab" data-bs-toggle="tab" data-bs-target="#coin_news" type="button" role="tab" aria-controls="coin_news" aria-selected="false">코인</button>
+               <button class="nav-link px-5" id="lotto_news-tab" data-bs-toggle="tab" data-bs-target="#lotto_news" type="button" role="tab" aria-controls="lotto_news" aria-selected="false">로또</button>
+               <button class="nav-link px-5" id="house_news-tab" data-bs-toggle="tab" data-bs-target="#house_news" type="button" role="tab" aria-controls="house_news" aria-selected="false">부동산</button>
             </div>
          </div>
 
+         <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="all_news" role="tabpanel" aria-labelledby="all_news-tab" tabindex="0">
+               <div class="row border" id="additional-news all_news">
+                  <a href="https://www.blockmedia.co.kr/archives/702448" class="link-dark text-decoration-none">
+                  <div class="m-1">
+                     <div class="d-flex">
+                        <img src="./images/뉴스4.png" class="img-news">
+                        <div class="m-3 col-7 text-truncate" style="max-width: 800px;">
+                           <h5 class="text-truncate">“미 재정 악화, 비트코인과 금 사라” …루크 그로먼, “실질금리 마이너스에서 최적 투자처”</h5>
+                           <p class="text-truncate">미국 정부의 재정이 악화됨에 따라 최적의 투자처는 비트코인과 금(골드)이 될 것이라는 전망이 나왔다.</p>
+                        </div>
+                        <div class="ms-auto">
+                        <p>2024-09-23</p>
+                        </div>
+                     </div>
+                  </div></a>
 
 
-         <div class="m-1">
-            <div class="d-flex border-top border-bottom">
-               <img src="/images/하단 텐서플로우.png">
-               <div class="m-3">
-                  <h3>헤드라인</h3>
-                  <p>기사내용</p>
-                  <p>~~~~~~~~~~~~~~~~~~~~~</p>
-                  <p>~</p>
-                  <p>기사내용</p>
+
+                  <a href="https://coinness.com/community/opinion/6480" class="link-dark text-decoration-none" id="coin_news">
+                  <div class="m-1">
+                     <div class="d-flex">
+                        <img src="./images/뉴스5.jpg" class="img-news">
+                        <div class="m-3 col-7 text-truncate" style="max-width: 800px;">
+                           <h5 class="text-truncate">루모즈, '퀴디치' 인센티브 테스트넷 참여자 수 100만 돌파...9/27 마감</h5>
+                           <p class="text-truncate">루모즈의 퀴디치 테스트넷은 네트워크 성능을 철저하게 테스트하기 위해 설계됐다. 나아가 커뮤니티 참여를 장려하기 위해 이전 두 차례의 테스트를 기반으로 보다 풍부하고 혁신적인 태스크 시슷템이 탑재 됐다. 이에 누적 참여자 수는 100만 명을 상회 학하고 있다.</p>
+                        </div>
+                        <div class="ms-auto">
+                           <p>2024-09-23</p>
+                        </div>
+                     </div>
+                  </div></a>
+
+                  <a href="https://www.blockstreet.co.kr/news/view?ud=2024092414195351667" class="link-dark text-decoration-none">
+                  <div class="m-1">
+                     <div class="d-flex">
+                        <img src="./images/뉴스6.jpg" class="img-news">
+                        <div class="m-3 col-7 text-truncate" style="max-width: 800px;">
+                           <h5 class="text-truncate">비트코인 향방 두고 전문가들 전망 엇갈려</h5>
+                           <p class="text-truncate">최근 미국 연방준비제도(연준)의 금리인하 선언 후 비트코인(BTC)이 6만3000달러를 돌파한 가운데 비트코인의 추후 향방을 두고 전문가들의 의견이 엇갈리기 시작했다.</p>
+                        </div>
+                        <div class="ms-auto">
+                           <p>2024-09-23</p>
+                        </div>
+                     </div>
+                  </div></a>
+
+                  <a href="https://www.bonmedia.kr/news/articleView.html?idxno=2566" class="link-dark text-decoration-none">
+                  <div class="m-1">
+                     <div class="d-flex">
+                        <img src="./images/뉴스7.jpg" class="img-news">
+                        <div class="m-3 col-7 text-truncate" style="max-width: 800px;">
+                           <h5 class="text-truncate">가상자산, 불법 외환거래액 10조…“환치기 악용 통로”</h5>
+                           <p class="text-truncate">5년간 적발된 불법 외환 거래액 13조 6553억 원 중 가상자산이 10조 5164억 원으로 77%에 달해 환치기 악용 통로로 활용되고 있다.</p>
+                        </div>
+                        <div class="ms-auto">
+                           <p>2024-09-23</p>
+                        </div>
+                     </div>
+                  </div></a>
+
+                  <a href="https://news.einfomax.co.kr/news/articleView.html?idxno=4325900" class="link-dark text-decoration-none">
+                  <div class="m-1">
+                     <div class="d-flex">
+                        <img src="./images/뉴스8.jpg" class="img-news">
+                        <div class="m-3 col-7 text-truncate" style="max-width: 800px;">
+                           <h5 class="text-truncate">트럼프 미디어, "매도 않겠다"는 트럼프 방어에도 최저치 경신</h5>
+                           <p class="text-truncate">전문가들은 트럼프 미디어가 공식적으로는 미디어 주식으로 브랜딩됐지만, 실제 주식의 가치는 트럼프의 정치적 운명과 유사하게 움직인다고 말한다.</p>
+                        </div>
+                        <div class="ms-auto">
+                           <p>2024-09-23</p>
+                        </div>
+                     </div>
+                  </div></a>
+
+                  <a href="https://news.einfomax.co.kr/news/articleView.html?idxno=4325896" class="link-dark text-decoration-none">
+                  <div class="m-1">
+                     <div class="d-flex">
+                        <img src="./images/뉴스9.jpg" class="img-news">
+                        <div class="m-3 col-7 text-truncate" style="max-width: 800px;">
+                           <h5 class="text-truncate">번스타인 "퀄컴의 인텔 인수, 말도 안 돼…'팹'이 가장 문제"</h5>
+                           <p class="text-truncate">퀄컴(NAS:QCOM)이 최근 경영난을 겪고 있는 인텔(NAS:INTC) 인수에 관심이 있는 것으로 알려졌으나 월스트리트의 저명한 반도체 전문가는 회의적인 반응을 냈다.</p>
+                        </div>
+                        <div class="ms-auto">
+                           <p>2024-09-23</p>
+                        </div>
+                     </div>
+                  </div></a>
+
+                  <a href="https://coinness.com/community/opinion/6480" class="link-dark text-decoration-none d-none" id="hidden-news">
+                  <div class="m-1">
+                     <div class="d-flex">
+                        <img src="./images/뉴스5.jpg" class="img-news">
+                        <div class="m-3 col-7 text-truncate" style="max-width: 800px;">
+                           <h5 class="text-truncate">루모즈, '퀴디치' 인센티브 테스트넷 참여자 수 100만 돌파...9/27 마감</h5>
+                           <p class="text-truncate">루모즈의 퀴디치 테스트넷은 네트워크 성능을 철저하게 테스트하기 위해 설계됐다. 나아가 커뮤니티 참여를 장려하기 위해 이전 두 차례의 테스트를 기반으로 보다 풍부하고 혁신적인 태스크 시슷템이 탑재 됐다. 이에 누적 참여자 수는 100만 명을 상회 학하고 있다.</p>
+                        </div>
+                        <div class="ms-auto">
+                           <p>2024-09-23</p>
+                        </div>
+                     </div>
+                  </div></a>
+
+                  <a href="https://coinness.com/community/opinion/6480" class="link-dark text-decoration-none d-none" id="hidden-news">
+                  <div class="m-1">
+                     <div class="d-flex">
+                        <img src="./images/뉴스5.jpg" class="img-news">
+                        <div class="m-3 col-7 text-truncate" style="max-width: 800px;">
+                           <h5 class="text-truncate">루모즈, '퀴디치' 인센티브 테스트넷 참여자 수 100만 돌파...9/27 마감</h5>
+                           <p class="text-truncate">루모즈의 퀴디치 테스트넷은 네트워크 성능을 철저하게 테스트하기 위해 설계됐다. 나아가 커뮤니티 참여를 장려하기 위해 이전 두 차례의 테스트를 기반으로 보다 풍부하고 혁신적인 태스크 시슷템이 탑재 됐다. 이에 누적 참여자 수는 100만 명을 상회 학하고 있다.</p>
+                        </div>
+                        <div class="ms-auto">
+                           <p>2024-09-23</p>
+                        </div>
+                     </div>
+                  </div></a>
+
+                  <a href="https://coinness.com/community/opinion/6480" class="link-dark text-decoration-none d-none" id="hidden-news">
+                  <div class="m-1">
+                     <div class="d-flex">
+                        <img src="./images/뉴스5.jpg" class="img-news">
+                        <div class="m-3 col-7 text-truncate" style="max-width: 800px;">
+                           <h5 class="text-truncate">루모즈, '퀴디치' 인센티브 테스트넷 참여자 수 100만 돌파...9/27 마감</h5>
+                           <p class="text-truncate">루모즈의 퀴디치 테스트넷은 네트워크 성능을 철저하게 테스트하기 위해 설계됐다. 나아가 커뮤니티 참여를 장려하기 위해 이전 두 차례의 테스트를 기반으로 보다 풍부하고 혁신적인 태스크 시슷템이 탑재 됐다. 이에 누적 참여자 수는 100만 명을 상회 학하고 있다.</p>
+                        </div>
+                        <div class="ms-auto">
+                           <p>2024-09-23</p>
+                        </div>
+                     </div>
+                  </div></a>
+
+                  <a href="https://coinness.com/community/opinion/6480" class="link-dark text-decoration-none d-none" id="hidden-news">
+                  <div class="m-1">
+                     <div class="d-flex">
+                        <img src="./images/뉴스5.jpg" class="img-news">
+                        <div class="m-3 col-7 text-truncate" style="max-width: 800px;">
+                           <h5 class="text-truncate">루모즈, '퀴디치' 인센티브 테스트넷 참여자 수 100만 돌파...9/27 마감</h5>
+                           <p class="text-truncate">루모즈의 퀴디치 테스트넷은 네트워크 성능을 철저하게 테스트하기 위해 설계됐다. 나아가 커뮤니티 참여를 장려하기 위해 이전 두 차례의 테스트를 기반으로 보다 풍부하고 혁신적인 태스크 시슷템이 탑재 됐다. 이에 누적 참여자 수는 100만 명을 상회 학하고 있다.</p>
+                        </div>
+                        <div class="ms-auto">
+                           <p>2024-09-23</p>
+                        </div>
+                     </div>
+                  </div></a>
+
+                  <a href="https://coinness.com/community/opinion/6480" class="link-dark text-decoration-none d-none" id="hidden-news">
+                  <div class="m-1">
+                     <div class="d-flex">
+                        <img src="./images/뉴스5.jpg" class="img-news">
+                        <div class="m-3 col-7 text-truncate" style="max-width: 800px;">
+                           <h5 class="text-truncate">루모즈, '퀴디치' 인센티브 테스트넷 참여자 수 100만 돌파...9/27 마감</h5>
+                           <p class="text-truncate">루모즈의 퀴디치 테스트넷은 네트워크 성능을 철저하게 테스트하기 위해 설계됐다. 나아가 커뮤니티 참여를 장려하기 위해 이전 두 차례의 테스트를 기반으로 보다 풍부하고 혁신적인 태스크 시슷템이 탑재 됐다. 이에 누적 참여자 수는 100만 명을 상회 학하고 있다.</p>
+                        </div>
+                        <div class="ms-auto">
+                           <p>2024-09-23</p>
+                        </div>
+                     </div>
+                  </div></a>
+
+                  <a href="https://coinness.com/community/opinion/6480" class="link-dark text-decoration-none d-none" id="hidden-news">
+                  <div class="m-1">
+                     <div class="d-flex">
+                        <img src="./images/뉴스5.jpg" class="img-news">
+                        <div class="m-3 col-7 text-truncate" style="max-width: 800px;">
+                           <h5 class="text-truncate">루모즈, '퀴디치' 인센티브 테스트넷 참여자 수 100만 돌파...9/27 마감</h5>
+                           <p class="text-truncate">루모즈의 퀴디치 테스트넷은 네트워크 성능을 철저하게 테스트하기 위해 설계됐다. 나아가 커뮤니티 참여를 장려하기 위해 이전 두 차례의 테스트를 기반으로 보다 풍부하고 혁신적인 태스크 시슷템이 탑재 됐다. 이에 누적 참여자 수는 100만 명을 상회 학하고 있다.</p>
+                        </div>
+                        <div class="ms-auto">
+                           <p>2024-09-23</p>
+                        </div>
+                     </div>
+                  </div></a>
+
+                  <a href="https://coinness.com/community/opinion/6480" class="link-dark text-decoration-none d-none" id="hidden-news">
+                  <div class="m-1">
+                     <div class="d-flex">
+                        <img src="./images/뉴스5.jpg" class="img-news">
+                        <div class="m-3 col-7 text-truncate" style="max-width: 800px;">
+                           <h5 class="text-truncate">루모즈, '퀴디치' 인센티브 테스트넷 참여자 수 100만 돌파...9/27 마감</h5>
+                           <p class="text-truncate">루모즈의 퀴디치 테스트넷은 네트워크 성능을 철저하게 테스트하기 위해 설계됐다. 나아가 커뮤니티 참여를 장려하기 위해 이전 두 차례의 테스트를 기반으로 보다 풍부하고 혁신적인 태스크 시슷템이 탑재 됐다. 이에 누적 참여자 수는 100만 명을 상회 학하고 있다.</p>
+                        </div>
+                        <div class="ms-auto">
+                           <p>2024-09-23</p>
+                        </div>
+                     </div>
+                  </div></a>
+
+                  <a href="https://coinness.com/community/opinion/6480" class="link-dark text-decoration-none d-none" id="hidden-news">
+                  <div class="m-1">
+                     <div class="d-flex">
+                        <img src="./images/뉴스5.jpg" class="img-news">
+                        <div class="m-3 col-7 text-truncate" style="max-width: 800px;">
+                           <h5 class="text-truncate">루모즈, '퀴디치' 인센티브 테스트넷 참여자 수 100만 돌파...9/27 마감</h5>
+                           <p class="text-truncate">루모즈의 퀴디치 테스트넷은 네트워크 성능을 철저하게 테스트하기 위해 설계됐다. 나아가 커뮤니티 참여를 장려하기 위해 이전 두 차례의 테스트를 기반으로 보다 풍부하고 혁신적인 태스크 시슷템이 탑재 됐다. 이에 누적 참여자 수는 100만 명을 상회 학하고 있다.</p>
+                        </div>
+                        <div class="ms-auto">
+                           <p>2024-09-23</p>
+                        </div>
+                     </div>
+                  </div></a>
+
+                  <a href="https://coinness.com/community/opinion/6480" class="link-dark text-decoration-none d-none" id="hidden-news">
+                  <div class="m-1">
+                     <div class="d-flex">
+                        <img src="./images/뉴스5.jpg" class="img-news">
+                        <div class="m-3 col-7 text-truncate" style="max-width: 800px;">
+                           <h5 class="text-truncate">루모즈, '퀴디치' 인센티브 테스트넷 참여자 수 100만 돌파...9/27 마감</h5>
+                           <p class="text-truncate">루모즈의 퀴디치 테스트넷은 네트워크 성능을 철저하게 테스트하기 위해 설계됐다. 나아가 커뮤니티 참여를 장려하기 위해 이전 두 차례의 테스트를 기반으로 보다 풍부하고 혁신적인 태스크 시슷템이 탑재 됐다. 이에 누적 참여자 수는 100만 명을 상회 학하고 있다.</p>
+                        </div>
+                        <div class="ms-auto">
+                           <p>2024-09-23</p>
+                        </div>
+                     </div>
+                  </div></a>
+
+                  <a href="https://coinness.com/community/opinion/6480" class="link-dark text-decoration-none d-none" id="hidden-news">
+                  <div class="m-1">
+                     <div class="d-flex">
+                        <img src="./images/뉴스5.jpg" class="img-news">
+                        <div class="m-3 col-7 text-truncate" style="max-width: 800px;">
+                           <h5 class="text-truncate">루모즈, '퀴디치' 인센티브 테스트넷 참여자 수 100만 돌파...9/27 마감</h5>
+                           <p class="text-truncate">루모즈의 퀴디치 테스트넷은 네트워크 성능을 철저하게 테스트하기 위해 설계됐다. 나아가 커뮤니티 참여를 장려하기 위해 이전 두 차례의 테스트를 기반으로 보다 풍부하고 혁신적인 태스크 시슷템이 탑재 됐다. 이에 누적 참여자 수는 100만 명을 상회 학하고 있다.</p>
+                        </div>
+                        <div class="ms-auto">
+                           <p>2024-09-23</p>
+                        </div>
+                     </div>
+                  </div></a>
+
+                  <a href="https://coinness.com/community/opinion/6480" class="link-dark text-decoration-none d-none" id="hidden-news">
+                  <div class="m-1">
+                     <div class="d-flex">
+                        <img src="./images/뉴스5.jpg" class="img-news">
+                        <div class="m-3 col-7 text-truncate" style="max-width: 800px;">
+                           <h5 class="text-truncate">루모즈, '퀴디치' 인센티브 테스트넷 참여자 수 100만 돌파...9/27 마감</h5>
+                           <p class="text-truncate">루모즈의 퀴디치 테스트넷은 네트워크 성능을 철저하게 테스트하기 위해 설계됐다. 나아가 커뮤니티 참여를 장려하기 위해 이전 두 차례의 테스트를 기반으로 보다 풍부하고 혁신적인 태스크 시슷템이 탑재 됐다. 이에 누적 참여자 수는 100만 명을 상회 학하고 있다.</p>
+                        </div>
+                        <div class="ms-auto">
+                           <p>2024-09-23</p>
+                        </div>
+                     </div>
+                  </div></a>
+
+                  <a href="https://coinness.com/community/opinion/6480" class="link-dark text-decoration-none d-none" id="hidden-news">
+                  <div class="m-1">
+                     <div class="d-flex">
+                        <img src="./images/뉴스5.jpg" class="img-news">
+                        <div class="m-3 col-7 text-truncate" style="max-width: 800px;">
+                           <h5 class="text-truncate">루모즈, '퀴디치' 인센티브 테스트넷 참여자 수 100만 돌파...9/27 마감</h5>
+                           <p class="text-truncate">루모즈의 퀴디치 테스트넷은 네트워크 성능을 철저하게 테스트하기 위해 설계됐다. 나아가 커뮤니티 참여를 장려하기 위해 이전 두 차례의 테스트를 기반으로 보다 풍부하고 혁신적인 태스크 시슷템이 탑재 됐다. 이에 누적 참여자 수는 100만 명을 상회 학하고 있다.</p>
+                        </div>
+                        <div class="ms-auto">
+                           <p>2024-09-23</p>
+                        </div>
+                     </div>
+                  </div></a>
+
+                  <a href="https://coinness.com/community/opinion/6480" class="link-dark text-decoration-none d-none" id="hidden-news">
+                  <div class="m-1">
+                     <div class="d-flex">
+                        <img src="./images/뉴스5.jpg" class="img-news">
+                        <div class="m-3 col-7 text-truncate" style="max-width: 800px;">
+                           <h5 class="text-truncate">루모즈, '퀴디치' 인센티브 테스트넷 참여자 수 100만 돌파...9/27 마감</h5>
+                           <p class="text-truncate">루모즈의 퀴디치 테스트넷은 네트워크 성능을 철저하게 테스트하기 위해 설계됐다. 나아가 커뮤니티 참여를 장려하기 위해 이전 두 차례의 테스트를 기반으로 보다 풍부하고 혁신적인 태스크 시슷템이 탑재 됐다. 이에 누적 참여자 수는 100만 명을 상회 학하고 있다.</p>
+                        </div>
+                        <div class="ms-auto">
+                           <p>2024-09-23</p>
+                        </div>
+                     </div>
+                  </div></a>
+
+                  <a href="https://coinness.com/community/opinion/6480" class="link-dark text-decoration-none d-none" id="hidden-news">
+                  <div class="m-1">
+                     <div class="d-flex">
+                        <img src="./images/뉴스5.jpg" class="img-news">
+                        <div class="m-3 col-7 text-truncate" style="max-width: 800px;">
+                           <h5 class="text-truncate">루모즈, '퀴디치' 인센티브 테스트넷 참여자 수 100만 돌파...9/27 마감</h5>
+                           <p class="text-truncate">루모즈의 퀴디치 테스트넷은 네트워크 성능을 철저하게 테스트하기 위해 설계됐다. 나아가 커뮤니티 참여를 장려하기 위해 이전 두 차례의 테스트를 기반으로 보다 풍부하고 혁신적인 태스크 시슷템이 탑재 됐다. 이에 누적 참여자 수는 100만 명을 상회 학하고 있다.</p>
+                        </div>
+                        <div class="ms-auto">
+                           <p>2024-09-23</p>
+                        </div>
+                     </div>
+                  </div></a>
+
+                  <a href="https://coinness.com/community/opinion/6480" class="link-dark text-decoration-none d-none" id="hidden-news">
+                  <div class="m-1">
+                     <div class="d-flex">
+                        <img src="./images/뉴스5.jpg" class="img-news">
+                        <div class="m-3 col-7 text-truncate" style="max-width: 800px;">
+                           <h5 class="text-truncate">루모즈, '퀴디치' 인센티브 테스트넷 참여자 수 100만 돌파...9/27 마감</h5>
+                           <p class="text-truncate">루모즈의 퀴디치 테스트넷은 네트워크 성능을 철저하게 테스트하기 위해 설계됐다. 나아가 커뮤니티 참여를 장려하기 위해 이전 두 차례의 테스트를 기반으로 보다 풍부하고 혁신적인 태스크 시슷템이 탑재 됐다. 이에 누적 참여자 수는 100만 명을 상회 학하고 있다.</p>
+                        </div>
+                        <div class="ms-auto">
+                           <p>2024-09-23</p>
+                        </div>
+                     </div>
+                  </div></a>
+
+                  <a href="https://coinness.com/community/opinion/6480" class="link-dark text-decoration-none d-none" id="hidden-news">
+                  <div class="m-1">
+                     <div class="d-flex">
+                        <img src="./images/뉴스5.jpg" class="img-news">
+                        <div class="m-3 col-7 text-truncate" style="max-width: 800px;">
+                           <h5 class="text-truncate">루모즈, '퀴디치' 인센티브 테스트넷 참여자 수 100만 돌파...9/27 마감</h5>
+                           <p class="text-truncate">루모즈의 퀴디치 테스트넷은 네트워크 성능을 철저하게 테스트하기 위해 설계됐다. 나아가 커뮤니티 참여를 장려하기 위해 이전 두 차례의 테스트를 기반으로 보다 풍부하고 혁신적인 태스크 시슷템이 탑재 됐다. 이에 누적 참여자 수는 100만 명을 상회 학하고 있다.</p>
+                        </div>
+                        <div class="ms-auto">
+                           <p>2024-09-23</p>
+                        </div>
+                     </div>
+                  </div></a>
+
+                  <a href="https://coinness.com/community/opinion/6480" class="link-dark text-decoration-none d-none" id="hidden-news">
+                  <div class="m-1">
+                     <div class="d-flex">
+                        <img src="./images/뉴스5.jpg" class="img-news">
+                        <div class="m-3 col-7 text-truncate" style="max-width: 800px;">
+                           <h5 class="text-truncate">루모즈, '퀴디치' 인센티브 테스트넷 참여자 수 100만 돌파...9/27 마감</h5>
+                           <p class="text-truncate">루모즈의 퀴디치 테스트넷은 네트워크 성능을 철저하게 테스트하기 위해 설계됐다. 나아가 커뮤니티 참여를 장려하기 위해 이전 두 차례의 테스트를 기반으로 보다 풍부하고 혁신적인 태스크 시슷템이 탑재 됐다. 이에 누적 참여자 수는 100만 명을 상회 학하고 있다.</p>
+                        </div>
+                        <div class="ms-auto">
+                           <p>2024-09-23</p>
+                        </div>
+                     </div>
+                  </div></a>
+
+                  <a href="https://coinness.com/community/opinion/6480" class="link-dark text-decoration-none d-none" id="hidden-news">
+                  <div class="m-1">
+                     <div class="d-flex">
+                        <img src="./images/뉴스5.jpg" class="img-news">
+                        <div class="m-3 col-7 text-truncate" style="max-width: 800px;">
+                           <h5 class="text-truncate">루모즈, '퀴디치' 인센티브 테스트넷 참여자 수 100만 돌파...9/27 마감</h5>
+                           <p class="text-truncate">루모즈의 퀴디치 테스트넷은 네트워크 성능을 철저하게 테스트하기 위해 설계됐다. 나아가 커뮤니티 참여를 장려하기 위해 이전 두 차례의 테스트를 기반으로 보다 풍부하고 혁신적인 태스크 시슷템이 탑재 됐다. 이에 누적 참여자 수는 100만 명을 상회 학하고 있다.</p>
+                        </div>
+                        <div class="ms-auto">
+                           <p>2024-09-23</p>
+                        </div>
+                     </div>
+                  </div></a>
                </div>
-               <p class="ms-auto">날짜</p>
-            </div>
-         </div>
-
-         <div class="m-1">
-            <div class="d-flex border-top border-bottom">
-               <img src="/images/하단 텐서플로우.png">
-               <div class="m-3">
-                  <h3>헤드라인</h3>
-                  <p>기사내용</p>
-                  <p>~~~~~~~~~~~~~~~~~~~~~</p>
-                  <p>~</p>
-                  <p>기사내용</p>
+               <div class="m-3 text-center d-flex justify-content-center align-items-center">
+                  <button class="btn btn-lg rounded-pill border" id="load-more"> 더보기</button>
                </div>
-               <p class="ms-auto">날짜</p>
             </div>
-         </div>
 
-         <div class="m-1">
-            <div class="d-flex border-top border-bottom">
-               <img src="/images/하단 텐서플로우.png">
-               <div class="m-3">
-                  <h3>헤드라인</h3>
-                  <p>기사내용</p>
-                  <p>~~~~~~~~~~~~~~~~~~~~~</p>
-                  <p>~</p>
-                  <p>기사내용</p>
-               </div>
-               <p class="ms-auto">날짜</p>
+            <div class="tab-pane fade" id="coin_news" role="tabpanel" aria-labelledby="coin_news-tab" tabindex="0">
+
             </div>
-         </div>
-         <div class="text-center">
-            <button class="btn btn-lg m-3"> 더보기</button>
+
+            <div class="tab-pane fade" id="lotto_news" role="tabpanel" aria-labelledby="lotto_news-tab" tabindex="0">
+
+            </div>
+
+            <div class="tab-pane fade" id="house_news" role="tabpanel" aria-labelledby="house_news-tab" tabindex="0">
+
+            </div>
          </div>
       </div>
-   </div>
+      <!-- 하단뉴스 끝 -->
+
+
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+
+   <script th:src="@{js/news.js}"></script>
 </section>
-
-   <!-- 하단뉴스 끝 -->
-
-   
-
-   <!-- 푸터 시작 -->
-
-   <!-- 푸터 끝 -->
-
-
-   <script src="/images/js/bootstrap.bundle.js"></script>
+</html>

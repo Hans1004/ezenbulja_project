@@ -1,4 +1,4 @@
-<nav th:fragment="navbarFragment" class="navbar navbar-expand-md fixed-top bg-custom">
+<nav th:fragment="navbarFragment" class="navbar navbar-expand-md bg-custom">
     <div class="container-fluid">
         <a class="navbar-brand lofo-font" href="/"><img src="/images/nave_logo.png" alt="로고"> 이젠 벌자</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" aria-expanded="false" aria-label="메뉴">
@@ -6,10 +6,6 @@
         </button>
 
         <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasExampleLabel">이젠인테리어</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
             <div class="offcanvas-body">
                 <div class="collapse navbar-collapse d-block d-md-none" id="menubar">
                     <ul class="navbar-nav ms-auto mb-2 mb-md-0 px-1">
@@ -50,23 +46,19 @@
                                 </a>
                             </div>
                         </li>
-<!--                        <li class="nav-item">-->
-<!--                            <div class="text-center col" th:if="${loginMember.grade == 'admin'}">-->
-<!--                                <button class="w-100 btn btn-secondary btn-lg mb-3" type="button" th:onclick="|location.href='@{/members}'|">회원목록</button>-->
-<!--                            </div>-->
-<!--                        </li>-->
+                        <li class="nav-item">
+                            <div class="text-center col" th:if="${loginMember != null and loginMember.grade == 'admin'}">
+                                <button class="btn btn-dark" type="button" th:onclick="|location.href='@{/members}'|">회원목록</button>
+                            </div>
+                        </li>
                         <li class="nav-item">
                             <div th:if="${loginMember == null}">
                                 <a class="nav-link text-white" aria-current="page" th:href="@{/add}">회원가입</a>
                             </div>
                             <form class="text-start ms-2" th:action="@{/logout}" method="post" th:if="${loginMember}">
-                                <button class="btn btn-dark btn-sm">로그아웃</button>
+                                <button class="btn btn-dark">로그아웃</button>
                             </form>
                         </li>
-<li>
-
-</li>
-
                     </ul>
                 </div>
             </div>

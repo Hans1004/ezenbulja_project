@@ -1,0 +1,27 @@
+<html lang="ko" layout:decorate="~{layout/layout}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<div class="container mt-5" layout:fragment="content">
+    <div class="py-5 text-center">
+        <h2 class="fw-bold">Contact List</h2>
+    </div>
+    <table class="table table-hover">
+        <thead class="text-center table-dark">
+        <tr>
+            <th class="text-white fw-bold">번호</th>
+            <th class="text-white fw-bold">이름</th>
+            <th class="text-white fw-bold">이메일</th>
+            <th style="width:40%" class="text-white fw-bold">문의사항</th>
+            <th class="text-white fw-bold">뉴스레터</th>
+        </tr>
+        </thead>
+        <tbody class="text-center">
+        <tr th:each="contact, iterStat : ${contacts}">
+            <td th:text="${iterStat.index + 1}">번호</td>
+            <td th:text="${contact.name}">이름</td>
+            <td th:text="${contact.email}">이메일</td>
+            <td th:text="${contact.content}">문의사항</td>
+            <td th:text="${contact.news}">뉴스레터</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</html>
