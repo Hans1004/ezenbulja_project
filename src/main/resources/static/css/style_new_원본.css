@@ -3,120 +3,42 @@
 
 body {
     font-family: "Noto Sans KR", sans-serif;
-    color: black; /* 라이트 모드에서 폰트 색상 검정 */
-    /*background-color: white; !* 기본 배경색 *!*/
     margin: 0;
     padding: 0;
+    /*background-color: #f4f4f4;*/
+    /*color: #333;*/
+    /*padding-top: 30px;*/
 }
-
-
-/* 다크 모드 설정 */
-.dark-mode {
-    background-color: black; /* 배경색을 검정으로 설정 */
-    color: white; /* 텍스트 색상을 흰색으로 설정 */
-}
-
-.dark-mode body {
-    color: white; /* 다크 모드에서 폰트 색상 흰색 */
-}
-
-/* 네비게이션 바 설정 */
-.navbar {
-    background-color: #28599D;
-    font-family: "Do Hyeon", sans-serif;
-}
-
-.dark-mode .navbar {
-    background-color: #333;
-}
-
-.dark-mode .nav-link {
-    color: white; /* 다크 모드에서 링크 색상 흰색 */
-}
-
-/*.h4_footer {*/
-/*    color: white;*/
-/*}*/
-
-/* 헤딩 및 nav-font 폰트 설정 */
-h1, h2, h3, h4, h5, .nav-font {
-    font-family: "Do Hyeon", sans-serif;
-    color: black; /* 라이트 모드에서 폰트 색상 검정 */
-}
-/* 기본 설정 */
-.bg-white1 {
-    background-color: white; /* 기본 배경색 */
-}
-
-/* 다크 모드에서 .col-md-5 클래스에 배경색을 검정으로 변경 */
-.dark-mode .bg-white1 {
-    background-color: black; /* 다크 모드에서 배경색을 검정으로 설정 */
-    border-color: white; /* 테두리 색상을 흰색으로 설정 */
-    color: white;
-}
-
-
-
-.dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode h4, .dark-mode h5, .dark-mode .nav-font, .dark-mode p {
-    color: white; /* 다크 모드에서 폰트 색상 흰색 */
-}
-
-/* 다크 모드에서 버튼 색상 조정 */
-.dark-mode .btn-warning {
-    background-color: #ffae00; /* 유지 */
-    border: 1px solid #ffae00; /* 유지 */
-}
-
-.dark-mode .btn-primary {
-    background-color: #007bff; /* 유지 */
-    border: 1px solid #007bff; /* 유지 */
-}
-
-.dark-mode input {
-    background-color: #555; /* 입력 필드 배경색 */
-    color: white; /* 입력 필드 글자색 */
-    border: 1px solid #ddd; /* 입력 필드 테두리 색상 */
-}
-
-.dark-mode .prediction-output {
-    background-color: #444; /* 예측 출력 배경색 */
-}
-
-/* 이미지 스타일 */
-img {
-    filter: none; /* 필터 적용하지 않음 (다크 모드에서 이미지 색상 변경 방지) */
-}
-/* 다크 모드 이미지 색상 조정 */
-/*.dark-mode img {*/
-/*    filter: brightness(1); !* 원본 색상을 유지하기 위해 밝기를 1로 설정 *!*/
-/*}*/
-
-/* 기타 스타일 */
 .banner {
     background-image: url(../images/중간배너.webp);
     background-attachment: fixed;
     background-size: cover;
 }
-
-.midbanner {
+.midbanner{
     height: 400px;
 }
 
-.card-body img {
+.card-body img{
     height: 70px;
 }
 
-.bg-custom {
-    background-color: #213180 !important;
+h1, h2, h3, h4, h5, .nav-font {
+    font-family: "Do Hyeon", sans-serif;
 }
 
+
+.bg-custom {
+    background-color: #0a008f !important; /* !important 추가 */
+}
+
+/* 글씨 색 지정 */
 .custom-login-color {
     color: #213180;
 }
 
 .btn-custom {
     background-color: #ffae00;
-    border: 1px solid #ffae00;
+    border:1px solid #ffae00;
 }
 
 .btn-login {
@@ -127,11 +49,14 @@ img {
     padding: 10px;
     border-width: 2px;
     margin-top: 10px;
-    color: #ffffff !important;
+    color : #ffffff !important;
     border: 1px solid #213180;
 }
 
-.btn-custom:hover, .btn-custom:focus, .btn-custom:active {
+
+/* 버튼에 마우스를 올렸을 때의 스타일 유지 */
+.btn-custom:hover, .btn-custom:focus, .btn-custom:active
+{
     background-color: #ffae00 !important;
     color: #000000 !important;
     border-color: #ffae00 !important;
@@ -148,6 +73,7 @@ img {
     border: 1px solid #213180;
 }
 
+/* 링크 스타일 */
 a {
     text-decoration: none;
     color: gray;
@@ -206,14 +132,14 @@ a {
 
 #data-plot, #training-performance, #batch-performance {
     width: 100%;
-    height: 400px;
+    height: 400px; /* 차트가 들어갈 div의 높이 설정 */
 }
 
 .plotly-chart {
     position: relative;
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    overflow: hidden; /* 자식 요소가 넘어갈 경우 숨기기 */
 }
 
 .plotly-chart > * {
@@ -222,10 +148,11 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    transform: scale(1);
-    transform-origin: top left;
+    transform: scale(1); /* 필요에 따라 비율 조정 */
+    transform-origin: top left; /* 조정 기준점 설정 */
 }
 
+/* 팀원 소개 제목 스타일 */
 .team_title {
     background-color: #0a008f;
     color: #d6d6d6;
@@ -257,7 +184,8 @@ h1 span {
     background-size: cover;
 }
 
-@media (min-width:768px) and (max-width:1024px) {
+/* 미디어 쿼리 */
+@media (min-width:768px) and (max-width:1024px){
     .text {
         font-size: 15px;
     }
@@ -288,6 +216,11 @@ h1 span {
     object-fit: cover;
 }
 
+.navbar {
+    background-color: #28599D;
+    font-family: "Do Hyeon", sans-serif;
+}
+
 .lofo-font {
     color: #0B0629;
     font-family: "Do Hyeon", sans-serif;
@@ -311,9 +244,8 @@ h1 span {
 
 .back-button {
     margin-bottom: 20px;
-    text-align: left;
+    text-align: left; /* 좌측 정렬 */
 }
-
 .back-button a {
     text-decoration: none;
     color: white;
@@ -322,21 +254,125 @@ h1 span {
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
-
 .back-button a:hover {
     background-color: #495057;
 }
 
 .lotto-number, .analyze-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: inline-block;
+    width: 75px;
+    height: 75px;
+    line-height: 75px;
+    text-align: center;
+    border-radius: 50%;
+    margin: 5px;
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3);
+    user-select: none;
 }
 
-/*NEWS*/
+.analyze-button {
+    background-color: #1e49f5;
+    margin-right: 20px;
+}
+
+.analyze-button:hover {
+    background-color: #2c3e50;
+}
+
+body a :hover,
+button :hover{
+    background-color: #777777;
+}
+
 .img-news {
     width: 200px;
     height: 100px;
     max-height: 200px;
     object-fit: cover;
+}
+
+.text-truncate {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+
+.news_thum {
+    width: 320px;
+    height: 80px;
+    padding: 12px 14px;
+    display: inline-block; /* 수평 정렬을 위해 inline-block 사용 */
+}
+
+.news_top {
+    display: flex;
+    align-items: center;
+}
+
+.news_list {
+    display: flex; /* 추가 */
+    transition: transform 0.3s ease; /* 부드러운 전환 효과 */
+}
+
+.row {
+    display: flex;
+    transition: transform 0.3s ease; /* 슬라이드 효과를 위해 트랜지션 추가 */
+}
+
+.nav-button {
+    cursor: pointer;
+}
+
+.d-none {
+    display: none;
+}
+
+.post-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fff;
+    cursor: pointer; /* 커서가 손가락 모양으로 바뀌도록 설정 */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* 부드러운 색상 및 그림자 전환 효과 */
+}
+.post-card:hover {
+    background-color: #f0f8ff; /* 카드에 호버 시 배경색 변경 (밝은 파란색) */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* 카드에 호버 시 그림자 효과 증가 */
+}
+.post-meta {
+    color: #6c757d;
+    font-size: 0.9em;
+}
+.post-content {
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+.post-container {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #fff;
+    margin-bottom: 20px;
+}
+.post-meta {
+    color: #6c757d;
+    font-size: 0.9em;
+}
+/*.post-content {*/
+/*    margin-top: 15px;*/
+/*}*/
+.btn-container {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-top: 20px;
+}
+.btn-back {
+    margin-left: auto; /* 돌아가기 버튼을 오른쪽 끝으로 정렬 */
 }

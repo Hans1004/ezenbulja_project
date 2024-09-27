@@ -4,7 +4,7 @@
     <div class="container mt-5" layout:fragment="content">
 
         <h1 class="w-50"><img src="./images/bitcoin.png" style="width: 55px;"> 비트 코인 가격 예측</h1>
-        <div class="overflow-x-scroll scroll-hidden my-2 rounded border border-general bg-white dark:bg-gray-900">
+        <div class="overflow-x-scroll scroll-hidden my-2 rounded border border-general  dark:bg-gray-900">
             <div style="width: 1200px;"><div class="tradingview-widget-container" style="width: 100%; height: 72px;"><style>
                 .tradingview-widget-copyright {
                     font-size: 13px !important;
@@ -74,32 +74,60 @@
         <div class="usage-card-body">
             <h2 class="usage-title">사용 방법</h2>
 
-            <div class="usage-section">
-                <h5 class="section-title">1. 모델 학습:</h5>
-                <img src="/images/logos_tensorflow.png" alt="모델 학습" class="section-image">
-                <ul class="section-list">
-                    <li>기존 데이터를 AI에게 "모델 학습" 버튼을 클릭하여 모델 학습을 시작합니다.</li>
-                    <li>모델 학습이 완료되면, "Training Complete!"라는 문구가 출력됩니다.</li>
-                </ul>
-            </div>
+            <div class="accordion" id="usageAccordion">
+                <div class="accordion-item bg-white1">
+                    <h5 class="accordion-header" id="headingOne">
+                        <button class="accordion-button bg-white1" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            1. 모델 학습
+                        </button>
+                    </h5>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#usageAccordion">
+                        <div class="accordion-body">
+                            <img src="/images/logos_tensorflow.png" alt="모델 학습" class="section-image">
+                            <ul class="section-list">
+                                <li>기존 데이터를 AI에게 <button  class="btn btn-primary mb-2">모델 학습</button> 버튼을 클릭하여 모델 학습을 시작합니다.</li>
+                                <li>모델 학습이 완료되면, "Training Complete!"라는 문구가 출력됩니다.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="usage-section">
-                <h5 class="section-title">2. 코인 정보 입력:</h5>
-                <img src="/images/icon-park_info.png" alt="코인 정보 입력" class="section-image">
-                <ul class="section-list">
-                    <li>페이지 상단의 입력 필드에 코인 관련 정보를 입력합니다.</li>
-                    <li>입력 필드에는 시가, 종가, 저가, 거래량, 이전 종가, 변동 가격, RSI를 최신정보입력 버튼을 눌러 입력할 수 있습니다.</li>
-                </ul>
-            </div>
+                <div class="accordion-item bg-white1">
+                    <h5 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed bg-white1" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            2. 코인 정보 입력
+                        </button>
+                    </h5>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#usageAccordion">
+                        <div class="accordion-body">
+                            <img src="/images/icon-park_info.png" alt="코인 정보 입력" class="section-image">
+                            <ul class="section-list">
+                                <li><button  class="btn btn-warning">코인 정보 입력</button> 입력 필드에 코인 관련 정보를 입력합니다.</li>
+                                <li>입력 필드에는 시가, 종가, 저가, 거래량, 이전 종가, 변동 가격, RSI를 최신정보입력 버튼을 눌러 입력할 수 있습니다.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="usage-section">
-                <h5 class="section-title">3. 코인 가격 예측:</h5>
-                <img src="/images/logos_elemental-ui.png" alt="코인 가격 예측" class="section-image">
-                <ul class="section-list">
-                    <li>예측된 코인 가격이 화면에 표시됩니다.</li>
-                </ul>
+                <div class="accordion-item bg-white1">
+                    <h5 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed bg-white1" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            3. 코인 가격 예측
+                        </button>
+                    </h5>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#usageAccordion">
+                        <div class="accordion-body">
+                            <img src="/images/logos_elemental-ui.png" alt="코인 가격 예측" class="section-image">
+                            <ul class="section-list">
+                                <li><button  class="btn btn-primary">코인 정보 입력</button>활성화되면 클릭</li>
+                                <li>예측된 코인 가격이 화면에 표시됩니다.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+
 
 
 
@@ -110,13 +138,13 @@
         <div class="status mt-3">
             <p id="training-status">상태: 시작되지 않음</p>
         </div>
-        <div class="row mb-5">
+        <div class="row mb-5" >
 
-            <div class="col-12 col-lg-4">
+            <div class="col-12 col-lg-4 ">
 
 
-                <div class="border p-3 bg-white rounded">
-                    <div class="form-group">
+                <div class="border p-3 rounded">
+                    <div class="form-group ">
                         <label for="predict-input-opening-price">시가:</label>
                         <input type="number" id="predict-input-opening-price" step="any">
                     </div>
@@ -165,13 +193,13 @@
             <div class="col-lg-8">
                 <div class="row">
                     <div class="col-md-12 mb-4">
-                        <div id="data-plot" class="plotly-chart border p-3 bg-white rounded"></div>
+                        <div id="data-plot" class="plotly-chart border p-3  rounded"></div>
                     </div>
                     <div class="col-md-12 mb-4">
-                        <div id="batch-performance" class="plotly-chart border p-3 bg-white rounded"></div>
+                        <div id="batch-performance" class="plotly-chart border p-3  rounded"></div>
                     </div>
                     <div class="col-md-12 mb-4">
-                        <div id="training-performance" class="plotly-chart border p-3 bg-white rounded"></div>
+                        <div id="training-performance" class="plotly-chart border p-3  rounded"></div>
                     </div>
                 </div>
 

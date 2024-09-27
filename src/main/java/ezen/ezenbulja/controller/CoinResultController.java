@@ -27,7 +27,7 @@ public class CoinResultController {
     }
 
     @GetMapping("/coin-data-result")
-    public String showResults(@RequestParam(value = "page", defaultValue = "0") int page, Model model) {
+    public String showResults(@RequestParam(value = "page", defaultValue = "0") int page,HttpServletRequest request, Model model) {
         try {
             // 데이터베이스에서 CoinResult 목록을 페이지 단위로 가져옴
             Page<CoinResult> members = coinResultService.findAll(PageRequest.of(page, 10));
@@ -43,7 +43,7 @@ public class CoinResultController {
             model.addAttribute("error", "데이터를 불러오는 중 오류가 발생했습니다.");
             return "error/error_page"; // 에러 페이지로 이동
         }
-        return "page/coin_data_result";
+        return checkLoginAndRedirect(request, model, "page/coin_data_result");
     }
 
 
