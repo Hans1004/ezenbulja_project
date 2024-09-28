@@ -51,44 +51,26 @@
 <th:block layout:fragment="script"></th:block>
 <script>
     function toggleMode() {
-        document.body.classList.toggle('dark-mode');
+        const body = document.body;
+        const sunIcon = document.getElementById("sunIcon");
+        const moonIcon = document.getElementById("moonIcon");
 
-        const sunIcon = document.getElementById('sunIcon');
-        const moonIcon = document.getElementById('moonIcon');
+        body.classList.toggle("bg-dark");
+        body.classList.toggle("text-light");
+        body.classList.toggle("bg-light");
+        body.classList.toggle("text-dark");
 
-        if (document.body.classList.contains('dark-mode')) {
-            localStorage.setItem('theme', 'dark');
-            sunIcon.style.color = '#888';
-            moonIcon.style.color = 'yellow';
+        // 아이콘 전환
+        if (body.classList.contains("bg-dark")) {
+            sunIcon.style.display = "none";
+            moonIcon.style.display = "inline";
         } else {
-            localStorage.setItem('theme', 'light');
-            sunIcon.style.color = 'orange';
-            moonIcon.style.color = '#888';
+            sunIcon.style.display = "inline";
+            moonIcon.style.display = "none";
         }
     }
 
-    // 페이지 로드 후 실행되는 함수
-    window.onload = function() {
-        const theme = localStorage.getItem('theme');
-        const sunIcon = document.getElementById('sunIcon');
-        const moonIcon = document.getElementById('moonIcon');
-
-        if (theme === 'dark') {
-            document.body.classList.add('dark-mode');
-            sunIcon.style.color = '#888';
-            moonIcon.style.color = 'yellow';
-        } else {
-            sunIcon.style.color = 'orange';
-            moonIcon.style.color = '#888';
-        }
-
-        // 버튼 클릭 이벤트 리스너 등록
-        document.getElementById("train-button").addEventListener("click", train);
-        document.getElementById("predict-button").addEventListener("click", predict);
-    };
-
-    // 나머지 모델 관련 코드 (생략)
-</script>
+</script> <!-- Custom JS -->
 
 </body>
 </html>
