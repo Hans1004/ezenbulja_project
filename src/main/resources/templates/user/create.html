@@ -3,7 +3,7 @@
     <h1 class="text-center mb-4">새 게시글 작성</h1>
 
     <!-- 새 게시글 작성 폼 -->
-    <form th:if="${postDTO != null}" th:action="@{/posts}" th:object="${postDTO}" method="post">
+    <form th:if="${postDTO != null}" th:action="@{/posts}" th:object="${postDTO}" method="post" class="mb-5">
         <div class="form-group">
             <label for="title">제목:</label>
             <input type="text" id="title" th:field="*{title}" class="form-control" placeholder="제목을 입력하세요" />
@@ -17,8 +17,7 @@
         </div>
 
         <button type="submit" class="btn btn-primary btn-sm">등록</button>
+        <a class="btn btn-secondary btn-sm" th:href="@{/posts}">돌아가기</a>
     </form>
-
-    <a class="btn btn-secondary mt-2 btn-sm" th:href="@{/posts}">돌아가기</a>
 </div>
 </html>

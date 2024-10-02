@@ -1,6 +1,6 @@
 <!--게시판 목록-->
 <html lang="ko" layout:decorate="~{layout/layout}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-<div class="container mt-5" layout:fragment="content">
+<div class="container mt-5 mb-5" layout:fragment="content">
   <h1 class="text-center mb-4">자유 게시판</h1>
 
   <div class="row mb-4">
@@ -24,7 +24,7 @@
   </div>
 
   <!-- 게시글 카드 -->
-  <div th:each="post : ${posts}" class="post-card" th:onclick="'location.href=\'/posts/' + ${post.id} + '\''">
+  <div th:each="post : ${posts}" class="post-card bg-white1" th:onclick="'location.href=\'/posts/' + ${post.id} + '\''">
     <!-- 사용자 이름과 작성 시간 -->
     <div class="post-meta">
       <i class="bi bi-person-circle"></i>

@@ -23,15 +23,33 @@ let currentModel; // 현재 모델 저장
 //     };
 //     reader.readAsText(file);
 // }
-// 서버에서 파일 로드 하는 함수
+
+// CSV 파일을 서버에서 로드한 후 버튼 텍스트 변경
 async function loadCSVFromServer() {
-    const response = await fetch('/csv/lotto_data.csv');  // CSV 파일 로드
+    const response = await fetch('/csv/lotto_data.csv');  // CSV 파일을 서버에서 로드
     const data = await response.text();
 
     parsedData = parseCSV(data);  // 파싱된 데이터를 전역 변수에 저장
     setupCharts();  // 차트 초기화
-    alert('CSV 파일이 로드되었습니다. "분석" 버튼을 눌러주세요.');
+
+    // CSV 파일이 로드된 후 버튼 텍스트를 '분석'으로 변경
+    const analyzeButton = document.getElementById('analyzeButton');
+    analyzeButton.innerText = '분석';
+
+    alert('CSV 파일이 성공적으로 로드되었습니다.\n분석할 기간을 선택한 후 "분석" 버튼을 눌러주세요.');
 }
+
+// 윈도우 리사이즈 시 모든 차트를 리사이즈
+window.addEventListener('resize', () => {
+    if (lossChart) lossChart.resize();
+    if (accuracyChart) accuracyChart.resize();
+    if (frequencyChart) frequencyChart.resize();
+    if (predictionChart) predictionChart.resize();
+    if (hotColdChart) hotColdChart.resize(); // 추가
+    if (numberGapChart) numberGapChart.resize(); // 추가
+    if (sumHistogram) sumHistogram.resize(); // 추가
+    if (consecutiveNumbersChart) consecutiveNumbersChart.resize(); // 추가
+});
 
 // CSV 데이터를 배열로 변환
 function parseCSV(data) {
@@ -454,21 +472,29 @@ function getColorClass(number) {
 //     }
 // }
 function onAnalyzeClick() {
-    if (parsedData.length > 0) {
-        const filteredData = applyPeriodFilter();
-        trainAndPredict(filteredData).then(() => {
-            const frequency = calculateFrequency(filteredData);
-            updateFrequencyChart(frequency);
+    const analyzeButton = document.getElementById('analyzeButton');
 
-            updateHotColdChart(frequency);
-            const gaps = calculateNumberGaps(filteredData);
-            updateNumberGapChart(gaps);
-            updateSumHistogram(filteredData);
-            updateConsecutiveNumbersChart(filteredData);
-        });
+    // 버튼 텍스트가 '학습하기'일 때 파일을 로드
+    if (analyzeButton.innerText === '학습') {
+        alert('CSV 파일을 서버에서 불러오는 중입니다...\n우측의 "확인" 버튼을 눌러주세요');
+        loadCSVFromServer();  // 서버에서 파일을 불러옴
     } else {
-        alert('CSV 파일을 서버에서 불러오는 중입니다...');
-        loadCSVFromServer();  // 서버에서 파일 자동 로드
+        // '분석' 상태일 때 분석 로직 실행
+        if (parsedData.length > 0) {
+            const filteredData = applyPeriodFilter();
+            trainAndPredict(filteredData).then(() => {
+                const frequency = calculateFrequency(filteredData);
+                updateFrequencyChart(frequency);
+
+                updateHotColdChart(frequency);
+                const gaps = calculateNumberGaps(filteredData);
+                updateNumberGapChart(gaps);
+                updateSumHistogram(filteredData);
+                updateConsecutiveNumbersChart(filteredData);
+            });
+        } else {
+            alert('CSV 파일이 로드되지 않았습니다. 다시 시도해주세요.');
+        }
     }
 }
 
@@ -559,4 +585,48 @@ function updateConsecutiveNumbersChart(data) {
     consecutiveNumbersChart.data.labels = labels;
     consecutiveNumbersChart.data.datasets[0].data = counts;
     consecutiveNumbersChart.update();
+}
+
+// 예측 번호 출력 함수에서 저장 API 호출 추가
+function displayPredictedNumbers(numbers) {
+    numbers.sort((a, b) => a - b);
+    const resultDiv = document.getElementById("result");
+    resultDiv.innerHTML = "";
+
+    numbers.forEach(num => {
+        const ball = document.createElement('div');
+        ball.className = 'lotto-number ' + getColorClass(num);
+        ball.textContent = num;
+        resultDiv.appendChild(ball);
+    });
+
+    // 번호를 백엔드로 보내는 API 호출 추가
+    saveNumbersToDatabase(numbers);
+}
+
+// 예측 번호를 서버에 저장하는 함수 추가
+function saveNumbersToDatabase(numbers) {
+    const data = {
+        numbers: numbers
+    };
+
+    fetch('/api/save-lotto-numbers', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(numbers),
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to save numbers to the database.');
+            }
+            return response.text();
+        })
+        .then(data => {
+            console.log('Successfully saved:', data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
 }

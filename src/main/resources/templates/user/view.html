@@ -1,5 +1,4 @@
 <html lang="ko" layout:decorate="~{layout/layout}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-<body>
 <div class="container mt-5" layout:fragment="content">
   <h1 class="text-center mb-4">자유 게시판</h1>
 
@@ -10,7 +9,7 @@
       <span th:text="${post.author.loginId}"></span> ·
       <i class="bi bi-clock"></i> <span th:text="${#temporals.format(post.createdAt, 'yyyy-MM-dd HH:mm:ss')}"></span>
     </div>
-    <h5 class="mb-4" th:text="${post.title}"></h5>
+    <h4 class="mb-4" th:text="${post.title}"></h4>
     <div class="post-content">
       <p th:text="${post.content}"></p>
     </div>
@@ -21,7 +20,6 @@
       <input type="hidden" name="_method" value="delete"/>
       <button type="submit" class="btn btn-danger btn-sm">삭제</button>
     </form>
-
   </div>
 
   <!-- 댓글 작성 폼 -->
@@ -34,9 +32,10 @@
         <textarea th:field="*{content}" class="form-control" placeholder="댓글을 작성하세요" rows="3"></textarea>
       </div>
       <button type="submit" class="btn btn-primary btn-sm">등록</button>
+      <a class="btn btn-secondary btn-sm" th:href="@{/posts}">돌아가기</a>
     </form>
-    <a class="btn btn-secondary mt-2 btn-sm" th:href="@{/posts}">돌아가기</a>
   </div>
+  <hr>
 
   <!-- 댓글 목록 -->
   <div class="comments-section mt-5">
@@ -51,19 +50,16 @@
         <p th:text="${comment.content}" class="comment-content"></p>
 
 <!--         본인만 댓글 삭제 버튼이 보이도록 설정-->
-        <div th:if="${loginMember.id == comment.author.id}">
-          <form th:action="@{/comments/{commentId}(commentId=${comment.id})}" method="post" style="display:inline;">
-            <input type="hidden" name="_method" value="delete"/> <!-- 삭제 메소드 처리 -->
-            <button type="submit" class="btn btn-danger btn-sm">댓글 삭제</button>
-          </form>
-        </div>
-
+<!--        <div th:if="${loginMember.id == comment.author.id}">-->
+<!--          <form th:action="@{/comments/{commentId}(commentId=${comment.id})}" method="post" style="display:inline;">-->
+<!--            <input type="hidden" name="_method" value="delete"/> &lt;!&ndash; 삭제 메소드 처리 &ndash;&gt;-->
+<!--            <button type="submit" class="btn btn-danger btn-sm">댓글 삭제</button>-->
+<!--          </form>-->
+<!--        </div>-->
         <hr>
       </li>
     </ul>
-
   </div>
 
 </div>
-</body>
 </html>

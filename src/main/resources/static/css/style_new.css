@@ -53,6 +53,7 @@ h1, h2, h3, h4, h5, .nav-font {
 .dark-mode .bg-white1 {
     background-color: black; /* 다크 모드에서 배경색을 검정으로 설정 */
     border-color: white; /* 테두리 색상을 흰색으로 설정 */
+    /*border-width: 5px;*/
     color: white;
 }
 
@@ -304,34 +305,27 @@ h1 span {
     gap: 10px;
 }
 
-.yellow { background-color: #f4d03f; }
-.blue { background-color: #3498db; }
-.red { background-color: #e74c3c; }
-.gray { background-color: #95a5a6; }
-.green { background-color: #2ecc71; }
-
-.back-button {
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-.back-button a {
-    text-decoration: none;
-    color: white;
-    background-color: #6c757d;
-    padding: 10px 20px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.back-button a:hover {
-    background-color: #495057;
-}
-
 .lotto-number, .analyze-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: inline-block;
+    width: 75px;
+    height: 75px;
+    line-height: 75px;
+    text-align: center;
+    border-radius: 50%;
+    margin: 5px;
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3);
+    user-select: none;
+}
+.analyze-button {
+    background-color: #1e49f5; /* 버튼 색상 */
+    margin-right: 20px; /* 버튼과 번호 사이의 간격 */
+}
+.analyze-button:hover {
+    background-color: #2c3e50;
 }
 
 /*NEWS*/
@@ -341,3 +335,60 @@ h1 span {
     max-height: 200px;
     object-fit: cover;
 }
+
+.yellow { background-color: #f4d03f; }
+.blue { background-color: #3498db; }
+.red { background-color: #e74c3c; }
+.gray { background-color: #95a5a6; }
+.green { background-color: #2ecc71; }
+
+.post-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fff;
+    cursor: pointer; /* 커서가 손가락 모양으로 바뀌도록 설정 */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* 부드러운 색상 및 그림자 전환 효과 */
+}
+.dark-mode .post-card {
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 1);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-color: gray;
+    cursor: pointer; /* 커서가 손가락 모양으로 바뀌도록 설정 */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* 부드러운 색상 및 그림자 전환 효과 */
+}
+.post-card:hover {
+    background-color: #f0f8ff; /* 카드에 호버 시 배경색 변경 (밝은 파란색) */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* 카드에 호버 시 그림자 효과 증가 */
+}
+.dark-mode .post-card:hover {
+    background-color: #2a3b5f; /* 카드에 호버 시 어두운 파란색 */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* 카드에 호버 시 그림자 효과 증가 */
+}
+
+.post-meta {
+    color: #6c757d;
+    font-size: 0.9em;
+}
+.post-content {
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+.post-container {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f0f8ff;
+    margin-bottom: 20px;
+}
+.dark-mode .post-container {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #2a3b5f; /* 카드에 호버 시 어두운 파란색 */
+    margin-bottom: 20px;
+}
+
