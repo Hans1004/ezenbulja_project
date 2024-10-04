@@ -22,10 +22,14 @@ body {
     height: 70px;
 }
 
-h1, h2, h3, h4, h5, .nav-font {
+h1, h2, h3, h4, h5, .nav-font, .p-font {
     font-family: "Do Hyeon", sans-serif;
 }
 
+
+.a-font {
+    font-family: "Noto Sans KR", sans-serif;
+}
 
 .bg-custom {
     background-color: #0a008f !important; /* !important 추가 */

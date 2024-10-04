@@ -1,24 +1,43 @@
 <html lang="ko" layout:decorate="~{layout/layout}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <div class="container mt-5" layout:fragment="content">
-    <h1 class="text-center mb-4">새 게시글 작성</h1>
+    <h1 class="text-center mb-4 py-lg-3 my-lg-3">새 게시글 작성</h1>
+    <div class="container">
+        <div class="row d-flex justify-content-center my-3">
+            <div class="col border border-dark-subtle border-1 rounded-3 my-5 py-4">
+                <form th:if="${postDTO != null}" th:action="@{/posts}" th:object="${postDTO}" method="post">
+                    <div class="form-group">
+                        <input type="text" id="title" th:field="*{title}" class="form-control rounded-2 fs-5" placeholder="제목을 입력하세요" />
+                        <div th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="text-danger">제목 오류</div>
+                    </div>
+                    <hr class="my-3">
+                    <div class="form-group">
+                        <textarea id="content" th:field="*{content}" class="form-control rounded-2" rows="5" placeholder="내용을 입력하세요"></textarea>
+                        <div th:if="${#fields.hasErrors('content')}" th:errors="*{content}" class="text-danger">내용 오류</div>
+                    </div>
 
+                    <button type="submit" class="btn btn-primary ms-auto rounded-2">등록하기</button>
+                    <a class="btn btn-secondary ms-auto rounded-2" th:href="@{/posts}">돌아가기</a>
+                </form>
+            </div>
+        </div>
+    </div>
     <!-- 새 게시글 작성 폼 -->
-    <form th:if="${postDTO != null}" th:action="@{/posts}" th:object="${postDTO}" method="post">
-        <div class="form-group">
-            <label for="title">제목:</label>
-            <input type="text" id="title" th:field="*{title}" class="form-control" placeholder="제목을 입력하세요" />
-            <div th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="text-danger">제목 오류</div>
-        </div>
+<!--    <form th:if="${postDTO != null}" th:action="@{/posts}" th:object="${postDTO}" method="post">-->
+<!--        <div class="form-group">-->
+<!--            <label for="title">제목:</label>-->
+<!--            <input type="text" id="title" th:field="*{title}" class="form-control" placeholder="제목을 입력하세요" />-->
+<!--            <div th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="text-danger">제목 오류</div>-->
+<!--        </div>-->
 
-        <div class="form-group">
-            <label for="content">내용:</label>
-            <textarea id="content" th:field="*{content}" class="form-control" rows="5" placeholder="내용을 입력하세요"></textarea>
-            <div th:if="${#fields.hasErrors('content')}" th:errors="*{content}" class="text-danger">내용 오류</div>
-        </div>
+<!--        <div class="form-group">-->
+<!--            <label for="content">내용:</label>-->
+<!--            <textarea id="content" th:field="*{content}" class="form-control" rows="5" placeholder="내용을 입력하세요"></textarea>-->
+<!--            <div th:if="${#fields.hasErrors('content')}" th:errors="*{content}" class="text-danger">내용 오류</div>-->
+<!--        </div>-->
 
-        <button type="submit" class="btn btn-primary btn-sm">등록</button>
-    </form>
+<!--        <button type="submit" class="btn btn-primary btn-sm">등록</button>-->
+<!--    </form>-->
 
-    <a class="btn btn-secondary mt-2 btn-sm" th:href="@{/posts}">돌아가기</a>
+<!--    <a class="btn btn-secondary mt-2 btn-sm" th:href="@{/posts}">돌아가기</a>-->
 </div>
 </html>
