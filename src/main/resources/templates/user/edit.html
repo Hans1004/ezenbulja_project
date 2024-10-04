@@ -1,9 +1,9 @@
 <html lang="ko" layout:decorate="~{layout/layout}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <div class="container mt-5" layout:fragment="content">
-  <h1>게시글 수정</h1>
+  <h1 class="text-center mb-4">게시글 수정</h1>
 
-  <form th:action="@{/posts/edit/{id}(id=${postDTO.id})}" th:object="${postDTO}" method="post">
+  <form th:action="@{/posts/edit/{id}(id=${postDTO.id})}" th:object="${postDTO}" method="post" class="mb-5">
     <div class="form-group">
       <label for="title">제목</label>
       <input type="text" th:field="*{title}" class="form-control" id="title" placeholder="제목">
@@ -12,10 +12,8 @@
       <label for="content">내용</label>
       <textarea th:field="*{content}" class="form-control" id="content" rows="10" placeholder="내용"></textarea>
     </div>
-    <button type="submit" class="btn btn-primary">수정</button>
+    <button type="submit" class="btn btn-primary btn-sm">수정</button>
+    <a href="/posts" class="btn btn-secondary btn-sm">돌아가기</a>
   </form>
-
-  <a href="/posts" class="btn btn-secondary mt-3">목록으로 돌아가기</a>
 </div>
-</body>
 </html>

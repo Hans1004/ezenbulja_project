@@ -1,7 +1,7 @@
 <html lang="ko" layout:decorate="~{layout/layout}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <div class="container mt-5" layout:fragment="content">
-    <div class="py-5 text-center">
+    <div class=" text-center">
         <h2 class="text-center">
             <img src="./images/bitcoin.png" style="width: 55px;"> 비트코인 예측 가격 LIST
         </h2>
@@ -31,9 +31,6 @@
             </tbody>
         </table>
 
-        <div class="text-center mb-5">
-            <a th:href="@{/bitcoin}" class="btn btn-warning">비트코인 예측 페이지로</a>
-        </div>
 
     </div>
 
@@ -61,6 +58,10 @@
             </ul>
         </form>
     </div>
+    <div class="text-end mb-5">
+        <a th:href="@{/bitcoin}" class="btn btn-warning">비트코인 예측 페이지로</a>
+    </div>
+
 
     <!--페이징 끝-->
 </div>

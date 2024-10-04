@@ -1,18 +1,20 @@
 <nav th:fragment="navbarFragment" class="navbar navbar-expand-md bg-custom">
     <div class="container-fluid">
-        <a class="navbar-brand lofo-font px-md-0 px-lg-5" href="/"><img src="/images/nave_logo.png" alt="로고"> 이젠 벌자</a>
+        <a class="navbar-brand lofo-font" href="/"><img src="/images/nave_logo.png" alt="로고"> 이젠 벌자</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" aria-expanded="false" aria-label="메뉴">
             <span class="navbar-toggler-icon"></span>
         </button>
 
+
+
         <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
             <div class="offcanvas-body">
                 <div class="collapse navbar-collapse d-block d-md-none" id="menubar">
-                    <ul class="navbar-nav px-lg-5 mb-2 mb-md-0 px-1">
+                    <ul class="navbar-nav ms-auto mb-2 mb-md-0 px-1">
                         <li class="nav-item">
-                            <a class="nav-link active text-white fs-5 mx-1" aria-current="page" href="/">Home</a>
+                            <a class="nav-link active text-white" aria-current="page" href="/">Home</a>
                         </li>
-                        <li class="nav-item dropdown text-white fs-5 mx-3">
+                        <li class="nav-item dropdown text-white">
                             <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 BitCoin
                             </a>
@@ -23,23 +25,21 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-white fs-5 mx-3" th:href="@{/lotto}">Lotto</a>
+                            <a class="nav-link text-white " th:href="@{/lotto}">Lotto</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white fs-5 mx-3" th:href="@{/estate}">서울집값</a>
+                            <a class="nav-link text-white" th:href="@{/estate}">서울집값</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white fs-5 mx-3" th:href="@{/news}">시황뉴스</a>
+                            <a class="nav-link text-white" th:href="@{/news}">시황뉴스</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white fs-5 mx-3" th:href="@{/posts}">자유게시판</a>
+                            <a class="nav-link text-white" th:href="@{/posts}">자유게시판</a>
                         </li>
 <!--                        <li class="nav-item">-->
 <!--                            <a class="nav-link text-white" th:href="@{/change-password}">마이페이지</a>-->
 <!--                        </li>-->
-                    </ul>
-                    <ul class="navbar-nav ms-auto mb-2 mb-md-0 px-lg-5 d-flex justify-content-center align-items-center">
-                        <li class="nav-item fs-5">
+                        <li class="nav-item">
                             <div th:if="${loginMember == null}">
                                 <a class="nav-link text-white " th:href="@{/login}">로그인</a></div>
                             <div th:if="${loginMember != null}">
@@ -48,20 +48,23 @@
                                 </a>
                             </div>
                         </li>
-                        <li class="nav-item fs-5 mx-lg-1">
+                        <li class="nav-item">
                             <div class="text-center col" th:if="${loginMember != null and loginMember.grade == 'admin'}">
-                                <button class="btn btn-close-white btn-sm text-white border border-white rounded-2 a-font   " type="button" th:onclick="|location.href='@{/members}'|">회원목록</button>
+                                <button class="btn btn-dark" type="button" th:onclick="|location.href='@{/members}'|">회원목록</button>
                             </div>
                         </li>
-                        <li class="nav-item fs-5 mx-lg-1">
+                        <li class="nav-item">
                             <div th:if="${loginMember == null}">
                                 <a class="nav-link text-white" aria-current="page" th:href="@{/add}">회원가입</a>
                             </div>
                             <form class="text-start ms-2" th:action="@{/logout}" method="post" th:if="${loginMember}">
-                                <button class="btn btn-close-white btn-sm text-white border border-white rounded-2 a-font">로그아웃</button>
+                                <button class="btn btn-dark">로그아웃</button>
                             </form>
                         </li>
                         <li>
+                            <!-- Day/Night 버튼 -->
+<!--                            <button id="toggleButton" class="btn btn-outline-secondary ms-auto" onclick="toggleMode()">Day/Night</button>-->
+
                             <!-- Day/Night 버튼 -->
                             <button id="toggleButton" class="btn btn-outline-secondary ms-auto" onclick="toggleMode()">
                                 <i id="sunIcon" class="bi bi-sun"></i>/
@@ -70,6 +73,7 @@
 
 
                         </li>
+
                     </ul>
                 </div>
             </div>

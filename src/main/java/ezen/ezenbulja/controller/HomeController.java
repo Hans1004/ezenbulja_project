@@ -50,10 +50,6 @@ public class HomeController {
     public String lotto(HttpServletRequest request, Model model) {
         return checkLoginAndRedirect(request, model, "page/lotto");
     }
-    @GetMapping("/lotto_result")
-    public String lotto_result(HttpServletRequest request, Model model) {
-        return checkLoginAndRedirect(request, model, "page/lotto_result");
-    }
 
 //    @GetMapping("/result_list")
 //    public String result_list() {

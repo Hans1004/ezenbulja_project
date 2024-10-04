@@ -1,22 +1,18 @@
 /* 폰트 적용 */
 @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Brush+Script&family=Noto+Sans+KR:wght@100..900&display=swap');
 
+.dark-mode {
+    background-color: black;
+    color: white;
+}
+
+/* 기본 body 설정 */
 body {
     font-family: "Noto Sans KR", sans-serif;
     color: black; /* 라이트 모드에서 폰트 색상 검정 */
-    /*background-color: white; !* 기본 배경색 *!*/
-    margin: 0;
-    padding: 0;
-    transition: background-color 0.3s, color 0.3s;
 }
 
-
-/* 다크 모드 설정 */
-.dark-mode {
-    background-color: black; /* 배경색을 검정으로 설정 */
-    color: white; /* 텍스트 색상을 흰색으로 설정 */
-}
-
+/* 다크 모드에서 body 폰트 색상 변경 */
 .dark-mode body {
     color: white; /* 다크 모드에서 폰트 색상 흰색 */
 }
@@ -32,35 +28,17 @@ body {
 }
 
 .dark-mode .nav-link {
-    color: white; /* 다크 모드에서 링크 색상 흰색 */
-}
-
-/*.h4_footer {*/
-/*    color: white;*/
-/*}*/
-
-/* 헤딩 및 nav-font 폰트 설정 */
-h1, h2, h3, h4, h5, .nav-font {
-    font-family: "Do Hyeon", sans-serif;
-    color: black; /* 라이트 모드에서 폰트 색상 검정 */
-}
-/* 기본 설정 */
-.bg-white1 {
-    background-color: white; /* 기본 배경색 */
-}
-
-/* 다크 모드에서 .col-md-5 클래스에 배경색을 검정으로 변경 */
-.dark-mode .bg-white1 {
-    background-color: black; /* 다크 모드에서 배경색을 검정으로 설정 */
-    border-color: white; /* 테두리 색상을 흰색으로 설정 */
-    /*border-width: 5px;*/
     color: white;
 }
 
+/* 다크 모드 설정 */
+.dark-mode {
+    background-color: black; /* 배경색을 검정으로 설정 */
+    color: white; /* 텍스트 색상을 흰색으로 설정 */
+}
 
-
-.dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode h4, .dark-mode h5, .dark-mode .nav-font, .dark-mode p {
-    color: white; /* 다크 모드에서 폰트 색상 흰색 */
+.dark-mode .bg-white {
+    background-color: #333; /* 배경이 흰색인 요소는 다크 모드에서 어두운 색으로 설정 */
 }
 
 /* 다크 모드에서 버튼 색상 조정 */
@@ -84,16 +62,28 @@ h1, h2, h3, h4, h5, .nav-font {
     background-color: #444; /* 예측 출력 배경색 */
 }
 
-/* 이미지 스타일 */
-img {
-    filter: none; /* 필터 적용하지 않음 (다크 모드에서 이미지 색상 변경 방지) */
+
+.nav-link {
+    color: black;
 }
-/* 다크 모드 이미지 색상 조정 */
-/*.dark-mode img {*/
-/*    filter: brightness(1); !* 원본 색상을 유지하기 위해 밝기를 1로 설정 *!*/
-/*}*/
+
+/* 헤딩 및 nav-font 폰트 설정 */
+h1, h2, h3, h4, h5, .nav-font {
+    font-family: "Do Hyeon", sans-serif;
+    color: black; /* 라이트 모드에서 폰트 색상 검정 */
+}
+
+.dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode h4, .dark-mode h5, .dark-mode .nav-font {
+    color: white; /* 다크 모드에서 폰트 색상 흰색 */
+}
 
 /* 기타 스타일 */
+body {
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
 .banner {
     background-image: url(../images/중간배너.webp);
     background-attachment: fixed;
@@ -109,7 +99,7 @@ img {
 }
 
 .bg-custom {
-    background-color: #213180 !important;
+    background-color: #0a008f !important;
 }
 
 .custom-login-color {
@@ -210,6 +200,16 @@ a {
     width: 100%;
     height: 400px;
 }
+/* 다크 모드 이미지 색상 조정 */
+.dark-mode img {
+    filter: brightness(0) invert(1); /* 다크 모드에서 이미지를 흰색으로 보이도록 필터 적용 */
+}
+
+/* 혹은 이미지 파일을 교체하는 경우 */
+/*.dark-mode .dark-mode-img {*/
+/*    content: url('/images/check-dark.png'); !* 다크 모드에서 흰색 이미지 사용 *!*/
+/*}*/
+
 
 .plotly-chart {
     position: relative;
@@ -305,6 +305,30 @@ h1 span {
     gap: 10px;
 }
 
+.yellow { background-color: #f4d03f; }
+.blue { background-color: #3498db; }
+.red { background-color: #e74c3c; }
+.gray { background-color: #95a5a6; }
+.green { background-color: #2ecc71; }
+
+.back-button {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.back-button a {
+    text-decoration: none;
+    color: white;
+    background-color: #6c757d;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.back-button a:hover {
+    background-color: #495057;
+}
+
 .lotto-number, .analyze-button {
     display: inline-block;
     width: 75px;
@@ -320,15 +344,20 @@ h1 span {
     box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3);
     user-select: none;
 }
+
 .analyze-button {
-    background-color: #1e49f5; /* 버튼 색상 */
-    margin-right: 20px; /* 버튼과 번호 사이의 간격 */
+    background-color: #1e49f5;
+    margin-right: 20px;
 }
+
 .analyze-button:hover {
     background-color: #2c3e50;
 }
 
-/*NEWS*/
+body a:hover, button:hover {
+    background-color: #777777;
+}
+
 .img-news {
     width: 200px;
     height: 100px;
@@ -336,59 +365,82 @@ h1 span {
     object-fit: cover;
 }
 
-.yellow { background-color: #f4d03f; }
-.blue { background-color: #3498db; }
-.red { background-color: #e74c3c; }
-.gray { background-color: #95a5a6; }
-.green { background-color: #2ecc71; }
-
-.post-card {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    margin-bottom: 20px;
-    padding: 20px;
-    background-color: #fff;
-    cursor: pointer; /* 커서가 손가락 모양으로 바뀌도록 설정 */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* 부드러운 색상 및 그림자 전환 효과 */
-}
-.dark-mode .post-card {
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 1);
-    border-radius: 10px;
-    margin-bottom: 20px;
-    padding: 20px;
-    border-color: gray;
-    cursor: pointer; /* 커서가 손가락 모양으로 바뀌도록 설정 */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* 부드러운 색상 및 그림자 전환 효과 */
-}
-.post-card:hover {
-    background-color: #f0f8ff; /* 카드에 호버 시 배경색 변경 (밝은 파란색) */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* 카드에 호버 시 그림자 효과 증가 */
-}
-.dark-mode .post-card:hover {
-    background-color: #2a3b5f; /* 카드에 호버 시 어두운 파란색 */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* 카드에 호버 시 그림자 효과 증가 */
+.text-truncate {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
-.post-meta {
-    color: #6c757d;
-    font-size: 0.9em;
-}
-.post-content {
-    margin-top: 10px;
-    margin-bottom: 15px;
-}
-.post-container {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    padding: 20px;
-    background-color: #f0f8ff;
-    margin-bottom: 20px;
-}
-.dark-mode .post-container {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    padding: 20px;
-    background-color: #2a3b5f; /* 카드에 호버 시 어두운 파란색 */
-    margin-bottom: 20px;
+.news_thum {
+    width: 320px;
+    height: 80px;
+    padding: 12px 14px;
+    display: inline-block;
 }
 
+.news_top {
+    display: flex;
+    align-items: center;
+}
+
+.news_list {
+    display: flex;
+    transition: transform 0.3s ease;
+}
+
+.row {
+    display: flex;
+    transition: transform 0.3s ease;
+}
+
+.nav-button {
+    cursor: pointer;
+}
+
+.dash1, .dash2 {
+    border-left: 1px solid #007bff;
+}
+
+.chart-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.chart-title {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#result-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#result-table th, #result-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#result-table th {
+    background-color: #f2f2f2;
+    text-align: left;
+}
+
+.button-custom {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button-custom:hover {
+    background-color: #218838;
+}
+
+.hidden {
+    display: none;
+}

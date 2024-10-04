@@ -1,20 +1,42 @@
 <html lang="ko" layout:decorate="~{layout/layout}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-
-
-<div layout:fragment="link"><link th:href="@{/css/style_lotto.css}" rel="stylesheet" ></div>
-    <div class="container" layout:fragment="content">
-        <h1>당첨번호 확인</h1>
-        <!-- 좌측에 있는 돌아가기 버튼 -->
-        <div class="back-button">
-            <a href="lotto"><i class="fas fa-arrow-left"></i> 돌아가기</a>
+<div class="container mt-5 mb-5" layout:fragment="content">
+    <div class="row justify-content-center mb-4">
+        <div class="col-md-4 g-1">
+            <a href="lotto" class="btn btn-primary btn-lg w-100">딥러닝 로또 번호 추천</a>
         </div>
-        <hr>
-        <div id="savedNumbersSection">
-            <div id="savedNumbersList" class="row"></div>
+        <div class="col-md-4 g-1">
+            <a href="lotto_result" class="btn btn-primary btn-lg w-100">생성된 로또 번호 리스트</a>
         </div>
-        <script th:src="@{/js/lotto_result.js}"></script>
     </div>
-
+    <hr>
+    <div class="container">
+        <h2>생성된 로또 번호 리스트</h2>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>번호</th>
+                <th>예측 날짜</th>
+                <th>번호 1</th>
+                <th>번호 2</th>
+                <th>번호 3</th>
+                <th>번호 4</th>
+                <th>번호 5</th>
+                <th>번호 6</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="result : ${lottoResults}">
+                <td th:text="${result.id}"></td>
+                <td th:text="${result.predictionDate}"></td>
+                <td th:text="${result.number1}"></td>
+                <td th:text="${result.number2}"></td>
+                <td th:text="${result.number3}"></td>
+                <td th:text="${result.number4}"></td>
+                <td th:text="${result.number5}"></td>
+                <td th:text="${result.number6}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 </html>
-
-
