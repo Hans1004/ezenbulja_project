@@ -4,8 +4,9 @@ import ezen.ezenbulja.domain.dao.Contact;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface ContactRepository extends JpaRepository<Contact, Long> {
-    // 필요한 경우 추가적인 쿼리 메서드를 정의할 수 있습니다.
-    // 예: List<Contact> findByEmail(String email);
+    List<Contact> findByUserId(Long userId);
 }

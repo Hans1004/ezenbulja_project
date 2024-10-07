@@ -19,9 +19,10 @@
             <td th:text="${contact.name}">이름</td>
             <td th:text="${contact.email}">이메일</td>
             <td th:text="${contact.content}">문의사항</td>
-            <td th:text="${contact.news}">뉴스레터</td>
+            <td th:text="${contact.news ? '구독 중' : '미구독'}">뉴스레터</td>
         </tr>
         </tbody>
     </table>
+
 </div>
 </html>

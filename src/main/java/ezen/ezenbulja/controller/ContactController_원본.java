@@ -11,14 +11,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import javax.servlet.http.HttpSession;
-
-@Controller
-public class ContactController {
+//@Controller
+public class ContactController_원본 {
 
     private final ContactService contactService;
 
-    public ContactController(ContactService contactService) {
+    public ContactController_원본(ContactService contactService) {
         this.contactService = contactService;
     }
 
@@ -31,23 +29,18 @@ public class ContactController {
     }
 
     @PostMapping("/submitContact")
-    public String addContact(@Validated @ModelAttribute("contact") ContactForm contactForm,
-                             BindingResult bindingResult,
-                             Model model,
-                             HttpSession session) {
+    public String addContact(@Validated @ModelAttribute("contact") ContactForm contactForm, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
-            model.addAttribute("contact", contactForm);
+            model.addAttribute("contact", contactForm); // 에러가 있을 경우 입력값을 다시 모델에 추가
             return "page/contact"; // 에러가 발생하면 contact 페이지로 돌아감
         }
 
-        Long userId = (Long) session.getAttribute(SessionConst.LOGIN_MEMBER); // 세션에서 사용자 ID 가져오기
-
+        // 유효성 검사를 통과한 경우, 연락처 저장
         Contact contact = new Contact();
         contact.setName(contactForm.getName());
         contact.setEmail(contactForm.getEmail());
         contact.setContent(contactForm.getContent());
         contact.setNews(contactForm.isNews());
-        contact.setUserId(userId); // 사용자 ID 설정
         contactService.create(contact);
 
         return "redirect:/contactList"; // 성공적으로 저장되면 연락처 리스트로 리다이렉트
@@ -55,7 +48,7 @@ public class ContactController {
 
     @GetMapping("/contactList")
     public String contactList(Model model) {
-        model.addAttribute("contacts", contactService.getList()); // 모든 문의 사항 리스트를 조회
+        model.addAttribute("contacts", contactService.getList()); // 연락처 리스트를 모델에 추가
         return "page/contactList"; // 연락처 리스트 페이지로 이동
     }
 }

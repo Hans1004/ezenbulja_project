@@ -4,13 +4,7 @@
 <div class="container mt-5" layout:fragment="content">
     <div class="container">
         <div class="row py-3 justify-content-center">
-            <div class="text-center rounded border border-dark border-2 img-thumbnail shadow-lg">
-                <img src="./images/서울-색상-지도-min.jpg" alt="서울지도" class="img-fluid">
-            </div>
-        </div>
-        <hr class="border border-primary">
-        <div class="row py-3 justify-content-center">
-            <div class="col-md-5 border border-dark border-2 img-thumbnail m-3 bg-white1">
+            <div class="col-md-5 border border-dark border-2 img-thumbnail bg-white1">
                 <div class="font-color1 text-warning text-center my-3 py-3 fw-bold">
                     <img src="./images/로고.jpg" class="opacity-50 img-fluid">서울시 집값 예측
                 </div>
@@ -73,15 +67,16 @@
                     </div>
                 </div>
                 <div class="text-center my-3 py-3">
-                    <div id="text">학습 버튼을 눌러주세요.</div>
+                    <div class="mb-3" id="text">학습 버튼을 눌러주세요.</div>
                     <button class="btn font-color1 text-warning fw-bold py-3" id="train-button">학습하기</button>
                     <button class="btn font-color1 text-warning fw-bold py-3" id="predict-button" disabled>집값 예측하기</button>
-                    <div class="opacity-75 text-center">
+                    <div class="opacity-75 text-center mt-3">
                         <img src="./images/696619c7ce945422e92c19d5860cc117151911.jpg" class="img-fluid">
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 border border-dark border-2 rounded m-3">
+            <div class="col-md-1"></div>
+            <div class="col-md-6 border border-dark border-2 rounded">
                 <div class="justify-content-center">
                     <div id="loss-plot" style="width: 100%; height: 400px;"></div>
                 </div>
@@ -90,6 +85,12 @@
                     <h1 id="predicted-price">원</h1>
                     <p>입니다.</p>
                 </div>
+            </div>
+        </div>
+        <hr class="border border-primary">
+        <div class="row py-3 my-3 justify-content-center">
+            <div class="text-center rounded border border-dark border-2 img-thumbnail shadow-lg">
+                <img src="./images/서울-색상-지도-min.jpg" alt="서울지도" class="img-fluid">
             </div>
         </div>
     </div>

@@ -12,15 +12,19 @@
                 <form th:action="@{/submitContact}" method="post" th:object="${contact}">
                     <div class="mb-3">
                         <label th:for="name" class="form-label">이름</label>
-                        <input type="text" class="form-control" id="name" th:field="*{name}" required>
+                        <input type="text" class="form-control" id="name" th:field="*{name}" placeholder="이름을 입력하세요" required>
+
+                        <div th:if="${#fields.hasErrors('name')}" class="text-danger" th:errors="*{name}"></div>
                     </div>
                     <div class="mb-3">
                         <label th:for="email" class="form-label">이메일</label>
                         <input type="email" class="form-control" id="email" th:field="*{email}" required>
+                        <div th:if="${#fields.hasErrors('email')}" class="text-danger" th:errors="*{email}"></div>
                     </div>
                     <div class="mb-3">
                         <label th:for="content" class="form-label">문의 사항</label>
                         <textarea class="form-control" id="content" rows="5" th:field="*{content}" required></textarea>
+                        <div th:if="${#fields.hasErrors('content')}" class="text-danger" th:errors="*{content}"></div>
                     </div>
                     <div class="form-check py-1">
                         <input class="form-check-input" type="checkbox" th:field="*{news}" id="news" />
@@ -29,9 +33,10 @@
                         </label>
                     </div>
                     <div class="col text-center">
-                        <button type="submit" class="btn btn-dark btn-lg my-2 fw-bold text-white ">문의하기</button>
+                        <button type="submit" class="btn btn-dark btn-lg my-2 fw-bold text-white">문의하기</button>
                     </div>
                 </form>
+
             </div>
         </div>
     </div>
