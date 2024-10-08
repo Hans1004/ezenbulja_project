@@ -14,7 +14,6 @@
                         <label th:for="name" class="form-label">이름</label>
                         <input type="text" class="form-control" id="name" th:field="*{name}" placeholder="이름을 입력하세요" required>
 
-                        <div th:if="${#fields.hasErrors('name')}" class="text-danger" th:errors="*{name}">이름은 필수 항목입니다.</div>
                     </div>
                     <div class="mb-3">
                         <label th:for="email" class="form-label">이메일</label>
@@ -24,7 +23,6 @@
                     <div class="mb-3">
                         <label th:for="content" class="form-label">문의 사항</label>
                         <textarea class="form-control" id="content" rows="5" th:field="*{content}" placeholder="문의 내용을 입력하세요" required></textarea>
-                        <div th:if="${#fields.hasErrors('content')}" class="text-danger" th:errors="*{content}">문의 사항은 필수 항목입니다.</div>
                     </div>
                     <div class="form-check py-1">
                         <input class="form-check-input" type="checkbox" th:field="*{news}" id="news" />
