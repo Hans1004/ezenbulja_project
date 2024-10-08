@@ -28,6 +28,10 @@ public class MemberService {
         }
     }
 
+    public boolean isLoginIdDuplicate(String loginId) {
+        return memberRepository.findByLoginId(loginId).isPresent();
+    }
+
     // 회원 정보 수정 시 같은 아이디 중복 검사
     private void validateDuplicateloginId(Long id, String loginId) {
         Optional<Member> findMember = memberRepository.findByLoginId(loginId);
