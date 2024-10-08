@@ -13,8 +13,8 @@
 
                 <form th:object="${memberForm}" th:action="@{/add}" method="post">
                     <div class="mb-4">
-                        <input type="text" class="form-control custom-input-size" id="loginId" th:field="*{loginId}" th:errorclass="field-error" th:error="*{loginId}" placeholder="아이디를 입력하세요">
-                        <div class="field-error" th:errors="*{loginId}"></div>
+                        <input type="text" class="form-control custom-input-size" id="loginId" th:field="*{loginId}" th:errorclass="field-error" placeholder="아이디를 입력하세요">
+                        <div class="field-error" th:errors="*{loginId}" style="color: red;"></div>
                     </div>
                     <div class="mb-3">
                         <input type="password" class="form-control custom-input-size" id="password" th:field="*{password}" th:errorclass="field-error" th:error="*{password}" placeholder="패스워드를 입력하세요">
