@@ -29,9 +29,15 @@ public class MemberController {
 
     @PostMapping("/add")
     public String createMember(@Validated @ModelAttribute("memberForm") MemberForm form, BindingResult bindingResult) {
+        // 중복 아이디 체크
+        if (memberService.isLoginIdDuplicate(form.getLoginId())) {
+            bindingResult.rejectValue("loginId", "error.loginId", "이미 존재하는 회원입니다.");
+        }
+
         if (bindingResult.hasErrors()) {
             return "user/addMemberForm";
         }
+
         Member member = new Member();
         member.setLoginId(form.getLoginId());
         member.setPassword(form.getPassword());
